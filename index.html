@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pavel Vognárek | PPC Specialista</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --navy:#0A33C8;
+      --navy-dark:#071f7a;
+      --cyan:#10A5C8;
+      --white:#fff;
+      --light:#f4f7ff;
+      --gray:#64748b;
+      --text:#1a1a2e;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+    /* NAV */
+    nav{background:var(--navy-dark);padding:14px 60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .logo-nav{display:flex;align-items:center;gap:12px;color:var(--white);text-decoration:none}
+    .logo-icon{width:40px;height:40px;flex-shrink:0}
+    .logo-name{display:flex;flex-direction:column;line-height:1.1}
+    .logo-name strong{font-size:17px;font-weight:900;letter-spacing:0.3px}
+    .logo-name span{font-size:11px;font-weight:600;color:var(--cyan);letter-spacing:1.2px;text-transform:uppercase;margin-top:2px}
+    .nav-links{display:flex;gap:28px}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.2s}
+    .nav-links a:hover{color:var(--cyan)}
+    .nav-cta{background:var(--cyan);color:var(--white);border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;transition:opacity 0.2s}
+    .nav-cta:hover{opacity:0.88}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 60%,#1a4de8 100%);min-height:90vh;display:flex;align-items:center;padding:80px 60px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;right:-120px;top:-120px;width:650px;height:650px;border-radius:50%;background:rgba(16,165,200,0.07);pointer-events:none}
+    .hero::after{content:'';position:absolute;left:-80px;bottom:-80px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.03);pointer-events:none}
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:70px;align-items:center;width:100%;position:relative;z-index:1}
+    .hero-tag{display:inline-block;background:rgba(16,165,200,0.2);color:var(--cyan);border:1px solid rgba(16,165,200,0.4);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+    .hero h1{font-size:48px;font-weight:900;color:var(--white);line-height:1.12;margin-bottom:22px}
+    .hero h1 span{color:var(--cyan)}
+    .hero-sub{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:38px;max-width:520px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:var(--cyan);color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:opacity 0.2s}
+    .btn-primary:hover{opacity:0.88}
+    .btn-ghost{background:transparent;color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;border:2px solid rgba(255,255,255,0.28);cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:border-color 0.2s}
+    .btn-ghost:hover{border-color:rgba(255,255,255,0.65)}
+    .hero-stats{display:flex;gap:28px;margin-top:44px;align-items:center}
+    .stat{text-align:center}
+    .stat-num{font-size:28px;font-weight:900;color:var(--cyan);line-height:1}
+    .stat-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px}
+    .stat-divider{width:1px;height:40px;background:rgba(255,255,255,0.15)}
+
+    /* PHOTO */
+    .hero-photo-wrap{position:relative;display:flex;justify-content:center}
+    .hero-photo-wrap::before{content:'';position:absolute;inset:-50px;background:radial-gradient(ellipse 80% 70% at 50% 38%,rgba(16,165,200,0.22) 0%,transparent 68%);pointer-events:none;z-index:0}
+    .hero-photo-bg{width:300px;height:410px;overflow:hidden;position:relative;z-index:1;border-radius:12px;background:linear-gradient(160deg,#0e2d9e 0%,#071f7a 100%);border:1.5px solid rgba(16,165,200,0.5);box-shadow:0 0 0 6px rgba(16,165,200,0.07),0 24px 52px rgba(0,0,0,0.4);-webkit-mask-image:linear-gradient(to bottom,black 52%,transparent 92%);mask-image:linear-gradient(to bottom,black 52%,transparent 92%)}
+    .hero-photo-bg img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+
+    /* SECTIONS */
+    section{padding:80px 60px}
+    .container{max-width:1100px;margin:0 auto}
+    .section-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+    .section-title{font-size:36px;font-weight:900;color:var(--navy-dark);line-height:1.2;margin-bottom:14px}
+    .section-sub{font-size:16px;color:var(--gray);line-height:1.75;max-width:580px}
+
+    /* ABOUT */
+    .about-bg{background:var(--light)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .about-text p{font-size:16px;color:var(--gray);line-height:1.8;margin-bottom:16px}
+    .about-text strong{color:var(--navy-dark)}
+    .about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+    .highlight-card{background:var(--white);border-radius:10px;padding:18px;border-left:4px solid var(--cyan)}
+    .highlight-card strong{font-size:22px;font-weight:900;color:var(--navy);display:block;margin-bottom:2px}
+    .highlight-card span{font-size:13px;color:var(--gray)}
+    .cert-list{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+    .cert-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gray)}
+    .cert-dot{width:8px;height:8px;background:var(--cyan);border-radius:50%;flex-shrink:0}
+
+    /* PROBLEMS */
+    .problems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:50px}
+    .problem-card{background:var(--light);border-radius:12px;padding:26px;border:1px solid rgba(10,51,200,0.07);transition:transform 0.25s,box-shadow 0.25s}
+    .problem-card:hover{transform:translateY(-5px);box-shadow:0 14px 32px rgba(10,51,200,0.1)}
+    .problem-icon{font-size:28px;margin-bottom:14px}
+    .problem-card h3{font-size:15px;font-weight:700;color:var(--navy-dark);margin-bottom:8px;line-height:1.35}
+    .problem-card p{font-size:13px;color:var(--gray);line-height:1.65}
+
+    /* SERVICES */
+    .services-bg{background:var(--navy-dark)}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:50px}
+    .service-card{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:30px;transition:background 0.2s,border-color 0.2s}
+    .service-card:hover{background:rgba(16,165,200,0.12);border-color:rgba(16,165,200,0.3)}
+    .service-num{font-size:40px;font-weight:900;color:rgba(16,165,200,0.28);margin-bottom:14px;line-height:1}
+    .service-card h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px}
+    .service-card p{font-size:13px;color:rgba(255,255,255,0.52);line-height:1.65}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start;margin-top:50px}
+    .why-list{display:flex;flex-direction:column;gap:22px}
+    .why-item{display:flex;gap:16px;align-items:flex-start}
+    .why-check{width:38px;height:38px;background:rgba(16,165,200,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--cyan);font-weight:900;font-size:18px}
+    .why-item h4{font-size:15px;font-weight:700;color:var(--navy-dark);margin-bottom:5px}
+    .why-item p{font-size:13px;color:var(--gray);line-height:1.65}
+    .why-quote{background:var(--navy-dark);border-radius:16px;padding:38px}
+    .why-quote blockquote{font-size:22px;font-weight:700;line-height:1.45;margin-bottom:16px;color:var(--white)}
+    .why-quote blockquote span{color:var(--cyan)}
+    .why-note{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:24px}
+    .why-refs{display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,0.1);padding-top:22px}
+    .ref-link{display:flex;align-items:center;gap:16px;padding:14px 18px;background:rgba(16,165,200,0.09);border:1px solid rgba(16,165,200,0.28);border-left:3px solid var(--cyan);border-radius:10px;text-decoration:none;transition:background 0.2s,border-color 0.2s}
+    .ref-link:hover{background:rgba(16,165,200,0.16);border-color:rgba(16,165,200,0.55)}
+    .ref-text{display:flex;flex-direction:column;gap:3px;flex:1}
+    .ref-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan)}
+    .ref-title{font-size:14px;font-weight:600;color:var(--white);line-height:1.35}
+    .ref-ext{font-size:16px;color:rgba(16,165,200,0.7);flex-shrink:0}
+    .ref-arrow{color:var(--cyan);font-size:16px;flex-shrink:0}
+
+    /* FAQ */
+    .faq-bg{background:var(--light)}
+    .faq-list{margin-top:50px;display:flex;flex-direction:column;gap:12px;max-width:780px}
+    .faq-item{background:var(--white);border-radius:10px;border:1px solid rgba(10,51,200,0.08);overflow:hidden}
+    .faq-q{padding:20px 26px;font-size:15px;font-weight:700;color:var(--navy-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.2s}
+    .faq-q:hover{color:var(--cyan)}
+    .faq-toggle{font-size:22px;color:var(--cyan);font-weight:300;transition:transform 0.25s;flex-shrink:0;margin-left:16px}
+    .faq-a{padding:0 26px;font-size:14px;color:var(--gray);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s}
+    .faq-item.open .faq-a{max-height:250px;padding:0 26px 22px}
+    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+
+    /* CONTACT */
+    .contact-bg{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%)}
+    .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .contact-info{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+    .contact-row{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,0.8);font-size:15px}
+    .contact-ico{width:42px;height:42px;background:rgba(16,165,200,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .form-wrap{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:34px}
+    .form-row{margin-bottom:16px}
+    .form-row label{display:block;font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:6px;font-weight:700;letter-spacing:0.5px}
+    .form-row input,
+    .form-row textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 15px;font-size:14px;color:var(--white);font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s}
+    .form-row input:focus,
+    .form-row textarea:focus{border-color:var(--cyan)}
+    .form-row textarea{height:110px;resize:none}
+    .form-row input::placeholder,
+    .form-row textarea::placeholder{color:rgba(255,255,255,0.28)}
+    .submit-btn{width:100%;background:var(--cyan);color:var(--white);border:none;padding:15px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity 0.2s;margin-top:4px}
+    .submit-btn:hover{opacity:0.88}
+
+    /* FOOTER */
+    footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.38);font-size:13px}
+    footer span{color:var(--cyan)}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      nav{padding:14px 24px}
+      .nav-links{display:none}
+      section{padding:60px 24px}
+      nav{padding:14px 24px}
+      .hero{padding:60px 24px;min-height:auto}
+      .hero-inner{grid-template-columns:1fr;gap:40px}
+      .hero h1{font-size:34px}
+      .hero-photo-wrap{order:-1}
+      .hero-photo-bg{width:200px;height:270px}
+      .about-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .contact-inner{grid-template-columns:1fr}
+      footer{padding:24px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo-nav">
+      <svg class="logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="60" height="60" rx="12" fill="#0A33C8"/>
+        <text x="50%" y="52%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
+        <rect x="12" y="50" width="36" height="3" rx="1.5" fill="#10A5C8"/>
+      </svg>
+      <div class="logo-name">
+        <strong>Pavel Vognárek</strong>
+        <span>PPC Specialista</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#o-mne">O mně</a>
+      <a href="#problemy">Problémy</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#proc-ja">Proč já?</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">PPC Specialista &amp; Konzultant</div>
+        <h1>Nepomáhám vám<br>s reklamou.<br><span>Pomáhám vám růst.</span></h1>
+        <p class="hero-sub">Výkonnostní marketing, který dává smysl. Google Ads, Meta Ads, Sklik, zbožové srovnávače a emailing – propojené do jedné strategie šité na míru vašemu businessu.</p>
+        <div class="hero-btns">
+          <a href="#kontakt" class="btn-primary">Domluvit konzultaci</a>
+          <a href="#o-mne" class="btn-ghost">Více o mně</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">250M+</div>
+            <div class="stat-label">Kč v kampaních</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">let v oboru</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-num">Google</div>
+            <div class="stat-label">Certified Expert</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-bg">
+          <img src="Foto_Pavel_Vognárek.jpg" alt="Pavel Vognárek – PPC specialista"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-bg" id="o-mne">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-tag">O mně</div>
+          <h2 class="section-title">Digitální marketing, který dává smysl</h2>
+          <p>Jsem Pavel Vognárek – PPC specialista a marketingový konzultant s praxí, za kterou stojí přes <strong>250 milionů Kč investovaných do reklamních kampaní</strong>. Pracoval jsem jako Team Leader v agenturách ROIMARK a In Creative v Brně.</p>
+          <p>Moje práce není jen o spouštění reklam. Je to o pochopení businessu, správném čtení dat a strategickém myšlení, které přináší reálné výsledky – ne jen hezké reporty.</p>
+          <div class="cert-list">
+            <div class="cert-item"><div class="cert-dot"></div>Certifikovaný specialista Mergado</div>
+            <div class="cert-item"><div class="cert-dot"></div>Google Ads: Search, Display, Shopping, Video</div>
+            <div class="cert-item"><div class="cert-dot"></div>Google Analytics 4 (GA4)</div>
+            <div class="cert-item"><div class="cert-dot"></div>Vítěz Sklik výzvy – Black Friday 2025</div>
+          </div>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <strong>250M+</strong>
+            <span>Kč v kampaních</span>
+          </div>
+          <div class="highlight-card">
+            <strong>Google</strong>
+            <span>5 certifikátů</span>
+          </div>
+          <div class="highlight-card">
+            <strong>Mergado</strong>
+            <span>Certifikát</span>
+          </div>
+          <div class="highlight-card">
+            <strong>#1</strong>
+            <span>Sklik výzva BF 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section id="problemy">
+    <div class="container">
+      <div class="section-tag">Znáte to?</div>
+      <h2 class="section-title">Co dnes klienty trápí nejvíc</h2>
+      <p class="section-sub">Tyhle problémy slýchám od klientů každý den. Pokud se v některém poznáváte, pojďme si popovídat.</p>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon">📉</div>
+          <h3>Utrácíme víc, ale nerosteme</h3>
+          <p>Rostoucí CPC, klesající ROAS. Bez správné strategie a brandingu performance kampaně přestávají fungovat.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🔍</div>
+          <h3>Nevíme, co nám vlastně funguje</h3>
+          <p>iOS změny, cookie lišty, nejasná atribuce. Data nesedí a vy nevíte, kam investovat.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">⚡</div>
+          <h3>Závislost na jednom kanálu</h3>
+          <p>80 % obratu z Mety nebo Googlu. Jakmile jeden kanál zakolísá, zakolísá celý business.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🏷️</div>
+          <h3>Slabý brand vs. výkon</h3>
+          <p>Lidi vaši značku neznají, proto nekonvertují. Výkon bez brandu má svůj strop.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🧩</div>
+          <h3>Agentura řeší jen PPC</h3>
+          <p>Kampaně jedou, ale nikdo neřeší celek. Výsledkem je nepropojený marketing bez směru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-bg" id="sluzby">
+    <div class="container">
+      <div class="section-tag" style="color:var(--cyan)">Co pro vás udělám</div>
+      <h2 class="section-title" style="color:#fff">Služby</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.58)">Kompletní péče o váš výkonnostní marketing – od strategie po každodenní optimalizaci.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <h3>Strategie a správa kampaní</h3>
+          <p>Google Ads, Sklik, Meta Ads – od jednoduchých kampaní po komplexní multikanálové strategie.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <h3>Optimalizace výkonu a ROAS</h3>
+          <p>Iterativní optimalizace vyhledávacích, nákupních i obsahových kampaní s důrazem na data.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <h3>Feedy a zbožové srovnávače</h3>
+          <p>Mergado, Google Merchant Center, Heureka, Zboží.cz. Správné nastavení feedů = lepší výkon.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <h3>Sezónní strategie</h3>
+          <p>Black Friday, Vánoce, sezónní kampaně – příprava strategií a sledování výsledků v reálném čase.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ME -->
+  <section id="proc-ja">
+    <div class="container">
+      <div class="section-tag">Proč já?</div>
+      <h2 class="section-title">Přístup, který dělá rozdíl</h2>
+      <div class="why-grid">
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>Komplexní pohled na business</h4>
+              <p>Neřeším jen kampaně, řeším celý marketing a jeho napojení na váš business. Výsledky musí dávat smysl.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>Transparentní komunikace</h4>
+              <p>Vždy víte, co dělám, proč to dělám a co to přináší. Žádný black box přístup.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>Ověřené výsledky</h4>
+              <p>Přes 250 milionů Kč v kampaních, vítěz Sklik výzvy Black Friday 2025 a případová studie na Sklik Akademii.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-check">✓</div>
+            <div>
+              <h4>Data jako základ rozhodování</h4>
+              <p>Správné nastavení měření a čtení dat je základ. Bez dat nelze správně optimalizovat.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-quote">
+          <blockquote>„Chci někoho, kdo chápe <span>můj business</span>, ne jen reklamy."</blockquote>
+          <p class="why-note">Přesně tohle slýchám od klientů. A přesně to nabízím.</p>
+          <div class="why-refs">
+            <a href="https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/" target="_blank" class="ref-link">
+              <div class="ref-text">
+                <span class="ref-label">Vítěz soutěže · Sklik</span>
+                <span class="ref-title">Nejlepší Black Friday strategie 2025</span>
+              </div>
+              <span class="ref-ext">↗</span>
+            </a>
+            <a href="https://www.sklikakademie.cz/cs/pripadove-studie/detail/~/17/" target="_blank" class="ref-link">
+              <div class="ref-text">
+                <span class="ref-label">Případová studie · Sklik Akademie</span>
+                <span class="ref-title">Doppler – případová studie optimalizace kampaní</span>
+              </div>
+              <span class="ref-ext">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-bg" id="faq">
+    <div class="container">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Nejčastější otázky</h2>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <div class="faq-q">Proč mi nefungují kampaně? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Jak poznám dobrou agenturu nebo konzultanta? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Dobrý konzultant se ptá na váš business, navrhuje proaktivní změny, jasně vysvětluje data a není jen vykonavatelem. Pokud dostáváte jen reporty bez insightů a iniciativy, je na čase něco změnit.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Kolik mám investovat do marketingu? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Neexistuje univerzální číslo. Záleží na vaší marži, životní hodnotě zákazníka (LTV) a fázi firmy. Spočítáme to společně na základě reálných dat vašeho businessu.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Proč mi klesá ROAS? <span class="faq-toggle">+</span></div>
+          <div class="faq-a">Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-bg" id="kontakt">
+    <div class="container">
+      <div class="contact-inner">
+        <div>
+          <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
+          <h2 class="section-title" style="color:#fff">Pojďme to rozebrat</h2>
+          <p class="section-sub" style="color:rgba(255,255,255,0.62)">Domluvte si nezávaznou konzultaci a zjistěte, co vám skutečně brání v růstu.</p>
+          <div class="contact-info">
+            <div class="contact-row">
+              <div class="contact-ico">📱</div>
+              <span>+420 608 633 916</span>
+            </div>
+            <div class="contact-row">
+              <div class="contact-ico">✉️</div>
+              <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none;font-weight:600">pavogppc@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="form-wrap">
+          <div class="form-row">
+            <label>Jméno</label>
+            <input type="text" placeholder="Jan Novák"/>
+          </div>
+          <div class="form-row">
+            <label>Email</label>
+            <input type="email" placeholder="jan@firma.cz"/>
+          </div>
+          <div class="form-row">
+            <label>Telefon</label>
+            <input type="tel" placeholder="+420 ..."/>
+          </div>
+          <div class="form-row">
+            <label>Zpráva</label>
+            <textarea placeholder="Popište krátce váš business a co potřebujete řešit..."></textarea>
+          </div>
+          <button class="submit-btn" onclick="alert('Děkujeme! Ozveme se vám co nejdříve.')">Odeslat zprávu →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none">pavogppc@gmail.com</a>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
