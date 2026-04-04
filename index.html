@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MQPCXPXD');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pavel Vognárek | PPC Specialista</title>
@@ -144,6 +151,8 @@
     .form-row textarea::placeholder{color:rgba(255,255,255,0.28)}
     .submit-btn{width:100%;background:var(--cyan);color:var(--white);border:none;padding:15px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity 0.2s;margin-top:4px}
     .submit-btn:hover{opacity:0.88}
+    .submit-btn:disabled{opacity:0.55;cursor:not-allowed}
+    .form-status{margin-top:14px;font-size:13px;text-align:center;min-height:18px;line-height:1.5}
 
     /* FOOTER */
     footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.38);font-size:13px}
@@ -168,6 +177,10 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQPCXPXD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   <!-- NAV -->
   <nav>
@@ -439,23 +452,26 @@
           </div>
         </div>
         <div class="form-wrap">
-          <div class="form-row">
-            <label>Jméno</label>
-            <input type="text" placeholder="Jan Novák"/>
-          </div>
-          <div class="form-row">
-            <label>Email</label>
-            <input type="email" placeholder="jan@firma.cz"/>
-          </div>
-          <div class="form-row">
-            <label>Telefon</label>
-            <input type="tel" placeholder="+420 ..."/>
-          </div>
-          <div class="form-row">
-            <label>Zpráva</label>
-            <textarea placeholder="Popište krátce váš business a co potřebujete řešit..."></textarea>
-          </div>
-          <button class="submit-btn" onclick="alert('Děkujeme! Ozveme se vám co nejdříve.')">Odeslat zprávu →</button>
+          <form id="contactForm">
+            <div class="form-row">
+              <label>Jméno</label>
+              <input type="text" name="jmeno" placeholder="Jan Novák" required/>
+            </div>
+            <div class="form-row">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="jan@firma.cz" required/>
+            </div>
+            <div class="form-row">
+              <label>Telefon</label>
+              <input type="tel" name="telefon" placeholder="+420 ..."/>
+            </div>
+            <div class="form-row">
+              <label>Zpráva</label>
+              <textarea name="zprava" placeholder="Popište krátce váš business a co potřebujete řešit..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Odeslat zprávu →</button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
         </div>
       </div>
     </div>
@@ -472,6 +488,43 @@
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
         if (!wasOpen) item.classList.add('open');
       });
+    });
+
+    // Kontaktní formulář – Formspree
+    // 1. Zaregistruj se na https://formspree.io
+    // 2. Vytvoř nový formulář (email: pavogppc@gmail.com)
+    // 3. Zkopíruj ID formuláře (vypadá jako: xabc1234) a vlož ho níže
+    const FORMSPREE_ID = 'YOUR_FORM_ID'; // <-- sem vlož své Formspree ID
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.submit-btn');
+      const status = document.getElementById('formStatus');
+
+      btn.disabled = true;
+      btn.textContent = 'Odesílám…';
+      status.innerHTML = '';
+
+      try {
+        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          status.innerHTML = '<span style="color:var(--cyan)">Zpráva odeslána! Ozvu se vám co nejdříve.</span>';
+          form.reset();
+        } else {
+          const data = await res.json();
+          throw new Error(data?.errors?.[0]?.message || 'Chyba serveru');
+        }
+      } catch (err) {
+        status.innerHTML = '<span style="color:#ff6b6b">Nepodařilo se odeslat. Zkuste to znovu nebo napište přímo na <a href="mailto:pavogppc@gmail.com" style="color:#ff6b6b">pavogppc@gmail.com</a>.</span>';
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Odeslat zprávu →';
     });
   </script>
 
