@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 1200 710" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip">
+      <rect width="1200" height="630" rx="0"/>
+    </clipPath>
+  <mask id="imagine-text-gaps-87w85u" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="1200" height="710" fill="white"/><rect x="114.11458587646484" y="172.33334350585938" width="59.83984375" height="42.66666793823242" fill="black" rx="2"/><rect x="103" y="222.6666717529297" width="525.88671875" height="84" fill="black" rx="2"/><rect x="103" y="333.3333435058594" width="499.798828125" height="46.66666793823242" fill="black" rx="2"/><rect x="103" y="406.66668701171875" width="549.5416870117188" height="30.666667938232422" fill="black" rx="2"/><rect x="154.8854217529297" y="485" width="89.0380859375" height="33.33333396911621" fill="black" rx="2"/><rect x="145.1979217529297" y="521.6666870117188" width="107.8134765625" height="20" fill="black" rx="2"/><rect x="351.21875" y="485" width="97.75944519042969" height="33.33333396911621" fill="black" rx="2"/><rect x="360.19793701171875" y="521.6666870117188" width="79.7998046875" height="20" fill="black" rx="2"/><rect x="581.1979370117188" y="485" width="38.27083396911621" height="33.33333396911621" fill="black" rx="2"/><rect x="533.96875" y="521.6666870117188" width="134.26171875" height="20" fill="black" rx="2"/><rect x="960.3541870117188" y="569.3333740234375" width="164.3112030029297" height="26.666667938232422" fill="black" rx="2"/><rect x="953.59375" y="190" width="192.8125" height="24" fill="black" rx="2"/></mask></defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0A1628" style="fill:rgb(10, 22, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a2d4a" stroke-width="1" mask="url(#imagine-text-gaps-87w85u)" style="fill:rgb(0, 0, 0);stroke:rgb(26, 45, 74);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a2d4a" stroke-width="1" mask="url(#imagine-text-gaps-87w85u)" style="fill:rgb(0, 0, 0);stroke:rgb(26, 45, 74);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1a2d4a" stroke-width="1" mask="url(#imagine-text-gaps-87w85u)" style="fill:rgb(0, 0, 0);stroke:rgb(26, 45, 74);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1a2d4a" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(26, 45, 74);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Left accent bar -->
+  <rect x="80" y="140" width="5" height="350" fill="#2563EB" rx="2" style="fill:rgb(37, 99, 235);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Blue accent top-right circle decoration -->
+  <circle cx="1100" cy="80" r="180" fill="none" stroke="#1d3a6e" stroke-width="60" style="fill:none;stroke:rgb(29, 58, 110);color:rgb(255, 255, 255);stroke-width:60px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="1100" cy="80" r="100" fill="none" stroke="#1e4080" stroke-width="40" style="fill:none;stroke:rgb(30, 64, 128);color:rgb(255, 255, 255);stroke-width:40px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Bottom right corner accent -->
+  <circle cx="1150" cy="580" r="120" fill="#1a3060" opacity="0.5" style="fill:rgb(26, 48, 96);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- PV monogram badge -->
+  <rect x="107" y="155" width="72" height="72" rx="8" fill="#2563EB" style="fill:rgb(37, 99, 235);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="143" y="205" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:34px;font-weight:700;text-anchor:middle;dominant-baseline:auto">PV</text>
+
+  <!-- Name -->
+  <text x="107" y="290" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="white" letter-spacing="-1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, Helvetica, sans-serif;font-size:72px;font-weight:700;text-anchor:start;dominant-baseline:auto">Pavel Vognárek</text>
+
+  <!-- Divider line under name -->
+  <line x1="107" y1="315" x2="780" y2="315" stroke="#2563EB" stroke-width="3" style="fill:rgb(0, 0, 0);stroke:rgb(37, 99, 235);color:rgb(255, 255, 255);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Title -->
+  <text x="107" y="370" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="400" fill="#60A5FA" letter-spacing="0.5" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, Helvetica, sans-serif;font-size:38px;font-weight:400;text-anchor:start;dominant-baseline:auto">PPC Specialist &amp; Konzultant</text>
+
+  <!-- Tagline -->
+  <text x="107" y="430" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#94a3b8" style="fill:rgb(148, 163, 184);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, Helvetica, sans-serif;font-size:24px;font-weight:400;text-anchor:start;dominant-baseline:auto">Nepomáhám vám s reklamou. Pomáhám vám růst.</text>
+
+  <!-- Stats row -->
+  <rect x="107" y="475" width="185" height="80" rx="8" fill="#122040" style="fill:rgb(18, 32, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="199" y="511" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:26px;font-weight:700;text-anchor:middle;dominant-baseline:auto">250M+</text>
+  <text x="199" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:14px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Kč v kampaních</text>
+
+  <rect x="308" y="475" width="185" height="80" rx="8" fill="#122040" style="fill:rgb(18, 32, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="400" y="511" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:26px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Google</text>
+  <text x="400" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:14px;font-weight:400;text-anchor:middle;dominant-baseline:auto">5 certifikátů</text>
+
+  <rect x="509" y="475" width="185" height="80" rx="8" fill="#122040" style="fill:rgb(18, 32, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="601" y="511" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:26px;font-weight:700;text-anchor:middle;dominant-baseline:auto">#1</text>
+  <text x="601" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#60A5FA" style="fill:rgb(96, 165, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:14px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Sklik výzva BF 2025</text>
+
+  <!-- URL bottom right -->
+  <text x="1120" y="590" text-anchor="end" font-family="Arial, sans-serif" font-size="20" fill="#475569" style="fill:rgb(71, 85, 105);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:20px;font-weight:400;text-anchor:end;dominant-baseline:auto">pavelvognarek.cz</text>
+
+  <!-- Top right label -->
+  <rect x="950" y="180" width="200" height="44" rx="22" fill="#2563EB" style="fill:rgb(37, 99, 235);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="1050" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="white" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:17px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Google Ads · Meta Ads</text>
+
+</svg>
