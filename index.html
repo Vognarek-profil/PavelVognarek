@@ -580,7 +580,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form-wrap">
           <form id="contactForm">
             <p style="font-size:16px;font-weight:700;color:#fff;margin-bottom:20px;letter-spacing:0.3px">Informační formulář</p>
-            <input type="hidden" name="_subject" value="Informační formulář – pavelvognarek.cz"/>
+            <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+              <label>Website</label>
+              <input type="text" name="website" tabindex="-1" autocomplete="off"/>
+            </div>
             <div class="form-row">
               <label>Jméno</label>
               <input type="text" name="jmeno" placeholder="Jan Novák" required/>
@@ -650,12 +653,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     });
 
-    // Kontaktní formulář – Formspree
-    // 1. Zaregistruj se na https://formspree.io
-    // 2. Vytvoř nový formulář (email: pavogppc@gmail.com)
-    // 3. Zkopíruj ID formuláře (vypadá jako: xabc1234) a vlož ho níže
-    const FORMSPREE_ID = 'meeppbej'; // <-- sem vlož své Formspree ID
-
+    // Kontaktní formulář – Vercel serverless /api/contact (Gmail SMTP)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = e.target;
@@ -666,18 +664,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.textContent = 'Odesílám…';
       status.innerHTML = '';
 
+      const data = Object.fromEntries(new FormData(form).entries());
+
       try {
-        const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        const res = await fetch('/api/contact', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
         });
-        if (res.ok) {
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
           status.innerHTML = '<span style="color:var(--cyan)">Zpráva odeslána! Ozvu se vám co nejdříve.</span>';
           form.reset();
         } else {
-          const data = await res.json();
-          throw new Error(data?.errors?.[0]?.message || 'Chyba serveru');
+          throw new Error(json.error || 'Chyba serveru');
         }
       } catch (err) {
         status.innerHTML = '<span style="color:#ff6b6b">Nepodařilo se odeslat. Zkuste to znovu nebo napište přímo na <a href="mailto:pavogppc@gmail.com" style="color:#ff6b6b">pavogppc@gmail.com</a>.</span>';
