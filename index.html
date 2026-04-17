@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+  <!-- Google Consent Mode v2 (MUST be before GTM) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    try {
+      var _c = localStorage.getItem('cookieConsent_v1');
+      if (_c) {
+        var _parsed = JSON.parse(_c);
+        if (Date.now() - _parsed.timestamp < 31536000000) {
+          gtag('consent', 'update', _parsed.settings);
+        }
+      }
+    } catch(e) {}
+  </script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -324,6 +348,52 @@
       .why-grid{grid-template-columns:1fr}
       .contact-inner{grid-template-columns:1fr}
       footer{padding:24px}
+    }
+
+    /* COOKIE BANNER */
+    @keyframes cookieSlideUp { from{transform:translateY(120%);opacity:0} to{transform:translateY(0);opacity:1} }
+    .cookie-banner{position:fixed;bottom:20px;left:20px;right:20px;max-width:920px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 20px 60px rgba(10,51,200,0.25);padding:26px 30px;z-index:9999;animation:cookieSlideUp 0.45s cubic-bezier(0.2,0.8,0.2,1)}
+    .cookie-banner.hidden,.cookie-modal.hidden{display:none}
+    .cookie-banner-title{color:var(--navy);font-weight:700;font-size:17px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+    .cookie-banner-title::before{content:'';display:inline-block;width:22px;height:22px;background:linear-gradient(135deg,var(--navy),var(--cyan));border-radius:50%;flex-shrink:0}
+    .cookie-banner p{color:var(--text);font-size:14px;line-height:1.6;margin-bottom:18px}
+    .cookie-banner p a{color:var(--navy);text-decoration:underline;text-underline-offset:2px}
+    .cookie-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .cookie-btn{padding:11px 22px;border:none;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;transition:all 0.2s;white-space:nowrap}
+    .cookie-btn-reject{background:transparent;color:var(--gray);border:1.5px solid #e5e7eb}
+    .cookie-btn-reject:hover{border-color:var(--navy);color:var(--navy)}
+    .cookie-btn-settings{background:var(--light);color:var(--navy)}
+    .cookie-btn-settings:hover{background:#dbe4ff}
+    .cookie-btn-accept{background:linear-gradient(135deg,var(--navy),var(--cyan));color:#fff;box-shadow:0 4px 14px rgba(10,51,200,0.25)}
+    .cookie-btn-accept:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(10,51,200,0.4)}
+
+    /* COOKIE MODAL */
+    .cookie-modal{position:fixed;inset:0;background:rgba(4,14,46,0.65);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:10000;padding:20px}
+    .cookie-modal-content{background:#fff;border-radius:18px;padding:36px 38px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;position:relative}
+    .cookie-modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:var(--light);color:var(--navy);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:inherit}
+    .cookie-modal-close:hover{background:var(--navy);color:#fff;transform:rotate(90deg)}
+    .cookie-modal-content h3{color:var(--navy);font-weight:700;font-size:22px;margin-bottom:6px;padding-right:40px}
+    .cookie-modal-content > p{color:var(--gray);font-size:14px;line-height:1.6;margin-bottom:20px}
+    .cookie-category{padding:16px 18px;background:var(--light);border-radius:12px;margin-bottom:10px;transition:all 0.2s}
+    .cookie-category:hover{background:#e8efff}
+    .cookie-cat-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .cookie-cat-name{font-weight:700;color:var(--navy-dark);font-size:15px}
+    .cookie-cat-desc{color:var(--gray);font-size:13px;line-height:1.55;margin-top:6px}
+    .cookie-toggle{position:relative;width:44px;height:24px;background:#cbd5e1;border-radius:999px;cursor:pointer;transition:background 0.25s;flex-shrink:0}
+    .cookie-toggle::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform 0.25s;box-shadow:0 2px 4px rgba(0,0,0,0.2)}
+    .cookie-toggle.on{background:linear-gradient(135deg,var(--navy),var(--cyan))}
+    .cookie-toggle.on::after{transform:translateX(20px)}
+    .cookie-toggle.locked{background:var(--cyan);cursor:not-allowed;opacity:0.7}
+    .cookie-toggle.locked::after{transform:translateX(20px)}
+    .cookie-modal-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+    .cookie-modal-buttons .cookie-btn{flex:1;min-width:140px}
+
+    @media(max-width:640px){
+      .cookie-banner{left:12px;right:12px;bottom:12px;padding:20px}
+      .cookie-buttons{justify-content:stretch}
+      .cookie-btn{flex:1;min-width:calc(50% - 5px)}
+      .cookie-modal-content{padding:26px 22px}
+      .cookie-modal-buttons .cookie-btn{min-width:100%}
     }
   </style>
 </head>
@@ -676,7 +746,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <footer>
-    © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none">pavogppc@gmail.com</a>
+    © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none">pavogppc@gmail.com</a><br>
+    <a href="/zasady-ochrany-osobnich-udaju.html" style="color:var(--cyan);text-decoration:none">Zásady ochrany osobních údajů</a> · <a href="#" onclick="event.preventDefault();cookieConsent.openSettings()" style="color:var(--cyan);text-decoration:none">Nastavení cookies</a>
   </footer>
 
   <script>
@@ -753,6 +824,132 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.disabled = false;
       btn.textContent = 'Odeslat zprávu →';
     });
+  </script>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="cookieBanner" class="cookie-banner hidden" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+    <div class="cookie-banner-title" id="cookieTitle">Tento web používá cookies</div>
+    <p id="cookieDesc">Nezbytné cookies zajišťují chod webu. Analytické cookies (Google Analytics) mi pomáhají pochopit, jak web používáte, a zlepšovat jej. Více informací v <a href="/zasady-ochrany-osobnich-udaju.html">zásadách ochrany osobních údajů</a>.</p>
+    <div class="cookie-buttons">
+      <button type="button" class="cookie-btn cookie-btn-reject" onclick="cookieConsent.rejectAll()">Odmítnout vše</button>
+      <button type="button" class="cookie-btn cookie-btn-settings" onclick="cookieConsent.openSettings()">Upravit nastavení</button>
+      <button type="button" class="cookie-btn cookie-btn-accept" onclick="cookieConsent.acceptAll()">Přijmout vše</button>
+    </div>
+  </div>
+
+  <!-- COOKIE SETTINGS MODAL -->
+  <div id="cookieModal" class="cookie-modal hidden" role="dialog" aria-labelledby="cookieModalTitle" aria-modal="true">
+    <div class="cookie-modal-content">
+      <button type="button" class="cookie-modal-close" onclick="cookieConsent.closeSettings()" aria-label="Zavřít">×</button>
+      <h3 id="cookieModalTitle">Nastavení cookies</h3>
+      <p>Vyberte, které kategorie cookies chcete povolit. Své rozhodnutí můžete kdykoli změnit.</p>
+
+      <div class="cookie-category">
+        <div class="cookie-cat-head">
+          <span class="cookie-cat-name">Nezbytné</span>
+          <div class="cookie-toggle locked" aria-label="Nezbytné cookies jsou vždy povoleny"></div>
+        </div>
+        <div class="cookie-cat-desc">Nutné pro základní funkce webu (kontaktní formulář, bezpečnost). Nelze vypnout.</div>
+      </div>
+
+      <div class="cookie-category">
+        <div class="cookie-cat-head">
+          <span class="cookie-cat-name">Analytické</span>
+          <div class="cookie-toggle" id="toggleAnalytics" onclick="cookieConsent.toggle(this)" role="switch" tabindex="0" aria-label="Analytické cookies"></div>
+        </div>
+        <div class="cookie-cat-desc">Google Analytics 4 – anonymní statistiky návštěvnosti, zdroje návštěv, chování na webu.</div>
+      </div>
+
+      <div class="cookie-category">
+        <div class="cookie-cat-head">
+          <span class="cookie-cat-name">Marketingové</span>
+          <div class="cookie-toggle" id="toggleMarketing" onclick="cookieConsent.toggle(this)" role="switch" tabindex="0" aria-label="Marketingové cookies"></div>
+        </div>
+        <div class="cookie-cat-desc">Remarketing a měření reklam (Google Ads, Sklik, Meta) – pokud jsou nasazeny.</div>
+      </div>
+
+      <div class="cookie-modal-buttons">
+        <button type="button" class="cookie-btn cookie-btn-reject" onclick="cookieConsent.rejectAll()">Odmítnout vše</button>
+        <button type="button" class="cookie-btn cookie-btn-settings" onclick="cookieConsent.saveCustom()">Uložit volbu</button>
+        <button type="button" class="cookie-btn cookie-btn-accept" onclick="cookieConsent.acceptAll()">Přijmout vše</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var KEY = 'cookieConsent_v1';
+      var MAX_AGE = 31536000000; // 12 měsíců
+
+      function gtag(){ dataLayer.push(arguments); }
+
+      function load() {
+        try {
+          var raw = localStorage.getItem(KEY);
+          if (!raw) return null;
+          var p = JSON.parse(raw);
+          if (Date.now() - p.timestamp > MAX_AGE) { localStorage.removeItem(KEY); return null; }
+          return p;
+        } catch(e) { return null; }
+      }
+
+      function save(settings) {
+        localStorage.setItem(KEY, JSON.stringify({ settings: settings, timestamp: Date.now() }));
+        gtag('consent', 'update', settings);
+      }
+
+      function apply(analytics, marketing) {
+        var settings = {
+          ad_storage: marketing ? 'granted' : 'denied',
+          ad_user_data: marketing ? 'granted' : 'denied',
+          ad_personalization: marketing ? 'granted' : 'denied',
+          analytics_storage: analytics ? 'granted' : 'denied'
+        };
+        save(settings);
+        hide();
+      }
+
+      function hide() {
+        document.getElementById('cookieBanner').classList.add('hidden');
+        document.getElementById('cookieModal').classList.add('hidden');
+      }
+
+      function showBanner() { document.getElementById('cookieBanner').classList.remove('hidden'); }
+
+      function closeModal(){ document.getElementById('cookieModal').classList.add('hidden'); }
+
+      window.cookieConsent = {
+        acceptAll: function(){ apply(true, true); },
+        rejectAll: function(){ apply(false, false); },
+        openSettings: function(){
+          var saved = load();
+          var a = saved && saved.settings.analytics_storage === 'granted';
+          var m = saved && saved.settings.ad_storage === 'granted';
+          document.getElementById('toggleAnalytics').classList.toggle('on', !!a);
+          document.getElementById('toggleMarketing').classList.toggle('on', !!m);
+          document.getElementById('cookieModal').classList.remove('hidden');
+        },
+        closeSettings: closeModal,
+        toggle: function(el){ el.classList.toggle('on'); },
+        saveCustom: function(){
+          apply(
+            document.getElementById('toggleAnalytics').classList.contains('on'),
+            document.getElementById('toggleMarketing').classList.contains('on')
+          );
+        }
+      };
+
+      // Zavřít modal kliknutím na pozadí
+      document.getElementById('cookieModal').addEventListener('click', function(e){
+        if (e.target === this) closeModal();
+      });
+      // Zavřít modal klávesou ESC
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && !document.getElementById('cookieModal').classList.contains('hidden')) closeModal();
+      });
+
+      if (!load()) showBanner();
+    })();
   </script>
 
 </body>

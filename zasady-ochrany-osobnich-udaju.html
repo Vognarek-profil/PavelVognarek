@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Zásady ochrany osobních údajů | Pavel Vognárek</title>
+  <meta name="description" content="Zásady ochrany osobních údajů webu pavelvognarek.cz. Správce Pavel Vognárek, IČO 76591867. Informace o zpracování osobních údajů, cookies a právech subjektů údajů podle GDPR."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Pavel Vognárek"/>
+  <link rel="canonical" href="https://pavelvognarek.cz/zasady-ochrany-osobnich-udaju.html"/>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='12' fill='%230A33C8'/%3E%3Ctext x='50%25' y='54%25' font-family='Inter,sans-serif' font-weight='900' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPV%3C/text%3E%3C/svg%3E"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --navy:#0A33C8;
+      --navy-dark:#071f7a;
+      --cyan:#10A5C8;
+      --white:#fff;
+      --light:#f4f7ff;
+      --gray:#64748b;
+      --text:#1a1a2e;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.7}
+
+    @keyframes bgPulse {
+      0%   { background-position: 0% 50% }
+      50%  { background-position: 100% 50% }
+      100% { background-position: 0% 50% }
+    }
+
+    /* NAV */
+    nav{background:linear-gradient(-45deg,#040e2e,#071f7a,#0A33C8,#071f7a);background-size:400% 400%;animation:bgPulse 20s ease infinite;padding:14px 60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .logo-nav{display:flex;align-items:center;gap:12px;color:var(--white);text-decoration:none}
+    .logo-icon{width:40px;height:40px;flex-shrink:0}
+    .logo-text{font-size:18px;font-weight:700;letter-spacing:-0.5px}
+    .back-link{color:var(--white);text-decoration:none;font-size:14px;font-weight:600;padding:10px 22px;border:1.5px solid rgba(255,255,255,0.3);border-radius:999px;transition:all 0.25s}
+    .back-link:hover{background:rgba(255,255,255,0.1);border-color:var(--cyan)}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#040e2e 0%,#071f7a 55%,#0A33C8 100%);padding:80px 60px 60px;color:var(--white);text-align:center}
+    .hero h1{font-size:44px;font-weight:900;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+    .hero-sub{font-size:16px;opacity:0.85;max-width:700px;margin:0 auto;font-weight:400}
+    .hero-sub strong{color:var(--cyan);font-weight:600}
+
+    /* CONTENT */
+    main{max-width:880px;margin:0 auto;padding:60px 40px 80px}
+    h2{color:var(--navy);font-size:24px;font-weight:700;margin:44px 0 16px;letter-spacing:-0.3px;border-left:4px solid var(--cyan);padding-left:16px}
+    h2:first-of-type{margin-top:0}
+    h3{color:var(--navy-dark);font-size:18px;font-weight:700;margin:24px 0 10px}
+    p{margin-bottom:14px;color:var(--text)}
+    ul, ol{margin:10px 0 16px 22px}
+    li{margin-bottom:8px}
+    strong{color:var(--navy-dark);font-weight:700}
+    a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--cyan);text-underline-offset:3px}
+    a:hover{color:var(--cyan)}
+
+    .info-box{background:var(--light);border-left:4px solid var(--navy);padding:20px 24px;margin:20px 0;border-radius:8px}
+    .info-box p{margin-bottom:6px}
+    .info-box p:last-child{margin-bottom:0}
+
+    .effective{margin-top:50px;padding-top:24px;border-top:1px solid #e5e7eb;color:var(--gray);font-size:14px;text-align:center}
+
+    /* FOOTER */
+    footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.38);font-size:13px}
+    footer span{color:var(--cyan)}
+    footer a{color:var(--cyan);text-decoration:none}
+
+    @media(max-width:768px){
+      nav{padding:12px 20px}
+      .hero{padding:50px 24px 40px}
+      .hero h1{font-size:30px}
+      main{padding:40px 22px 60px}
+      h2{font-size:20px}
+      footer{padding:24px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo-nav">
+      <svg class="logo-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <rect width="60" height="60" rx="12" fill="#0A33C8"/>
+        <text x="50%" y="54%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
+        <rect x="0" y="54" width="60" height="6" fill="#10A5C8"/>
+      </svg>
+      <span class="logo-text">Pavel Vognárek</span>
+    </a>
+    <a href="/" class="back-link">← Zpět na web</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Zásady ochrany osobních údajů</h1>
+    <p class="hero-sub">Informace o tom, <strong>jak zpracovávám osobní údaje</strong> návštěvníků webu pavelvognarek.cz v souladu s nařízením <strong>GDPR</strong>.</p>
+  </section>
+
+  <main>
+
+    <h2>1. Správce osobních údajů</h2>
+    <p>Správcem osobních údajů ve smyslu nařízení (EU) 2016/679 (dále jen „<strong>GDPR</strong>") je:</p>
+    <div class="info-box">
+      <p><strong>Pavel Vognárek</strong></p>
+      <p>IČO: <strong>76591867</strong></p>
+      <p>Sídlo: Zárybnická 457, 691 02 Velké Bílovice</p>
+      <p>Fyzická osoba podnikající, zapsaná v živnostenském rejstříku</p>
+      <p>E-mail: <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a></p>
+      <p>Telefon: <a href="tel:+420608633916">+420 608 633 916</a></p>
+    </div>
+    <p>Správce nejmenoval pověřence pro ochranu osobních údajů, protože k tomu nemá zákonnou povinnost (čl. 37 GDPR).</p>
+
+    <h2>2. Jaké osobní údaje zpracovávám</h2>
+
+    <h3>2.1 Údaje z kontaktního formuláře</h3>
+    <p>Při odeslání kontaktního formuláře na webu zpracovávám tyto údaje:</p>
+    <ul>
+      <li><strong>Jméno a příjmení</strong> (povinné)</li>
+      <li><strong>E-mailová adresa</strong> (povinné)</li>
+      <li><strong>Telefon</strong> (nepovinné)</li>
+      <li><strong>Text zprávy</strong> (povinné) – obsah může zahrnovat další údaje, které dobrovolně uvedete</li>
+    </ul>
+
+    <h3>2.2 Údaje získávané automaticky při návštěvě webu</h3>
+    <p>Při procházení webu mohou být prostřednictvím nástroje <strong>Google Tag Manager</strong> a v něm zapojených nástrojů (typicky Google Analytics) zpracovávány:</p>
+    <ul>
+      <li>IP adresa (obvykle anonymizovaná)</li>
+      <li>Typ prohlížeče, operační systém, rozlišení obrazovky</li>
+      <li>Odkud jste na web přišli (referrer)</li>
+      <li>Informace o chování na webu (zobrazené stránky, doba návštěvy, kliknutí)</li>
+      <li>Cookies a podobné identifikátory</li>
+    </ul>
+    <p>Tyto údaje jsou zpracovávány <strong>pouze na základě vašeho souhlasu</strong> uděleného přes cookie lištu.</p>
+
+    <h2>3. Účel a právní základ zpracování</h2>
+    <p>Osobní údaje zpracovávám pro tyto účely:</p>
+    <ul>
+      <li><strong>Odpověď na váš dotaz a komunikace ohledně spolupráce</strong> – právním základem je plnění opatření před uzavřením smlouvy (čl. 6 odst. 1 písm. b GDPR) a oprávněný zájem správce (písm. f) spočívající ve vedení obchodní komunikace.</li>
+      <li><strong>Plnění smlouvy o poskytování služeb</strong> (pokud následně spolupráce vznikne) – čl. 6 odst. 1 písm. b GDPR.</li>
+      <li><strong>Plnění zákonných povinností</strong> (účetnictví, daně) – čl. 6 odst. 1 písm. c GDPR.</li>
+      <li><strong>Analytika návštěvnosti a optimalizace webu</strong> – pouze na základě souhlasu (čl. 6 odst. 1 písm. a GDPR).</li>
+    </ul>
+
+    <h2>4. Doba uchování údajů</h2>
+    <ul>
+      <li><strong>Údaje z kontaktního formuláře:</strong> po dobu aktivní komunikace a následně <strong>3 roky</strong> od posledního kontaktu pro případ opětovné poptávky a obhajobu právních nároků.</li>
+      <li><strong>Údaje z uzavřené spolupráce:</strong> po dobu trvání smluvního vztahu a následně po dobu stanovenou právními předpisy (daňové a účetní doklady nejméně 10 let).</li>
+      <li><strong>Cookies a analytické údaje:</strong> dle nastavení jednotlivých nástrojů, typicky maximálně 13 měsíců.</li>
+    </ul>
+
+    <h2>5. Příjemci a zpracovatelé osobních údajů</h2>
+    <p>Při zpracování údajů využívám následující zpracovatele, kteří pro mě zajišťují technický provoz webu a komunikace:</p>
+    <ul>
+      <li><strong>Vercel Inc.</strong> (USA) – hosting webu pavelvognarek.cz</li>
+      <li><strong>Google LLC / Google Ireland Limited</strong> – odesílání e-mailů z kontaktního formuláře přes Gmail SMTP, dále Google Tag Manager a Google Analytics 4</li>
+    </ul>
+    <p>Někteří zpracovatelé sídlí mimo Evropský hospodářský prostor (USA). Předání údajů do třetích zemí probíhá na základě <strong>standardních smluvních doložek</strong> schválených Evropskou komisí a rámce <strong>EU-U.S. Data Privacy Framework</strong>.</p>
+    <p>Vaše údaje neprodávám ani nepředávám třetím stranám pro marketingové účely.</p>
+
+    <h2>6. Cookies</h2>
+    <p>Web používá soubory cookies následujících kategorií:</p>
+    <ul>
+      <li><strong>Nezbytné:</strong> nutné pro základní funkce webu (kontaktní formulář, bezpečnost, uložení vašeho rozhodnutí o souhlasu s cookies). Zpracovávány bez souhlasu na základě oprávněného zájmu.</li>
+      <li><strong>Analytické:</strong> Google Analytics 4 prostřednictvím Google Tag Manageru – anonymní statistiky návštěvnosti, zdroje návštěv a chování na webu. Zpracovávány <strong>pouze se souhlasem</strong>.</li>
+      <li><strong>Marketingové:</strong> případný remarketing a měření reklam (Google Ads, Sklik, Meta). Zpracovávány <strong>pouze se souhlasem</strong>.</li>
+    </ul>
+    <p>Před načtením analytických a marketingových cookies čekám na váš souhlas. K tomu využívám mechanismus <strong>Google Consent Mode v2</strong>, který defaultně blokuje měřicí nástroje, dokud souhlas neudělíte.</p>
+    <p>Při první návštěvě webu se zobrazí cookie lišta, kde můžete:</p>
+    <ul>
+      <li>Přijmout všechny cookies</li>
+      <li>Odmítnout vše kromě nezbytných</li>
+      <li>Upravit nastavení a povolit jen vybrané kategorie</li>
+    </ul>
+    <p>Své rozhodnutí můžete kdykoli změnit kliknutím na odkaz <strong>„Nastavení cookies"</strong> v patičce webu, případně smazáním cookies a localStorage ve vašem prohlížeči. Souhlas je uchováván po dobu 12 měsíců, poté se lišta zobrazí znovu.</p>
+
+    <h2>7. Vaše práva</h2>
+    <p>V souvislosti se zpracováním osobních údajů máte podle GDPR následující práva:</p>
+    <ul>
+      <li><strong>Právo na přístup</strong> – víte, jaké údaje o vás zpracovávám (čl. 15 GDPR)</li>
+      <li><strong>Právo na opravu</strong> nepřesných nebo neúplných údajů (čl. 16 GDPR)</li>
+      <li><strong>Právo na výmaz</strong> („právo být zapomenut") – za podmínek čl. 17 GDPR</li>
+      <li><strong>Právo na omezení zpracování</strong> (čl. 18 GDPR)</li>
+      <li><strong>Právo na přenositelnost údajů</strong> (čl. 20 GDPR)</li>
+      <li><strong>Právo vznést námitku</strong> proti zpracování na základě oprávněného zájmu (čl. 21 GDPR)</li>
+      <li><strong>Právo odvolat souhlas</strong> – kdykoliv, bez udání důvodu (souhlas s cookies a marketingem)</li>
+      <li><strong>Právo podat stížnost</strong> u dozorového úřadu</li>
+    </ul>
+
+    <div class="info-box">
+      <p><strong>Dozorový úřad:</strong></p>
+      <p>Úřad pro ochranu osobních údajů (ÚOOÚ)</p>
+      <p>Pplk. Sochora 27, 170 00 Praha 7</p>
+      <p>Web: <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a></p>
+    </div>
+
+    <h2>8. Jak uplatnit svá práva</h2>
+    <p>Svá práva můžete uplatnit písemně nebo elektronicky:</p>
+    <ul>
+      <li>E-mailem na <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a></li>
+      <li>Poštou na adresu sídla: Zárybnická 457, 691 02 Velké Bílovice</li>
+    </ul>
+    <p>Na vaši žádost odpovím do <strong>30 dnů</strong> od jejího obdržení. V odůvodněných případech lze tuto lhůtu prodloužit o další 2 měsíce, o čemž budete informováni.</p>
+
+    <h2>9. Zabezpečení údajů</h2>
+    <p>Vaše údaje jsou chráněny přiměřenými technickými a organizačními opatřeními. Přenos dat z formuláře probíhá šifrovaně přes HTTPS. Přístup k datům má pouze správce.</p>
+
+    <h2>10. Závěrečná ustanovení</h2>
+    <p>Odesláním kontaktního formuláře potvrzujete, že jste se seznámili s těmito zásadami. Tyto zásady mohu v budoucnu aktualizovat – aktuální znění bude vždy dostupné na této stránce.</p>
+
+    <p class="effective">Tyto zásady nabývají účinnosti dne <strong>17. 4. 2026</strong>.</p>
+
+  </main>
+
+  <footer>
+    © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
+  </footer>
+
+</body>
+</html>
