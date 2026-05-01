@@ -1,6 +1,30 @@
 node_modules/
+package-lock.json
 .env
 .env.local
 .env.*.local
 .vercel
 .claude/
+
+# Originály log a fotek (commitujeme jen optimalizované verze v assets/)
+Loga spolupráce/
+Já nová.jpeg
+Já nová.webp
+marketingový specialista.jpeg
+marketingový specialista.webp
+Vytvoř_z_této_fotky_reprezentativní_*.jpeg
+Foto_Pavel_Vognarek.webp
+Foto_Pavel_Vogn*.jpg
+
+# Interní dokumenty a poznámky (nepatří do produkce)
+Anketa.txt
+Brief.txt
+Zadání.txt
+Steps SEO.txt
+Kódy.txt
+TODO.txt
+*.docx
+Foxtro*.png
+OG image.webp
+seo.md
+README.md
