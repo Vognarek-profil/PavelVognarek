@@ -1,0 +1,78 @@
+[
+  {
+    "q": "Co všechno je součástí správy Google Ads?",
+    "a": "Správa Google Ads u mě znamená celý cyklus, ne jen zapnutí kampaní. Patří do ní audit a nastavení struktury kampaní, klíčová slova i negativní klíčová slova, texty reklam a rozšíření, volba a hlídání bidding strategie, kontrola měření konverzí v GA4, práce s produktovým feedem pro Shopping a Performance Max, průběžná optimalizace rozpočtů a měsíční report, ve kterém se dozvíte, co se stalo, proč a co bude dál. Součástí je i strategický dialog nad tím, jestli má smysl utrácet víc, nebo jinde."
+  },
+  {
+    "q": "Spravujete i Meta Ads, tedy reklamu na Facebooku a Instagramu?",
+    "a": "Ano, Meta Ads je u mě rovnocenný kanál, ne přívěsek k Googlu. U e-shopů typicky řeším katalogové a dynamické remarketingové kampaně nad produktovým feedem, prospecting na nová publika a kreativu, protože právě na kreativě se výsledek v Metě láme nejvíc. U B2B jde hlavně o lead kampaně a formuláře. Součástí je nastavení a kontrola měření přes Meta Pixel a Conversions API, protože bez server-side měření dnes Meta ztrácí velkou část konverzí. Google a Meta pak hodnotím společně, aby se nestalo, že si dva kanály přiznávají stejnou objednávku a rozpočet se rozhoduje podle nafouknutých čísel."
+  },
+  {
+    "q": "Jak se dá na Meta Ads škálovat výkon, když se kampaň zasekne?",
+    "a": "Zaseknutá kampaň v Metě má obvykle jednu ze tří příčin: vyčerpaná kreativa, vyčerpané publikum, nebo rozbité měření, které algoritmu podsouvá špatný signál. Postupuju v tomto pořadí, protože nasypat víc peněz do vyčerpané kreativy jen zdraží stejný výsledek. Škáluju pak dvěma směry: do šířky přes nová publika, nové trhy a nové formáty, a do hloubky přes obměnu kreativy v pravidelném cyklu a přes konsolidaci sestav, aby algoritmus měl dost konverzí na jedno rozhodnutí. Rozpočet zvedám postupně, ne skokově, protože velký skok resetuje učící fázi. A každý krok se posuzuje na incrementalitě, tedy kolik objednávek reálně přibylo, ne kolik si Meta připsala."
+  },
+  {
+    "q": "Kolik stojí správa PPC kampaní?",
+    "a": "Cenu určují tři věci: počet kanálů (Google Ads, Sklik, Meta, zbožové srovnávače), objem kampaní a fáze, ve které účet je. Jinak se počítá malý e-shop, který startuje, a jinak značka s rozpočty v milionech. Pracuji ve třech modelech: měsíční retainer za dlouhodobou správu, jednorázový audit s konkrétním plánem, a nárazový projekt, typicky příprava na Black Friday. Konkrétní číslo dostanete po úvodní konzultaci, která trvá asi 30 minut a je zdarma. Cenu neposílám naslepo, bez pohledu do účtu by to bylo tipování."
+  },
+  {
+    "q": "Jak probíhá spolupráce s PPC konzultantem?",
+    "a": "První krok je úvodní call (cca 30 min) zdarma – probereme váš business, cíle, aktuální stav PPC a co od spolupráce čekáte. Pokud to dává smysl, navazuje audit (1–2 týdny) – analýza Google Ads, Sklik, Meta účtu, měření, feedu a celkové strategie. Po auditu dostanete konkrétní plán a kalkulaci. Pak buď pokračujeme dlouhodobou správou (optimalizace, reporting, strategické konzultace), nebo s vámi předáme změny vašemu týmu. Komunikace je online přes Google Meet, e-mail a sdílené dashboardy."
+  },
+  {
+    "q": "Jak dlouho trvá, než se PPC kampaň rozjede?",
+    "a": "U nové kampaně se chytré bidding strategie učí typicky dva až tři týdny, než mají dost konverzních dat na stabilní výkon. První poctivé vyhodnocení proto dělám po čtyřech až šesti týdnech, ne po týdnu. U existujícího účtu, kde jde o optimalizaci a ne o start z nuly, se první změny v číslech projeví dřív, běžně během dvou týdnů. Sezónní kampaně jako Black Friday nebo Vánoce je potřeba připravit s předstihem šesti až osmi týdnů, aby byly rozjeté ještě před špičkou."
+  },
+  {
+    "q": "Převezmete existující účet, nebo stavíte kampaně od nuly?",
+    "a": "Obojí, ale výchozí volba je převzetí. Existující účet nese historická data, konverzní historii a naučené bidding strategie, a to má cenu, kterou nový účet nemá. Začínám proto auditem: co v účtu funguje, co jen utrácí a kde je rozbité měření. Nový účet stavím jen tam, kde je stávající struktura neopravitelná, nebo když firma s PPC teprve začíná. Většina spoluprací u mě startuje auditem převzatého účtu."
+  },
+  {
+    "q": "Spravujete i Sklik, nebo jen Google Ads?",
+    "a": "Sklik spravuji a u českých e-shopů ho považuju za povinnou součást, ne za doplněk. Má jinou aukci a jiné publikum než Google Ads, takže se často vyplatí i tam, kde je Google už nasycený. Ve Skliku jsem vyhrál Sklik výzvu za nejlepší Black Friday strategii 2025. Standardně tedy pracuji se čtyřmi kanály: Google Ads, Sklik, Meta Ads a zbožové srovnávače, a hodnotím je proti sobě, aby rozpočet tekl tam, kde reálně vydělává."
+  },
+  {
+    "q": "Pracujete i s produktovými feedy pro Google Shopping, Heureku a Zboží.cz?",
+    "a": "Ano a u e-shopů je to jedna z nejvýnosnějších částí práce. Feed rozhoduje o tom, na jaké dotazy se produkt vůbec ukáže, takže se v něm dá získat víc než dolaďováním nabídek v kampani. Konkrétně řeším kvalitu a úplnost dat v Google Merchant Centru, názvy a popisky produktů podle toho, co lidé reálně hledají, doplňování chybějících atributů jako GTIN, značka nebo velikost, správnou kategorizaci, vylučování neprodejných a nedostupných položek a pravidla v Mergadu. Napojení jde na Google Shopping a Performance Max, na Heureku, Zboží.cz, Favi, Biano a na katalog v Metě, aby všechny kanály jely z jednoho čistého zdroje dat."
+  },
+  {
+    "q": "Pro jaké klienty se spolupráce hodí?",
+    "a": "Nejlépe sedím e-shopům a B2B firmám, kde už Google Ads nebo Sklik běží, ale chybí strategický pohled, propojení kanálů, nebo chcete přejít z agentury, kde vás jen „obsluhují\". Pracoval jsem se značkami od menších e-shopů s rozpočty v desítkách tisíc měsíčně po větší účty s rozpočty v milionech (Doppler, Biju.cz, Lomax, Fitmin a další). Méně vhodné je to pro firmy, které hledají jen úplně základní úpravu kampaní bez strategického dialogu nebo bez přístupu k datům a měření."
+  },
+  {
+    "q": "Proč mi nefungují kampaně?",
+    "a": "Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business."
+  },
+  {
+    "q": "Proč mi klesá ROAS?",
+    "a": "Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní."
+  },
+  {
+    "q": "Jak poznám, že mi PPC agentura nefunguje?",
+    "a": "Signálů je několik a jsou dost konkrétní. Dostáváte report s čísly, ale nikdo vám nevysvětlí, co z nich vyplývá. Změny v účtu se dějí jen tehdy, když se sami zeptáte. Nikdo se vás nikdy nezeptal na marži ani na hodnotu zákazníka, takže se optimalizuje na obrat místo na zisk. Kampaně vypadají stejně jako před rokem. Nemáte přístup do vlastního reklamního účtu nebo do měření. A ten nejjasnější signál: utrácíte víc než loni a nerostete. Pokud to na vás sedí, začněte auditem, ne výpovědí."
+  },
+  {
+    "q": "Jak poznám dobrou agenturu nebo konzultanta?",
+    "a": "Dobrý konzultant se ptá na váš business, navrhuje proaktivní změny, jasně vysvětluje data a není jen vykonavatelem. Pokud dostáváte jen reporty bez insightů a iniciativy, je na čase něco změnit."
+  },
+  {
+    "q": "Kolik mám investovat do marketingu?",
+    "a": "Neexistuje univerzální číslo. Záleží na vaší marži, životní hodnotě zákazníka (LTV) a fázi firmy. Spočítáme to společně na základě reálných dat vašeho businessu."
+  },
+  {
+    "q": "Pracujete i s klienty z Břeclavi a okolí?",
+    "a": "Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně – často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci."
+  },
+  {
+    "q": "Pokrýváte jen jižní Moravu, nebo i zbytek Česka?",
+    "a": "Osobně jsem doma na jižní Moravě a pravidelně spolupracuji s firmami z celého Jihomoravského kraje: Břeclav, Brno, Hodonín, Znojmo, Mikulov, Kyjov. Online ale obsluhuji celou Českou republiku včetně Prahy a stejně tak Slovensko, kde díky blízkosti jazyka není potřeba nic překládat ani tlumočit. Díky praxi v brněnských agenturách ROIMARK a In Creative znám lokální trh i specifika jihomoravských e-shopů a vinařství. Spolupráci vedeme online nebo osobně podle toho, co vám vyhovuje."
+  },
+  {
+    "q": "Spolupracujete i se slovenskými e-shopy a firmami?",
+    "a": "Ano. Slovenský trh obsluhuji online a jazyk tady není překážka, češtinu a slovenštinu si rozumíme bez tlumočení, takže komunikace i schvalování textů běží stejně rychle jako s českým klientem. Pro Slovensko stavím kampaně v Google Ads a Meta Ads a k tomu lokalizuji produktový feed pro Heureka.sk a další slovenské srovnávače. Nastavení se od české verze liší: jiná aukce, jiné ceny za klik, jiné zvyky ve vyhledávání a jiná měna. Právě tady se dá získat výhoda proti konkurenci, která na Slovensko jen zkopírovala české kampaně."
+  },
+  {
+    "q": "Jak probíhá spolupráce, když nejsem z Břeclavska ani Brna?",
+    "a": "Bez problému. Spolupracuji s klienty po celé ČR včetně Prahy a také na Slovensku. Většinu spolupráce vedu online přes Google Meet, sdílené dashboardy a pravidelné reporty. Osobní schůzku lze domluvit kdekoli v ČR, ale není nutná. Důležitější než geografická blízkost jsou jasná komunikace, rychlé reakce a férový přístup k datům, a to platí bez ohledu na to, odkud jste."
+  }
+]

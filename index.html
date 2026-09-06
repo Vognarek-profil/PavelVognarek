@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+  <!-- charset a viewport MUSÍ být v prvních 1024 bajtech dokumentu -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Preconnect pro rychlejší fonty -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <!-- Preload hero fotky (LCP prvek) -->
+  <link rel="preload" as="image" type="image/webp"
+        href="assets/photos/pavel-vognarek-hero-750.webp"
+        imagesrcset="assets/photos/pavel-vognarek-hero-375.webp 375w, assets/photos/pavel-vognarek-hero-750.webp 750w"
+        imagesizes="(min-width:901px) 340px, 260px"
+        fetchpriority="high"/>
+
   <!-- Google Consent Mode v2 (MUST be before GTM) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -32,150 +47,278 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MQPCXPXD');</script>
   <!-- End Google Tag Manager -->
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO: Title & Description -->
   <title>PPC specialista Břeclav & Brno | Google Ads konzultant – Pavel Vognárek</title>
-  <meta name="description" content="Správa Google Ads, Sklik a Meta kampaní pro e-shopy a B2B. Audit PPC, optimalizace ROAS, zbožové srovnávače. PPC konzultant z Brna a Břeclavi, vítěz Sklik výzvy 2025."/>
-  <meta name="robots" content="index, follow"/>
+  <meta name="description" content="Správa Google Ads, Sklik a Meta pro e-shopy a B2B. 250 mil. Kč v kampaních, průměrný ROAS 4,3. Audit PPC a optimalizace. Břeclav, Brno, jižní Morava."/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <meta name="author" content="Pavel Vognárek"/>
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://pavelvognarek.cz/"/>
+  <!-- Canonical + jazyk -->
+  <link rel="canonical" href="https://www.pavelvognarek.cz/"/>
+  <link rel="alternate" hreflang="cs-CZ" href="https://www.pavelvognarek.cz/"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.pavelvognarek.cz/"/>
 
-  <!-- Favicon (SVG inline) -->
+  <!-- Lokální geo meta -->
+  <meta name="geo.region" content="CZ-JM"/>
+  <meta name="geo.placename" content="Velké Bílovice, Břeclav"/>
+  <meta name="geo.position" content="48.84946;16.89932"/>
+  <meta name="ICBM" content="48.84946, 16.89932"/>
+
+  <!-- Favicon & theme -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='12' fill='%230A33C8'/%3E%3Ctext x='50%25' y='54%25' font-family='Inter,sans-serif' font-weight='900' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPV%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0A33C8"/>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://pavelvognarek.cz/"/>
+  <meta property="og:url" content="https://www.pavelvognarek.cz/"/>
   <meta property="og:title" content="PPC specialista Břeclav & Brno | Google Ads konzultant – Pavel Vognárek"/>
-  <meta property="og:description" content="Správa Google Ads, Sklik a Meta kampaní pro e-shopy a B2B. Audit PPC a optimalizace ROAS. PPC konzultant z Brna a Břeclavi, vítěz Sklik výzvy 2025."/>
-  <meta property="og:image" content="https://pavelvognarek.cz/og_pavel_vognarek.webp"/>
+  <meta property="og:description" content="Správa Google Ads, Sklik a Meta pro e-shopy a B2B. 250 mil. Kč v kampaních, průměrný ROAS 4,3. Audit PPC a optimalizace. Břeclav, Brno, jižní Morava."/>
+  <meta property="og:image" content="https://www.pavelvognarek.cz/og_pavel_vognarek.jpg"/>
+  <meta property="og:image:type" content="image/jpeg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Pavel Vognárek, PPC specialista a Google Ads konzultant z Břeclavi"/>
   <meta property="og:locale" content="cs_CZ"/>
   <meta property="og:site_name" content="Pavel Vognárek"/>
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="PPC specialista Břeclav & Brno | Google Ads konzultant – Pavel Vognárek"/>
-  <meta name="twitter:description" content="Správa Google Ads, Sklik a Meta kampaní pro e-shopy a B2B. Audit PPC a optimalizace ROAS. PPC konzultant z Brna a Břeclavi, vítěz Sklik výzvy 2025."/>
-  <meta name="twitter:image" content="https://pavelvognarek.cz/og_pavel_vognarek.webp"/>
+  <meta name="twitter:description" content="Správa Google Ads, Sklik a Meta pro e-shopy a B2B. 250 mil. Kč v kampaních, průměrný ROAS 4,3. Audit PPC a optimalizace. Břeclav, Brno, jižní Morava."/>
+  <meta name="twitter:image" content="https://www.pavelvognarek.cz/og_pavel_vognarek.jpg"/>
+  <meta name="twitter:image:alt" content="Pavel Vognárek, PPC specialista a Google Ads konzultant z Břeclavi"/>
 
-  <!-- Schema.org JSON-LD -->
+  <!-- Schema.org JSON-LD – propojený @graph (Person + ProfessionalService + WebSite + WebPage) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Pavel Vognárek",
-    "jobTitle": "PPC Specialista & Digitální Marketingový Konzultant",
-    "url": "https://pavelvognarek.cz",
-    "telephone": "+420608633916",
-    "email": "pavogppc@gmail.com",
-    "image": "https://pavelvognarek.cz/assets/photos/pavel-vognarek-hero.webp",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Velké Bílovice",
-      "addressRegion": "Jihomoravský kraj",
-      "postalCode": "69102",
-      "addressCountry": "CZ"
-    },
-    "workLocation": [
-      { "@type": "Place", "name": "Velké Bílovice" },
-      { "@type": "Place", "name": "Břeclav" },
-      { "@type": "Place", "name": "Brno" },
-      { "@type": "Place", "name": "Jižní Morava" }
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/in/pavel-vognarek/"
-    ],
-    "knowsAbout": [
-      "Google Ads", "PPC Marketing", "Meta Ads", "Sklik", "Google Analytics 4",
-      "Mergado", "Google Shopping", "Zbožové srovnávače", "Výkonnostní marketing"
-    ],
-    "description": "PPC specialista a marketingový konzultant z Velkých Bílovic u Břeclavi s praxí v Google Ads, Meta Ads, Sklik a zbožových srovnávačích. Působím v Břeclavi, Brně a na celé jižní Moravě i online po celé ČR. Přes 250 milionů Kč v kampaních. Certifikovaný Google expert a vítěz Sklik výzvy Black Friday 2025.",
-    "hasCredential": [
-      { "@type": "EducationalOccupationalCredential", "name": "Google Ads Search Certification" },
-      { "@type": "EducationalOccupationalCredential", "name": "Google Ads Display Certification" },
-      { "@type": "EducationalOccupationalCredential", "name": "Google Ads Shopping Certification" },
-      { "@type": "EducationalOccupationalCredential", "name": "Google Analytics 4 Certification" },
-      { "@type": "EducationalOccupationalCredential", "name": "Mergado Specialist Certification" }
-    ],
-    "award": [
-      "Vítěz soutěže Sklik výzva – Nejlepší Black Friday strategie 2025"
-    ],
-    "subjectOf": [
+    "@graph": [
       {
-        "@type": "Article",
-        "headline": "Sklik výzva – Nejlepší Black Friday strategie 2025 má vítěze",
-        "url": "https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/",
-        "publisher": { "@type": "Organization", "name": "Seznam.cz" }
+        "@type": "WebSite",
+        "@id": "https://www.pavelvognarek.cz/#website",
+        "url": "https://www.pavelvognarek.cz/",
+        "name": "Pavel Vognárek",
+        "alternateName": "pavelvognarek.cz",
+        "description": "PPC specialista a Google Ads konzultant. Správa Google Ads, Sklik, Meta Ads a zbožových srovnávačů pro e-shopy a B2B firmy v Česku a na Slovensku.",
+        "inLanguage": "cs-CZ",
+        "publisher": { "@id": "https://www.pavelvognarek.cz/#pavel" }
       },
       {
-        "@type": "Article",
-        "headline": "Doppler – případová studie optimalizace kampaní",
-        "url": "https://www.sklikakademie.cz/cs/pripadove-studie/detail/~/17/",
-        "publisher": { "@type": "Organization", "name": "Sklik Akademie" }
+        "@type": "WebPage",
+        "@id": "https://www.pavelvognarek.cz/#webpage",
+        "url": "https://www.pavelvognarek.cz/",
+        "name": "PPC specialista Břeclav & Brno | Google Ads konzultant – Pavel Vognárek",
+        "isPartOf": { "@id": "https://www.pavelvognarek.cz/#website" },
+        "about": { "@id": "https://www.pavelvognarek.cz/#pavel" },
+        "primaryImageOfPage": { "@id": "https://www.pavelvognarek.cz/#heroimage" },
+        "inLanguage": "cs-CZ",
+        "dateModified": "2026-09-06"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.pavelvognarek.cz/#heroimage",
+        "url": "https://www.pavelvognarek.cz/assets/photos/pavel-vognarek-hero-750.webp",
+        "contentUrl": "https://www.pavelvognarek.cz/assets/photos/pavel-vognarek-hero-750.webp",
+        "width": 750,
+        "height": 800,
+        "caption": "Pavel Vognárek, PPC specialista a Google Ads konzultant z Velkých Bílovic u Břeclavi"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.pavelvognarek.cz/#pavel",
+        "name": "Pavel Vognárek",
+        "jobTitle": "PPC specialista a digitální marketingový konzultant",
+        "url": "https://www.pavelvognarek.cz/",
+        "mainEntityOfPage": { "@id": "https://www.pavelvognarek.cz/#webpage" },
+        "telephone": "+420608633916",
+        "email": "pavogppc@gmail.com",
+        "image": { "@id": "https://www.pavelvognarek.cz/#heroimage" },
+        "worksFor": { "@id": "https://www.pavelvognarek.cz/#service" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zárybnická 457",
+          "addressLocality": "Velké Bílovice",
+          "addressRegion": "Jihomoravský kraj",
+          "postalCode": "69102",
+          "addressCountry": "CZ"
+        },
+        "workLocation": [
+          { "@type": "Place", "name": "Velké Bílovice" },
+          { "@type": "Place", "name": "Břeclav" },
+          { "@type": "Place", "name": "Brno" },
+          { "@type": "Place", "name": "Jižní Morava" }
+        ],
+        "knowsLanguage": [
+          { "@type": "Language", "name": "čeština", "alternateName": "cs" },
+          { "@type": "Language", "name": "slovenština", "alternateName": "sk" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/pavel-vognarek/"
+        ],
+        "knowsAbout": [
+          "Google Ads", "Sklik", "Meta Ads", "PPC marketing", "Google Analytics 4",
+          "Google Merchant Center", "Google Shopping", "Performance Max",
+          "Produktové feedy", "Mergado", "Zbožové srovnávače", "Heureka.cz", "Zboží.cz",
+          "Meta Conversions API", "Optimalizace ROAS", "Výkonnostní marketing"
+        ],
+        "description": "PPC specialista a marketingový konzultant z Velkých Bílovic u Břeclavi. Spravuji Google Ads, Sklik, Meta Ads a zbožové srovnávače pro e-shopy a B2B firmy. Přes 250 milionů Kč proinvestovaných v kampaních, průměrný ROAS 4,3. Osobně na jižní Moravě (Břeclav, Brno), online po celé ČR i na Slovensku. Certifikovaný Google expert a vítěz Sklik výzvy Black Friday 2025.",
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "Google Ads Search Certification" },
+          { "@type": "EducationalOccupationalCredential", "name": "Google Ads Display Certification" },
+          { "@type": "EducationalOccupationalCredential", "name": "Google Ads Shopping Certification" },
+          { "@type": "EducationalOccupationalCredential", "name": "Google Analytics 4 Certification" },
+          { "@type": "EducationalOccupationalCredential", "name": "Mergado Specialist Certification" }
+        ],
+        "award": [
+          "Vítěz soutěže Sklik výzva – Nejlepší Black Friday strategie 2025"
+        ],
+        "subjectOf": [
+          {
+            "@type": "Article",
+            "headline": "Sklik výzva – Nejlepší Black Friday strategie 2025 má vítěze",
+            "url": "https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/",
+            "publisher": { "@type": "Organization", "name": "Seznam.cz" }
+          },
+          {
+            "@type": "Article",
+            "headline": "Doppler – případová studie optimalizace kampaní",
+            "url": "https://www.sklikakademie.cz/cs/pripadove-studie/detail/~/17/",
+            "publisher": { "@type": "Organization", "name": "Sklik Akademie" }
+          }
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.pavelvognarek.cz/#service",
+        "name": "Pavel Vognárek – PPC specialista a Google Ads konzultant",
+        "url": "https://www.pavelvognarek.cz/",
+        "image": "https://www.pavelvognarek.cz/og_pavel_vognarek.jpg",
+        "logo": "https://www.pavelvognarek.cz/assets/icons/apple-touch-icon.png",
+        "telephone": "+420608633916",
+        "email": "pavogppc@gmail.com",
+        "priceRange": "$$",
+        "currenciesAccepted": "CZK, EUR",
+        "identifier": [
+          { "@type": "PropertyValue", "name": "IČO", "value": "76591867" }
+        ],
+        "foundingDate": "2010-03-01",
+        "founder": { "@id": "https://www.pavelvognarek.cz/#pavel" },
+        "employee": { "@id": "https://www.pavelvognarek.cz/#pavel" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zárybnická 457",
+          "addressLocality": "Velké Bílovice",
+          "addressRegion": "Jihomoravský kraj",
+          "postalCode": "69102",
+          "addressCountry": "CZ"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 48.84946,
+          "longitude": 16.89932
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Velké Bílovice" },
+          { "@type": "City", "name": "Břeclav" },
+          { "@type": "City", "name": "Brno" },
+          { "@type": "City", "name": "Hodonín" },
+          { "@type": "City", "name": "Mikulov" },
+          { "@type": "City", "name": "Znojmo" },
+          { "@type": "City", "name": "Kyjov" },
+          { "@type": "AdministrativeArea", "name": "Jihomoravský kraj" },
+          { "@type": "Country", "name": "Česká republika" },
+          { "@type": "Country", "name": "Slovensko" }
+        ],
+        "serviceType": [
+          "Správa Google Ads",
+          "Správa Sklik",
+          "Správa Meta Ads",
+          "Produktové feedy a zbožové srovnávače",
+          "Audit PPC kampaní",
+          "Optimalizace ROAS",
+          "Výkonnostní marketing"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Služby PPC specialisty",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Správa Google Ads a Sklik",
+                "serviceType": "Správa PPC kampaní",
+                "url": "https://www.pavelvognarek.cz/sprava-google-ads/",
+                "description": "Search, Shopping a Performance Max pro e-shopy a B2B. Struktura kampaní, klíčová slova, bidding strategie a měření konverzí v GA4.",
+                "provider": { "@id": "https://www.pavelvognarek.cz/#service" },
+                "areaServed": [
+                  { "@type": "Country", "name": "Česká republika" },
+                  { "@type": "Country", "name": "Slovensko" }
+                ]
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Správa Meta Ads a škálování výkonu",
+                "serviceType": "Správa Meta Ads",
+                "url": "https://www.pavelvognarek.cz/sprava-meta-ads/",
+                "description": "Facebook a Instagram: katalogové a remarketingové kampaně, prospecting, obměna kreativy, měření přes Conversions API a škálování podle incrementality.",
+                "provider": { "@id": "https://www.pavelvognarek.cz/#service" },
+                "areaServed": [
+                  { "@type": "Country", "name": "Česká republika" },
+                  { "@type": "Country", "name": "Slovensko" }
+                ]
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Zbožové srovnávače a produktové feedy",
+                "serviceType": "Optimalizace produktových feedů",
+                "url": "https://www.pavelvognarek.cz/ppc-pro-eshopy/",
+                "description": "Google Merchant Center, Heureka, Zboží.cz, Favi, Biano a katalog v Metě. Kvalita dat, názvy produktů, chybějící atributy a pravidla v Mergadu.",
+                "provider": { "@id": "https://www.pavelvognarek.cz/#service" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Audit PPC a optimalizace ROAS",
+                "serviceType": "Audit PPC kampaní",
+                "url": "https://www.pavelvognarek.cz/ppc-audit/",
+                "description": "Audit účtu, měření a feedu s konkrétním plánem na výstupu. Odhalí, kde se utrácí zbytečně a kde leží potenciál růstu.",
+                "provider": { "@id": "https://www.pavelvognarek.cz/#service" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Black Friday a sezónní kampaně",
+                "serviceType": "Sezónní PPC kampaně",
+                "url": "https://www.pavelvognarek.cz/#sluzby",
+                "description": "Příprava strategie na Black Friday, Vánoce a sezónní špičky napříč Google Ads, Sklikem, Meta Ads a srovnávači.",
+                "provider": { "@id": "https://www.pavelvognarek.cz/#service" }
+              }
+            }
+          ]
+        },
+        "award": [
+          "Vítěz soutěže Sklik výzva – Nejlepší Black Friday strategie 2025"
+        ]
       }
     ]
   }
   </script>
 
-  <!-- Schema.org JSON-LD – ProfessionalService (lokální SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Pavel Vognárek – PPC specialista & Google Ads konzultant",
-    "image": "https://pavelvognarek.cz/og_pavel_vognarek.webp",
-    "url": "https://pavelvognarek.cz/",
-    "telephone": "+420608633916",
-    "email": "pavogppc@gmail.com",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Velké Bílovice",
-      "addressRegion": "Jihomoravský kraj",
-      "postalCode": "69102",
-      "addressCountry": "CZ"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Velké Bílovice" },
-      { "@type": "City", "name": "Břeclav" },
-      { "@type": "City", "name": "Brno" },
-      { "@type": "City", "name": "Hodonín" },
-      { "@type": "City", "name": "Mikulov" },
-      { "@type": "City", "name": "Znojmo" },
-      { "@type": "City", "name": "Kyjov" },
-      { "@type": "AdministrativeArea", "name": "Jihomoravský kraj" },
-      { "@type": "Country", "name": "Česká republika" }
-    ],
-    "serviceType": [
-      "PPC marketing",
-      "Google Ads",
-      "Meta Ads",
-      "Sklik",
-      "Google Shopping",
-      "Zbožové srovnávače",
-      "Marketingový audit",
-      "Výkonnostní marketing"
-    ],
-    "founder": {
-      "@type": "Person",
-      "name": "Pavel Vognárek"
-    },
-    "award": [
-      "Vítěz soutěže Sklik výzva – Nejlepší Black Friday strategie 2025"
-    ]
-  }
-  </script>
-
-  <!-- Preconnect pro rychlejší fonty -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
@@ -203,6 +346,11 @@
       50%{box-shadow:0 0 64px rgba(16,165,200,0.6),0 0 0 6px rgba(16,165,200,0.22)}
     }
 
+    /* Respektuj systémové omezení animací (a11y + baterie na mobilu) */
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+    }
+
     /* NAV */
     nav{background:linear-gradient(-45deg,#040e2e,#071f7a,#0A33C8,#071f7a);background-size:400% 400%;animation:bgPulse 20s ease infinite;padding:14px 60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
     .logo-nav{display:flex;align-items:center;gap:12px;color:var(--white);text-decoration:none}
@@ -215,6 +363,16 @@
     .nav-links a:hover{color:var(--cyan)}
     .nav-cta{background:var(--cyan);color:var(--white);border:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;transition:opacity 0.2s}
     .nav-cta:hover{opacity:0.88}
+    .nav-toggle{display:none;background:transparent;border:1.5px solid rgba(255,255,255,0.35);border-radius:8px;width:42px;height:42px;cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+    .nav-toggle span{display:block;width:18px;height:2px;background:var(--white);border-radius:2px;transition:transform .25s,opacity .25s}
+    .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* SKIP LINK + FOCUS */
+    .skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:var(--cyan);color:var(--navy-dark);padding:12px 20px;border-radius:0 0 8px 0;font-weight:700;font-size:14px;text-decoration:none}
+    .skip-link:focus{left:0}
+    a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,[role="switch"]:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
 
     /* HERO */
     .hero{background:linear-gradient(-45deg,#040e2e,#071f7a,#0A33C8,#0d3de0,#10A5C8,#071f7a,#040e2e,#0A33C8);background-size:400% 400%;animation:bgPulse 12s ease infinite;min-height:90vh;display:flex;align-items:center;padding:80px 60px;position:relative;overflow:hidden}
@@ -224,6 +382,8 @@
     .hero-tag{display:inline-block;background:rgba(16,165,200,0.2);color:var(--cyan);border:1px solid rgba(16,165,200,0.4);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
     .hero h1{font-size:48px;font-weight:900;color:var(--white);line-height:1.12;margin-bottom:22px}
     .hero h1 span{color:var(--cyan)}
+    .hero-claim{font-size:23px;font-weight:800;color:var(--white);line-height:1.35;margin-bottom:16px;letter-spacing:-0.01em}
+    .hero-kw{font-size:13px;font-weight:700;color:rgba(255,255,255,0.72);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px}
     .hero-sub{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:38px;max-width:520px}
     .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
     .btn-primary{background:var(--cyan);color:var(--white);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:opacity 0.2s}
@@ -255,6 +415,9 @@
     .container{max-width:1100px;margin:0 auto}
     .section-tag{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
     .section-title{font-size:36px;font-weight:900;color:var(--navy-dark);line-height:1.2;margin-bottom:14px}
+    /* Answer-first: jedna věta, která je sama o sobě úplná odpověď a dá se citovat. */
+    .answer-first{font-size:16px;line-height:1.7;color:var(--text);font-weight:600;max-width:760px;margin:18px 0 0;padding-left:16px;border-left:3px solid var(--cyan)}
+    .answer-first.on-dark{color:rgba(255,255,255,0.9)}
     .section-sub{font-size:16px;color:var(--gray);line-height:1.75;max-width:580px}
 
     /* ABOUT */
@@ -333,15 +496,19 @@
     .ref-ext{font-size:16px;color:rgba(16,165,200,0.7);flex-shrink:0}
 
     /* FAQ */
+    .service-link{display:inline-block;margin-top:12px;color:var(--cyan);font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(16,165,200,0.45);padding-bottom:1px}
+    .service-link:hover{color:var(--white);border-bottom-color:var(--white)}
     .faq-bg{background:var(--light)}
     .faq-list{margin-top:50px;display:flex;flex-direction:column;gap:12px;max-width:780px}
     .faq-item{background:var(--white);border-radius:10px;border:1px solid rgba(10,51,200,0.08);overflow:hidden}
-    .faq-q{padding:20px 26px;font-size:15px;font-weight:700;color:var(--navy-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:color 0.2s}
+    .faq-q{padding:20px 26px;font-size:15px;font-weight:700;color:var(--navy-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;transition:color 0.2s;list-style:none}
+    .faq-q::-webkit-details-marker{display:none}
+    .faq-q::marker{content:""}
     .faq-q:hover{color:var(--cyan)}
-    .faq-toggle{font-size:22px;color:var(--cyan);font-weight:300;transition:transform 0.25s;flex-shrink:0;margin-left:16px}
-    .faq-a{padding:0 26px;font-size:14px;color:var(--gray);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.35s}
-    .faq-item.open .faq-a{max-height:250px;padding:0 26px 22px}
-    .faq-item.open .faq-toggle{transform:rotate(45deg)}
+    .faq-q:focus-visible{outline:3px solid var(--cyan);outline-offset:-3px;border-radius:10px}
+    .faq-toggle{font-size:22px;color:var(--cyan);font-weight:400;transition:transform 0.25s;flex-shrink:0}
+    .faq-a{padding:0 26px 22px;font-size:14px;color:var(--gray);line-height:1.75}
+    .faq-item[open] .faq-toggle{transform:rotate(45deg)}
 
     /* CONTACT */
     .contact-bg{background:linear-gradient(-45deg,#040e2e,#0A33C8,#071f7a,#1040c8,#040e2e);background-size:400% 400%;animation:bgPulse 14s ease infinite}
@@ -359,25 +526,39 @@
     .form-row textarea:focus{border-color:var(--cyan)}
     .form-row textarea{height:110px;resize:none}
     .form-row input::placeholder,
-    .form-row textarea::placeholder{color:rgba(255,255,255,0.28)}
+    .form-row textarea::placeholder{color:rgba(255,255,255,0.55)}
     .submit-btn{width:100%;background:var(--cyan);color:var(--white);border:none;padding:15px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity 0.2s;margin-top:4px}
     .submit-btn:hover{opacity:0.88}
     .submit-btn:disabled{opacity:0.55;cursor:not-allowed}
+    .form-consent{font-size:12px;line-height:1.6;color:rgba(255,255,255,0.62);margin-top:14px}
+    .form-consent a{color:var(--cyan);text-decoration:underline}
     .form-status{margin-top:14px;font-size:13px;text-align:center;min-height:18px;line-height:1.5}
 
     /* FOOTER */
-    footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.38);font-size:13px}
+    footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.62);font-size:13px}
     footer span{color:var(--cyan)}
+    footer .foot-nav{margin-bottom:12px;font-size:13px}
+    footer .foot-nav a{color:var(--cyan);text-decoration:none;font-weight:600}
+    footer .foot-nav a:hover{text-decoration:underline}
 
     /* RESPONSIVE */
     @media(max-width:900px){
-      nav{padding:14px 24px}
-      .nav-links{display:none}
+      nav{padding:14px 20px;flex-wrap:wrap;gap:10px}
+      .client-logos{grid-template-columns:repeat(2,1fr);gap:12px}
+      .nav-toggle{display:flex}
+      .nav-links{display:none;order:3;width:100%;flex-direction:column;gap:0;margin-top:4px;border-top:1px solid rgba(255,255,255,0.14);padding-top:4px}
+      .nav-links.is-open{display:flex}
+      .nav-links a{padding:13px 2px;font-size:15px;border-bottom:1px solid rgba(255,255,255,0.08)}
+      .nav-links a:last-child{border-bottom:none}
+      .nav-cta{padding:9px 16px;font-size:13px;margin-left:auto}
+      .stats-card{flex-direction:column;gap:14px;padding:18px 22px;border-radius:16px;display:flex}
+      .stat-item{padding:0;width:100%}
+      .stat-sep{width:100%;height:1px}
       section{padding:60px 24px}
-      nav{padding:14px 24px}
       .hero{padding:60px 24px;min-height:auto}
       .hero-inner{grid-template-columns:1fr;gap:40px}
       .hero h1{font-size:34px}
+      .hero-claim{font-size:19px}
       .hero-photo-wrap{order:-1}
       .hero-photo-circle{width:260px;height:310px;border-radius:20px}
       .about-grid{grid-template-columns:1fr}
@@ -436,6 +617,173 @@
       .cookie-modal-buttons .cookie-btn{min-width:100%}
     }
   </style>
+  <!-- FAQ-SCHEMA:START (generovano tools/build-faq.py) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://www.pavelvognarek.cz/#faq",
+    "inLanguage": "cs-CZ",
+    "isPartOf": {
+      "@id": "https://www.pavelvognarek.cz/#website"
+    },
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Co všechno je součástí správy Google Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Správa Google Ads u mě znamená celý cyklus, ne jen zapnutí kampaní. Patří do ní audit a nastavení struktury kampaní, klíčová slova i negativní klíčová slova, texty reklam a rozšíření, volba a hlídání bidding strategie, kontrola měření konverzí v GA4, práce s produktovým feedem pro Shopping a Performance Max, průběžná optimalizace rozpočtů a měsíční report, ve kterém se dozvíte, co se stalo, proč a co bude dál. Součástí je i strategický dialog nad tím, jestli má smysl utrácet víc, nebo jinde."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Spravujete i Meta Ads, tedy reklamu na Facebooku a Instagramu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ano, Meta Ads je u mě rovnocenný kanál, ne přívěsek k Googlu. U e-shopů typicky řeším katalogové a dynamické remarketingové kampaně nad produktovým feedem, prospecting na nová publika a kreativu, protože právě na kreativě se výsledek v Metě láme nejvíc. U B2B jde hlavně o lead kampaně a formuláře. Součástí je nastavení a kontrola měření přes Meta Pixel a Conversions API, protože bez server-side měření dnes Meta ztrácí velkou část konverzí. Google a Meta pak hodnotím společně, aby se nestalo, že si dva kanály přiznávají stejnou objednávku a rozpočet se rozhoduje podle nafouknutých čísel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak se dá na Meta Ads škálovat výkon, když se kampaň zasekne?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zaseknutá kampaň v Metě má obvykle jednu ze tří příčin: vyčerpaná kreativa, vyčerpané publikum, nebo rozbité měření, které algoritmu podsouvá špatný signál. Postupuju v tomto pořadí, protože nasypat víc peněz do vyčerpané kreativy jen zdraží stejný výsledek. Škáluju pak dvěma směry: do šířky přes nová publika, nové trhy a nové formáty, a do hloubky přes obměnu kreativy v pravidelném cyklu a přes konsolidaci sestav, aby algoritmus měl dost konverzí na jedno rozhodnutí. Rozpočet zvedám postupně, ne skokově, protože velký skok resetuje učící fázi. A každý krok se posuzuje na incrementalitě, tedy kolik objednávek reálně přibylo, ne kolik si Meta připsala."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kolik stojí správa PPC kampaní?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cenu určují tři věci: počet kanálů (Google Ads, Sklik, Meta, zbožové srovnávače), objem kampaní a fáze, ve které účet je. Jinak se počítá malý e-shop, který startuje, a jinak značka s rozpočty v milionech. Pracuji ve třech modelech: měsíční retainer za dlouhodobou správu, jednorázový audit s konkrétním plánem, a nárazový projekt, typicky příprava na Black Friday. Konkrétní číslo dostanete po úvodní konzultaci, která trvá asi 30 minut a je zdarma. Cenu neposílám naslepo, bez pohledu do účtu by to bylo tipování."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak probíhá spolupráce s PPC konzultantem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "První krok je úvodní call (cca 30 min) zdarma – probereme váš business, cíle, aktuální stav PPC a co od spolupráce čekáte. Pokud to dává smysl, navazuje audit (1–2 týdny) – analýza Google Ads, Sklik, Meta účtu, měření, feedu a celkové strategie. Po auditu dostanete konkrétní plán a kalkulaci. Pak buď pokračujeme dlouhodobou správou (optimalizace, reporting, strategické konzultace), nebo s vámi předáme změny vašemu týmu. Komunikace je online přes Google Meet, e-mail a sdílené dashboardy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak dlouho trvá, než se PPC kampaň rozjede?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "U nové kampaně se chytré bidding strategie učí typicky dva až tři týdny, než mají dost konverzních dat na stabilní výkon. První poctivé vyhodnocení proto dělám po čtyřech až šesti týdnech, ne po týdnu. U existujícího účtu, kde jde o optimalizaci a ne o start z nuly, se první změny v číslech projeví dřív, běžně během dvou týdnů. Sezónní kampaně jako Black Friday nebo Vánoce je potřeba připravit s předstihem šesti až osmi týdnů, aby byly rozjeté ještě před špičkou."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Převezmete existující účet, nebo stavíte kampaně od nuly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Obojí, ale výchozí volba je převzetí. Existující účet nese historická data, konverzní historii a naučené bidding strategie, a to má cenu, kterou nový účet nemá. Začínám proto auditem: co v účtu funguje, co jen utrácí a kde je rozbité měření. Nový účet stavím jen tam, kde je stávající struktura neopravitelná, nebo když firma s PPC teprve začíná. Většina spoluprací u mě startuje auditem převzatého účtu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Spravujete i Sklik, nebo jen Google Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sklik spravuji a u českých e-shopů ho považuju za povinnou součást, ne za doplněk. Má jinou aukci a jiné publikum než Google Ads, takže se často vyplatí i tam, kde je Google už nasycený. Ve Skliku jsem vyhrál Sklik výzvu za nejlepší Black Friday strategii 2025. Standardně tedy pracuji se čtyřmi kanály: Google Ads, Sklik, Meta Ads a zbožové srovnávače, a hodnotím je proti sobě, aby rozpočet tekl tam, kde reálně vydělává."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pracujete i s produktovými feedy pro Google Shopping, Heureku a Zboží.cz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ano a u e-shopů je to jedna z nejvýnosnějších částí práce. Feed rozhoduje o tom, na jaké dotazy se produkt vůbec ukáže, takže se v něm dá získat víc než dolaďováním nabídek v kampani. Konkrétně řeším kvalitu a úplnost dat v Google Merchant Centru, názvy a popisky produktů podle toho, co lidé reálně hledají, doplňování chybějících atributů jako GTIN, značka nebo velikost, správnou kategorizaci, vylučování neprodejných a nedostupných položek a pravidla v Mergadu. Napojení jde na Google Shopping a Performance Max, na Heureku, Zboží.cz, Favi, Biano a na katalog v Metě, aby všechny kanály jely z jednoho čistého zdroje dat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pro jaké klienty se spolupráce hodí?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nejlépe sedím e-shopům a B2B firmám, kde už Google Ads nebo Sklik běží, ale chybí strategický pohled, propojení kanálů, nebo chcete přejít z agentury, kde vás jen „obsluhují\". Pracoval jsem se značkami od menších e-shopů s rozpočty v desítkách tisíc měsíčně po větší účty s rozpočty v milionech (Doppler, Biju.cz, Lomax, Fitmin a další). Méně vhodné je to pro firmy, které hledají jen úplně základní úpravu kampaní bez strategického dialogu nebo bez přístupu k datům a měření."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Proč mi nefungují kampaně?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Proč mi klesá ROAS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak poznám, že mi PPC agentura nefunguje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Signálů je několik a jsou dost konkrétní. Dostáváte report s čísly, ale nikdo vám nevysvětlí, co z nich vyplývá. Změny v účtu se dějí jen tehdy, když se sami zeptáte. Nikdo se vás nikdy nezeptal na marži ani na hodnotu zákazníka, takže se optimalizuje na obrat místo na zisk. Kampaně vypadají stejně jako před rokem. Nemáte přístup do vlastního reklamního účtu nebo do měření. A ten nejjasnější signál: utrácíte víc než loni a nerostete. Pokud to na vás sedí, začněte auditem, ne výpovědí."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak poznám dobrou agenturu nebo konzultanta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dobrý konzultant se ptá na váš business, navrhuje proaktivní změny, jasně vysvětluje data a není jen vykonavatelem. Pokud dostáváte jen reporty bez insightů a iniciativy, je na čase něco změnit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kolik mám investovat do marketingu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neexistuje univerzální číslo. Záleží na vaší marži, životní hodnotě zákazníka (LTV) a fázi firmy. Spočítáme to společně na základě reálných dat vašeho businessu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pracujete i s klienty z Břeclavi a okolí?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně – často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Pokrýváte jen jižní Moravu, nebo i zbytek Česka?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Osobně jsem doma na jižní Moravě a pravidelně spolupracuji s firmami z celého Jihomoravského kraje: Břeclav, Brno, Hodonín, Znojmo, Mikulov, Kyjov. Online ale obsluhuji celou Českou republiku včetně Prahy a stejně tak Slovensko, kde díky blízkosti jazyka není potřeba nic překládat ani tlumočit. Díky praxi v brněnských agenturách ROIMARK a In Creative znám lokální trh i specifika jihomoravských e-shopů a vinařství. Spolupráci vedeme online nebo osobně podle toho, co vám vyhovuje."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Spolupracujete i se slovenskými e-shopy a firmami?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ano. Slovenský trh obsluhuji online a jazyk tady není překážka, češtinu a slovenštinu si rozumíme bez tlumočení, takže komunikace i schvalování textů běží stejně rychle jako s českým klientem. Pro Slovensko stavím kampaně v Google Ads a Meta Ads a k tomu lokalizuji produktový feed pro Heureka.sk a další slovenské srovnávače. Nastavení se od české verze liší: jiná aukce, jiné ceny za klik, jiné zvyky ve vyhledávání a jiná měna. Právě tady se dá získat výhoda proti konkurenci, která na Slovensko jen zkopírovala české kampaně."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak probíhá spolupráce, když nejsem z Břeclavska ani Brna?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bez problému. Spolupracuji s klienty po celé ČR včetně Prahy a také na Slovensku. Většinu spolupráce vedu online přes Google Meet, sdílené dashboardy a pravidelné reporty. Osobní schůzku lze domluvit kdekoli v ČR, ale není nutná. Důležitější než geografická blízkost jsou jasná komunikace, rychlé reakce a férový přístup k datům, a to platí bez ohledu na to, odkud jste."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- FAQ-SCHEMA:END -->
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -443,9 +791,11 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
   <!-- NAV -->
   <nav>
-    <a href="#" class="logo-nav">
+    <a href="/" class="logo-nav" aria-label="Pavel Vognárek, úvodní stránka">
       <svg class="logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="60" height="60" rx="12" fill="#0A33C8"/>
         <text x="50%" y="52%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
@@ -456,7 +806,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>PPC Specialista</span>
       </div>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#o-mne">O mně</a>
       <a href="#reference">Reference</a>
       <a href="#problemy">Problémy</a>
@@ -465,16 +815,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#faq">FAQ</a>
     </div>
     <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <main id="obsah">
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-tag">PPC Specialista &amp; Konzultant</div>
-        <h1>Nepomáhám vám<br>s reklamou.<br><span>Pomáhám vám růst.</span></h1>
-        <p style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.72);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px">PPC specialista &amp; Google Ads konzultant · Břeclav · Brno · Jižní Morava · online pro celou ČR</p>
-        <p class="hero-sub">Správa Google Ads, Sklik a Meta kampaní pro e-shopy a B2B. Audit PPC, optimalizace ROAS a zbožové srovnávače – propojené do jedné strategie šité na míru vašemu businessu.</p>
+        <h1>PPC specialista pro e-shopy a&nbsp;B2B<br><span>Břeclav, Brno a celá ČR</span></h1>
+        <p class="hero-claim">Nepomáhám vám s reklamou. Pomáhám vám růst.</p>
+        <p class="hero-kw">Google Ads · Sklik · Meta Ads · zbožové srovnávače · Česko i Slovensko</p>
+        <p class="hero-sub">Spravuji Google Ads, Sklik, Meta Ads a produktové feedy pro e-shopy a B2B firmy. Přes 250 milionů Kč proinvestovaných v kampaních, průměrný ROAS 4,3. Všechny kanály vedu jako jednu strategii, ne jako čtyři oddělené účty.</p>
         <div class="hero-btns">
           <a href="#kontakt" class="btn-primary">Domluvit konzultaci</a>
           <a href="#o-mne" class="btn-ghost">Více o mně</a>
@@ -506,6 +862,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="stat-sep"></div>
             <div class="stat-item">
+              <div class="stat-icon" style="background:rgba(16,165,200,0.12)">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10A5C8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>
+                </svg>
+              </div>
+              <div>
+                <div class="stat-num">4,3<span style="font-size:0.7em">×</span></div>
+                <div class="stat-label">průměrný ROAS</div>
+              </div>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-item">
               <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round">
                   <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
@@ -521,7 +889,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="hero-photo-wrap">
         <div class="hero-photo-circle">
-          <img src="assets/photos/pavel-vognarek-hero.webp" alt="Pavel Vognárek – PPC specialista a Google Ads konzultant z Břeclavi, Brno, jižní Morava" width="1876" height="2001" fetchpriority="high"/>
+          <img src="assets/photos/pavel-vognarek-hero-750.webp"
+               srcset="assets/photos/pavel-vognarek-hero-375.webp 375w, assets/photos/pavel-vognarek-hero-750.webp 750w"
+               sizes="(min-width:901px) 340px, 260px"
+               alt="Pavel Vognárek – PPC specialista a Google Ads konzultant z Břeclavi, Brno, jižní Morava"
+               width="750" height="800" fetchpriority="high"/>
         </div>
       </div>
     </div>
@@ -534,6 +906,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="about-text">
           <div class="section-tag">O mně</div>
           <h2 class="section-title">Digitální marketing, který dává smysl</h2>
+          <p class="answer-first">Pavel Vognárek je PPC specialista a Google Ads konzultant z Velkých Bílovic u Břeclavi. Spravuje Google Ads, Sklik, Meta Ads a produktové feedy pro e-shopy a B2B firmy v Česku i na Slovensku. V kampaních proinvestoval přes 250 milionů Kč s průměrným ROAS 4,3.</p>
           <p>Jsem Pavel Vognárek – <strong>PPC specialista a Google Ads konzultant z Velkých Bílovic u Břeclavi</strong> s praxí, za kterou stojí přes <strong>250 milionů Kč investovaných do reklamních kampaní</strong>. Zkušenosti jsem sbíral jako Team Leader v brněnských agenturách ROIMARK a In Creative.</p>
           <p>Moje práce není jen o spouštění reklam. Je to o pochopení businessu, správném čtení dat a strategickém myšlení, které přináší reálné výsledky – ne jen hezké reporty. Pracuji s klienty z <strong>Břeclavi, Brna, celé jižní Moravy</strong> (Hodonín, Mikulov, Znojmo, Kyjov) <strong>i z Prahy</strong> a online po celé ČR.</p>
           <div class="cert-list">
@@ -578,25 +951,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="collab-grid">
             <div class="agency-card">
               <div class="agency-head">
-                <img class="agency-logo-img" src="assets/logos/roimark.png" alt="ROIMARK – PPC agentura Brno" width="804" height="247" loading="lazy">
+                <img class="agency-logo-img" src="assets/logos/roimark.webp" alt="ROIMARK – PPC agentura Brno" width="340" height="104" loading="lazy">
                 <span class="agency-role">Konzultant</span>
               </div>
               <p class="agency-desc">Vybrané značky, na kterých jsem pracoval:</p>
               <div class="client-logos">
                 <div class="client-logo"><img src="assets/logos/biju.png" alt="Biju.cz – e-shop s bižuterií" width="225" height="225" loading="lazy"></div>
                 <div class="client-logo"><img src="assets/logos/doppler.webp" alt="Doppler – výrobce deštníků" width="250" height="175" loading="lazy"></div>
-                <div class="client-logo"><img src="assets/logos/vinotrh.jpg" alt="Vinotrh – e-shop s vínem" width="1206" height="435" loading="lazy"></div>
+                <div class="client-logo"><img src="assets/logos/vinotrh.webp" alt="Vinotrh – e-shop s vínem" width="400" height="144" loading="lazy"></div>
               </div>
               <div class="agency-badge">🏆 Vítěz Sklik výzvy BF 2025 (s Biju.cz)</div>
             </div>
             <div class="agency-card">
               <div class="agency-head">
-                <img class="agency-logo-img" src="assets/logos/increative.png" alt="In Creative – marketingová agentura Brno" width="1200" height="311" loading="lazy">
+                <img class="agency-logo-img" src="assets/logos/increative.webp" alt="In Creative – marketingová agentura Brno" width="340" height="88" loading="lazy">
                 <span class="agency-role">Team Leader PPC</span>
               </div>
               <p class="agency-desc">Vybrané značky, na kterých jsem pracoval:</p>
               <div class="client-logos">
-                <div class="client-logo"><img src="assets/logos/lomax.jpg" alt="Lomax – výrobce garážových vrat" width="1269" height="461" loading="lazy"></div>
+                <div class="client-logo"><img src="assets/logos/lomax.webp" alt="Lomax – výrobce garážových vrat" width="400" height="145" loading="lazy"></div>
                 <div class="client-logo"><img src="assets/logos/izomat.png" alt="Izomat – výrobce stavebních materiálů" width="424" height="119" loading="lazy"></div>
                 <div class="client-logo"><img src="assets/logos/fitmin.webp" alt="Fitmin – krmivo pro psy a kočky" width="836" height="251" loading="lazy"></div>
               </div>
@@ -680,27 +1053,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="section-tag" style="color:var(--cyan)">Co pro vás udělám</div>
       <h2 class="section-title" style="color:#fff">Služby</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.58)">Kompletní péče o váš výkonnostní marketing – od strategie po každodenní optimalizaci.</p>
+      <p class="answer-first on-dark">Kompletní správa výkonnostního marketingu: Google Ads, Sklik, Meta Ads a zbožové srovnávače včetně produktových feedů. Pro e-shopy i B2B firmy v Česku a na Slovensku, od auditu a strategie po každodenní optimalizaci a měsíční reporting.</p>
+      <p class="section-sub" style="color:rgba(255,255,255,0.58);margin-top:18px">Čtyři kanály pod jednou střechou: Google Ads, Sklik, Meta Ads a zbožové srovnávače. Pro Česko i pro Slovensko.</p>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-num">01</div>
-          <h3>Správa Google Ads, Sklik a Meta Ads</h3>
-          <p>Kompletní správa PPC kampaní pro e-shopy a B2B – od první strategie po každodenní optimalizaci search, shopping a obsahových kampaní.</p>
+          <h3>Správa Google Ads a Sklik</h3>
+          <p>Search, Shopping a Performance Max pro e-shopy a B2B. Struktura kampaní, klíčová slova, bidding strategie a měření konverzí v GA4. Od první strategie po každodenní optimalizaci.</p>
+          <a class="service-link" href="/sprava-google-ads/">Více o správě Google Ads →</a>
         </div>
         <div class="service-card">
           <div class="service-num">02</div>
-          <h3>Audit PPC a optimalizace ROAS</h3>
-          <p>Detailní audit účtu, měření a feedu. Odhalím, kde se utrácí zbytečně a kde leží potenciál růstu. Iterativní optimalizace zaměřená na ROAS.</p>
+          <h3>Správa Meta Ads a škálování výkonu</h3>
+          <p>Facebook a Instagram jako rovnocenný kanál, ne přívěsek k Googlu. Katalogové a remarketingové kampaně, prospecting, obměna kreativy a měření přes Conversions API. Škálování podle incrementality, ne podle nafouknutých atribucí.</p>
+          <a class="service-link" href="/sprava-meta-ads/">Více o správě Meta Ads →</a>
         </div>
         <div class="service-card">
           <div class="service-num">03</div>
-          <h3>Zbožové srovnávače a feedy</h3>
-          <p>Mergado, Google Merchant Center, Heureka, Zboží.cz. Správně nastavený feed = nižší CPC a vyšší ROAS na shopping kampaních.</p>
+          <h3>Zbožové srovnávače a produktové feedy</h3>
+          <p>Google Merchant Center, Heureka, Zboží.cz, Favi, Biano, katalog v Metě. Kvalita dat, názvy produktů podle reálných dotazů, chybějící atributy a pravidla v Mergadu. Čistý feed znamená nižší CPC a vyšší ROAS.</p>
+          <a class="service-link" href="/ppc-pro-eshopy/">Více o PPC pro e-shopy →</a>
         </div>
         <div class="service-card">
           <div class="service-num">04</div>
+          <h3>Audit PPC a optimalizace ROAS</h3>
+          <p>Detailní audit účtu, měření a feedu. Odhalím, kde se utrácí zbytečně a kde leží potenciál růstu. Výstupem je konkrétní plán, ne seznam obecných doporučení.</p>
+          <a class="service-link" href="/ppc-audit/">Více o auditu PPC →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-num">05</div>
           <h3>Black Friday a sezónní kampaně</h3>
-          <p>Příprava strategie na Black Friday, Vánoce a sezónní špičky. Reálné zkušenosti – vítěz Sklik výzvy Black Friday 2025.</p>
+          <p>Příprava strategie na Black Friday, Vánoce a sezónní špičky napříč Googlem, Sklikem, Metou i srovnávači. Reálné zkušenosti, vítěz Sklik výzvy Black Friday 2025.</p>
         </div>
       </div>
     </div>
@@ -716,29 +1099,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <h4>Komplexní pohled na business</h4>
-              <p>Neřeším jen kampaně, řeším celý marketing a jeho napojení na váš business. Výsledky musí dávat smysl.</p>
+              <h4>Čtyři kanály, jedna strategie</h4>
+              <p>Google Ads, Sklik, Meta Ads a zbožové srovnávače vedu společně, ne jako čtyři oddělené účty. Díky tomu se pozná, kdy si dva kanály přiznávají stejnou objednávku, a rozpočet se nerozhoduje podle nafouknutých čísel.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
               <h4>Transparentní komunikace</h4>
-              <p>Vždy víte, co dělám, proč to dělám a co to přináší. Žádný black box přístup.</p>
+              <p>Přístup do účtů zůstává váš, reporty chodí měsíčně a u každé změny se dozvíte, proč se udělala a co přinesla. Komunikace přes Google Meet, e-mail a sdílené dashboardy. Žádný black box.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <h4>Ověřené výsledky</h4>
-              <p>Přes 250 milionů Kč v kampaních, vítěz Sklik výzvy Black Friday 2025 a případová studie na Sklik Akademii.</p>
+              <h4>Ověřitelné výsledky</h4>
+              <p>Přes 250 milionů Kč proinvestovaných v kampaních, průměrný ROAS 4,3, první místo ve Sklik výzvě Black Friday 2025 a případová studie na Sklik Akademii. Obojí si můžete ověřit u zdroje, odkazy najdete v referencích.</p>
             </div>
           </div>
           <div class="why-item">
             <div class="why-check">✓</div>
             <div>
-              <h4>Data jako základ rozhodování</h4>
-              <p>Správné nastavení měření a čtení dat je základ. Bez dat nelze správně optimalizovat.</p>
+              <h4>Optimalizace na zisk, ne na obrat</h4>
+              <p>Než se sáhne na kampaně, musí sedět měření: konverze v GA4, Conversions API v Metě a čistý produktový feed. Pak se ptám na marži a hodnotu zákazníka, protože ROAS bez marže je jen hezké číslo do reportu.</p>
             </div>
           </div>
         </div>
@@ -751,48 +1134,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="section-tag">FAQ</div>
       <h2 class="section-title">Nejčastější otázky</h2>
-      <div class="faq-list" id="faqList">
-        <div class="faq-item">
-          <div class="faq-q">Proč mi nefungují kampaně? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Jak poznám dobrou agenturu nebo konzultanta? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Dobrý konzultant se ptá na váš business, navrhuje proaktivní změny, jasně vysvětluje data a není jen vykonavatelem. Pokud dostáváte jen reporty bez insightů a iniciativy, je na čase něco změnit.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Kolik mám investovat do marketingu? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Neexistuje univerzální číslo. Záleží na vaší marži, životní hodnotě zákazníka (LTV) a fázi firmy. Spočítáme to společně na základě reálných dat vašeho businessu.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Proč mi klesá ROAS? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Pracujete i s klienty z Břeclavi a okolí? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně – často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Pokrýváte celou jižní Moravu? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Ano. Pravidelně spolupracuji s firmami z celého Jihomoravského kraje – Břeclav, Brno, Hodonín, Znojmo, Mikulov, Kyjov. Díky praxi v brněnských agenturách (ROIMARK, In Creative) znám lokální trh i specifika jihomoravských e-shopů a vinařství. Spolupráci vedeme online nebo osobně podle preferencí klienta.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Jak probíhá spolupráce, když nejsem z Břeclavska ani Brna? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Bez problému. Spolupracuji s klienty po celé ČR včetně Prahy – většinu spolupráce vedu online přes Google Meet, sdílené dashboardy a pravidelné reporty. Osobní schůzku lze domluvit kdekoli v ČR, ale není nutná. Důležitější než geografická blízkost jsou jasná komunikace, rychlé reakce a férový přístup k datům – to vám garantuji bez ohledu na to, odkud jste.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Kolik stojí správa PPC kampaní? <span class="faq-toggle">+</span></div>
-          <div class="faq-a">Cena se odvíjí od objemu kampaní, počtu kanálů (Google Ads, Sklik, Meta) a fáze, ve které se vaše PPC nachází. Jiná je investice u malého e-shopu, který startuje, a jiná u větší značky s rozpočty v milionech. Vždy začínáme úvodní konzultací zdarma, kde si projdeme aktuální stav, cíle a domluvíme model spolupráce – měsíční retainer, jednorázový audit, nebo nárazový projekt (např. Black Friday příprava).</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Jak probíhá spolupráce s PPC konzultantem? <span class="faq-toggle">+</span></div>
+      <!-- FAQ:START (generovano tools/build-faq.py) -->
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Co všechno je součástí správy Google Ads? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Správa Google Ads u mě znamená celý cyklus, ne jen zapnutí kampaní. Patří do ní audit a nastavení struktury kampaní, klíčová slova i negativní klíčová slova, texty reklam a rozšíření, volba a hlídání bidding strategie, kontrola měření konverzí v GA4, práce s produktovým feedem pro Shopping a Performance Max, průběžná optimalizace rozpočtů a měsíční report, ve kterém se dozvíte, co se stalo, proč a co bude dál. Součástí je i strategický dialog nad tím, jestli má smysl utrácet víc, nebo jinde.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Spravujete i Meta Ads, tedy reklamu na Facebooku a Instagramu? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Ano, Meta Ads je u mě rovnocenný kanál, ne přívěsek k Googlu. U e-shopů typicky řeším katalogové a dynamické remarketingové kampaně nad produktovým feedem, prospecting na nová publika a kreativu, protože právě na kreativě se výsledek v Metě láme nejvíc. U B2B jde hlavně o lead kampaně a formuláře. Součástí je nastavení a kontrola měření přes Meta Pixel a Conversions API, protože bez server-side měření dnes Meta ztrácí velkou část konverzí. Google a Meta pak hodnotím společně, aby se nestalo, že si dva kanály přiznávají stejnou objednávku a rozpočet se rozhoduje podle nafouknutých čísel.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak se dá na Meta Ads škálovat výkon, když se kampaň zasekne? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Zaseknutá kampaň v Metě má obvykle jednu ze tří příčin: vyčerpaná kreativa, vyčerpané publikum, nebo rozbité měření, které algoritmu podsouvá špatný signál. Postupuju v tomto pořadí, protože nasypat víc peněz do vyčerpané kreativy jen zdraží stejný výsledek. Škáluju pak dvěma směry: do šířky přes nová publika, nové trhy a nové formáty, a do hloubky přes obměnu kreativy v pravidelném cyklu a přes konsolidaci sestav, aby algoritmus měl dost konverzí na jedno rozhodnutí. Rozpočet zvedám postupně, ne skokově, protože velký skok resetuje učící fázi. A každý krok se posuzuje na incrementalitě, tedy kolik objednávek reálně přibylo, ne kolik si Meta připsala.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Kolik stojí správa PPC kampaní? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Cenu určují tři věci: počet kanálů (Google Ads, Sklik, Meta, zbožové srovnávače), objem kampaní a fáze, ve které účet je. Jinak se počítá malý e-shop, který startuje, a jinak značka s rozpočty v milionech. Pracuji ve třech modelech: měsíční retainer za dlouhodobou správu, jednorázový audit s konkrétním plánem, a nárazový projekt, typicky příprava na Black Friday. Konkrétní číslo dostanete po úvodní konzultaci, která trvá asi 30 minut a je zdarma. Cenu neposílám naslepo, bez pohledu do účtu by to bylo tipování.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak probíhá spolupráce s PPC konzultantem? <span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">První krok je úvodní call (cca 30 min) zdarma – probereme váš business, cíle, aktuální stav PPC a co od spolupráce čekáte. Pokud to dává smysl, navazuje audit (1–2 týdny) – analýza Google Ads, Sklik, Meta účtu, měření, feedu a celkové strategie. Po auditu dostanete konkrétní plán a kalkulaci. Pak buď pokračujeme dlouhodobou správou (optimalizace, reporting, strategické konzultace), nebo s vámi předáme změny vašemu týmu. Komunikace je online přes Google Meet, e-mail a sdílené dashboardy.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Pro jaké klienty se spolupráce hodí? <span class="faq-toggle">+</span></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak dlouho trvá, než se PPC kampaň rozjede? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">U nové kampaně se chytré bidding strategie učí typicky dva až tři týdny, než mají dost konverzních dat na stabilní výkon. První poctivé vyhodnocení proto dělám po čtyřech až šesti týdnech, ne po týdnu. U existujícího účtu, kde jde o optimalizaci a ne o start z nuly, se první změny v číslech projeví dřív, běžně během dvou týdnů. Sezónní kampaně jako Black Friday nebo Vánoce je potřeba připravit s předstihem šesti až osmi týdnů, aby byly rozjeté ještě před špičkou.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Převezmete existující účet, nebo stavíte kampaně od nuly? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Obojí, ale výchozí volba je převzetí. Existující účet nese historická data, konverzní historii a naučené bidding strategie, a to má cenu, kterou nový účet nemá. Začínám proto auditem: co v účtu funguje, co jen utrácí a kde je rozbité měření. Nový účet stavím jen tam, kde je stávající struktura neopravitelná, nebo když firma s PPC teprve začíná. Většina spoluprací u mě startuje auditem převzatého účtu.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Spravujete i Sklik, nebo jen Google Ads? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Sklik spravuji a u českých e-shopů ho považuju za povinnou součást, ne za doplněk. Má jinou aukci a jiné publikum než Google Ads, takže se často vyplatí i tam, kde je Google už nasycený. Ve Skliku jsem vyhrál Sklik výzvu za nejlepší Black Friday strategii 2025. Standardně tedy pracuji se čtyřmi kanály: Google Ads, Sklik, Meta Ads a zbožové srovnávače, a hodnotím je proti sobě, aby rozpočet tekl tam, kde reálně vydělává.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Pracujete i s produktovými feedy pro Google Shopping, Heureku a Zboží.cz? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Ano a u e-shopů je to jedna z nejvýnosnějších částí práce. Feed rozhoduje o tom, na jaké dotazy se produkt vůbec ukáže, takže se v něm dá získat víc než dolaďováním nabídek v kampani. Konkrétně řeším kvalitu a úplnost dat v Google Merchant Centru, názvy a popisky produktů podle toho, co lidé reálně hledají, doplňování chybějících atributů jako GTIN, značka nebo velikost, správnou kategorizaci, vylučování neprodejných a nedostupných položek a pravidla v Mergadu. Napojení jde na Google Shopping a Performance Max, na Heureku, Zboží.cz, Favi, Biano a na katalog v Metě, aby všechny kanály jely z jednoho čistého zdroje dat.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Pro jaké klienty se spolupráce hodí? <span class="faq-toggle" aria-hidden="true">+</span></summary>
           <div class="faq-a">Nejlépe sedím e-shopům a B2B firmám, kde už Google Ads nebo Sklik běží, ale chybí strategický pohled, propojení kanálů, nebo chcete přejít z agentury, kde vás jen „obsluhují". Pracoval jsem se značkami od menších e-shopů s rozpočty v desítkách tisíc měsíčně po větší účty s rozpočty v milionech (Doppler, Biju.cz, Lomax, Fitmin a další). Méně vhodné je to pro firmy, které hledají jen úplně základní úpravu kampaní bez strategického dialogu nebo bez přístupu k datům a měření.</div>
-        </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Proč mi nefungují kampaně? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Proč mi klesá ROAS? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak poznám, že mi PPC agentura nefunguje? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Signálů je několik a jsou dost konkrétní. Dostáváte report s čísly, ale nikdo vám nevysvětlí, co z nich vyplývá. Změny v účtu se dějí jen tehdy, když se sami zeptáte. Nikdo se vás nikdy nezeptal na marži ani na hodnotu zákazníka, takže se optimalizuje na obrat místo na zisk. Kampaně vypadají stejně jako před rokem. Nemáte přístup do vlastního reklamního účtu nebo do měření. A ten nejjasnější signál: utrácíte víc než loni a nerostete. Pokud to na vás sedí, začněte auditem, ne výpovědí.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak poznám dobrou agenturu nebo konzultanta? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Dobrý konzultant se ptá na váš business, navrhuje proaktivní změny, jasně vysvětluje data a není jen vykonavatelem. Pokud dostáváte jen reporty bez insightů a iniciativy, je na čase něco změnit.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Kolik mám investovat do marketingu? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Neexistuje univerzální číslo. Záleží na vaší marži, životní hodnotě zákazníka (LTV) a fázi firmy. Spočítáme to společně na základě reálných dat vašeho businessu.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Pracujete i s klienty z Břeclavi a okolí? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně – často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Pokrýváte jen jižní Moravu, nebo i zbytek Česka? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Osobně jsem doma na jižní Moravě a pravidelně spolupracuji s firmami z celého Jihomoravského kraje: Břeclav, Brno, Hodonín, Znojmo, Mikulov, Kyjov. Online ale obsluhuji celou Českou republiku včetně Prahy a stejně tak Slovensko, kde díky blízkosti jazyka není potřeba nic překládat ani tlumočit. Díky praxi v brněnských agenturách ROIMARK a In Creative znám lokální trh i specifika jihomoravských e-shopů a vinařství. Spolupráci vedeme online nebo osobně podle toho, co vám vyhovuje.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Spolupracujete i se slovenskými e-shopy a firmami? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Ano. Slovenský trh obsluhuji online a jazyk tady není překážka, češtinu a slovenštinu si rozumíme bez tlumočení, takže komunikace i schvalování textů běží stejně rychle jako s českým klientem. Pro Slovensko stavím kampaně v Google Ads a Meta Ads a k tomu lokalizuji produktový feed pro Heureka.sk a další slovenské srovnávače. Nastavení se od české verze liší: jiná aukce, jiné ceny za klik, jiné zvyky ve vyhledávání a jiná měna. Právě tady se dá získat výhoda proti konkurenci, která na Slovensko jen zkopírovala české kampaně.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jak probíhá spolupráce, když nejsem z Břeclavska ani Brna? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Bez problému. Spolupracuji s klienty po celé ČR včetně Prahy a také na Slovensku. Většinu spolupráce vedu online přes Google Meet, sdílené dashboardy a pravidelné reporty. Osobní schůzku lze domluvit kdekoli v ČR, ale není nutná. Důležitější než geografická blízkost jsou jasná komunikace, rychlé reakce a férový přístup k datům, a to platí bez ohledu na to, odkud jste.</div>
+        </details>
       </div>
+      <!-- FAQ:END -->
     </div>
   </section>
 
@@ -807,11 +1228,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img class="contact-photo" src="assets/photos/pavel-vognarek-pracujici.webp" alt="Pavel Vognárek u laptopu s analytickými dashboardy – PPC specialista a Google Ads konzultant při práci" width="999" height="985" loading="lazy"/>
           <div class="contact-info">
             <div class="contact-row">
-              <div class="contact-ico">📱</div>
-              <span>+420 608 633 916</span>
+              <div class="contact-ico" aria-hidden="true">📱</div>
+              <a href="tel:+420608633916" style="color:#fff;text-decoration:none;font-weight:600">+420 608 633 916</a>
             </div>
             <div class="contact-row">
-              <div class="contact-ico">✉️</div>
+              <div class="contact-ico" aria-hidden="true">✉️</div>
               <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none;font-weight:600">pavogppc@gmail.com</a>
             </div>
           </div>
@@ -820,34 +1241,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <form id="contactForm">
             <p style="font-size:16px;font-weight:700;color:#fff;margin-bottom:20px;letter-spacing:0.3px">Informační formulář</p>
             <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
-              <label>Website</label>
-              <input type="text" name="website" tabindex="-1" autocomplete="off"/>
+              <label for="f-website">Website</label>
+              <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off"/>
             </div>
             <div class="form-row">
-              <label>Jméno</label>
-              <input type="text" name="jmeno" placeholder="Jan Novák" required/>
+              <label for="f-jmeno">Jméno</label>
+              <input id="f-jmeno" type="text" name="jmeno" placeholder="Jan Novák" autocomplete="name" required/>
             </div>
             <div class="form-row">
-              <label>Email</label>
-              <input type="email" name="email" placeholder="jan@firma.cz" required/>
+              <label for="f-email">Email</label>
+              <input id="f-email" type="email" name="email" placeholder="jan@firma.cz" autocomplete="email" required/>
             </div>
             <div class="form-row">
-              <label>Telefon</label>
-              <input type="tel" name="telefon" placeholder="+420 ..."/>
+              <label for="f-telefon">Telefon</label>
+              <input id="f-telefon" type="tel" name="telefon" placeholder="+420 ..." autocomplete="tel"/>
             </div>
             <div class="form-row">
-              <label>Zpráva</label>
-              <textarea name="zprava" placeholder="Popište krátce váš business a co potřebujete řešit..." required></textarea>
+              <label for="f-zprava">Zpráva</label>
+              <textarea id="f-zprava" name="zprava" placeholder="Popište krátce váš business a co potřebujete řešit..." required></textarea>
             </div>
             <button type="submit" class="submit-btn">Odeslat zprávu →</button>
-            <div class="form-status" id="formStatus"></div>
+            <p class="form-consent">Odesláním formuláře souhlasíte se zpracováním osobních údajů podle <a href="/zasady-ochrany-osobnich-udaju.html">zásad ochrany osobních údajů</a>. Údaje používám výhradně pro odpověď na vaši poptávku.</p>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
           </form>
         </div>
       </div>
     </div>
   </section>
 
+  </main>
+
   <footer>
+    <div class="foot-nav">
+      <a href="/sprava-google-ads/">Správa Google Ads</a> ·
+      <a href="/sprava-meta-ads/">Správa Meta Ads</a> ·
+      <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a> ·
+      <a href="/ppc-audit/">Audit PPC</a> ·
+      <a href="/ppc-specialista-brno/">PPC specialista Brno</a>
+    </div>
     © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com" style="color:var(--cyan);text-decoration:none">pavogppc@gmail.com</a><br>
     <a href="/zasady-ochrany-osobnich-udaju.html" style="color:var(--cyan);text-decoration:none">Zásady ochrany osobních údajů</a> · <a href="#" onclick="event.preventDefault();cookieConsent.openSettings()" style="color:var(--cyan);text-decoration:none">Nastavení cookies</a>
   </footer>
@@ -885,13 +1316,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       countEls.forEach(el => animateCountUp(el));
     }
 
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('click', () => {
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
+    // Mobilní menu (hamburger). Pod 900 px je nav-links skryté, tohle ho odkrývá.
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var menu = document.getElementById('navLinks');
+      if (!btn || !menu) return;
+      function setOpen(open){
+        menu.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+      }
+      btn.addEventListener('click', function(){ setOpen(!menu.classList.contains('is-open')); });
+      menu.addEventListener('click', function(e){ if (e.target.tagName === 'A') setOpen(false); });
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) { setOpen(false); btn.focus(); }
       });
-    });
+    })();
 
     // Kontaktní formulář – Vercel serverless /api/contact (Gmail SMTP)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -915,6 +1355,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const json = await res.json().catch(() => ({}));
         if (res.ok && json.ok) {
           status.innerHTML = '<span style="color:var(--cyan)">Zpráva odeslána! Ozvu se vám co nejdříve.</span>';
+          // Hlavní konverze webu. Bez tohohle eventu není v GA4 ani v GTM vidět.
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'form_submit',
+            form_id: 'contactForm',
+            form_location: window.location.pathname
+          });
           form.reset();
         } else {
           throw new Error(json.error || 'Chyba serveru');
@@ -949,7 +1396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cookie-category">
         <div class="cookie-cat-head">
           <span class="cookie-cat-name">Nezbytné</span>
-          <div class="cookie-toggle locked" aria-label="Nezbytné cookies jsou vždy povoleny"></div>
+          <div class="cookie-toggle locked" role="switch" aria-checked="true" aria-disabled="true" aria-label="Nezbytné cookies jsou vždy povoleny"></div>
         </div>
         <div class="cookie-cat-desc">Nutné pro základní funkce webu (kontaktní formulář, bezpečnost). Nelze vypnout.</div>
       </div>
@@ -1020,6 +1467,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       function closeModal(){ document.getElementById('cookieModal').classList.add('hidden'); }
 
+      function setSwitch(el, on){
+        if (!el) return;
+        el.classList.toggle('on', on);
+        el.setAttribute('aria-checked', on ? 'true' : 'false');
+      }
+
       window.cookieConsent = {
         acceptAll: function(){ apply(true, true); },
         rejectAll: function(){ apply(false, false); },
@@ -1027,12 +1480,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var saved = load();
           var a = saved && saved.settings.analytics_storage === 'granted';
           var m = saved && saved.settings.ad_storage === 'granted';
-          document.getElementById('toggleAnalytics').classList.toggle('on', !!a);
-          document.getElementById('toggleMarketing').classList.toggle('on', !!m);
+          setSwitch(document.getElementById('toggleAnalytics'), !!a);
+          setSwitch(document.getElementById('toggleMarketing'), !!m);
           document.getElementById('cookieModal').classList.remove('hidden');
         },
         closeSettings: closeModal,
-        toggle: function(el){ el.classList.toggle('on'); },
+        toggle: function(el){
+          var on = el.classList.toggle('on');
+          el.setAttribute('aria-checked', on ? 'true' : 'false');
+        },
         saveCustom: function(){
           apply(
             document.getElementById('toggleAnalytics').classList.contains('on'),
@@ -1048,6 +1504,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Zavřít modal klávesou ESC
       document.addEventListener('keydown', function(e){
         if (e.key === 'Escape' && !document.getElementById('cookieModal').classList.contains('hidden')) closeModal();
+      });
+
+      // Přepínače musí jít ovládat klávesnicí, ne jen myší (role="switch" + tabindex bez keydown je past).
+      ['toggleAnalytics', 'toggleMarketing'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('aria-checked', el.classList.contains('on') ? 'true' : 'false');
+        el.addEventListener('keydown', function(e){
+          if (e.key === ' ' || e.key === 'Enter' || e.key === 'Spacebar') {
+            e.preventDefault();
+            window.cookieConsent.toggle(el);
+          }
+        });
       });
 
       if (!load()) showBanner();

@@ -1,5 +1,4 @@
 node_modules/
-package-lock.json
 .env
 .env.local
 .env.*.local
@@ -15,8 +14,10 @@ marketingový specialista.webp
 Vytvoř_z_této_fotky_reprezentativní_*.jpeg
 Foto_Pavel_Vognarek.webp
 Foto_Pavel_Vogn*.jpg
+og_image_pavel_vognarek.svg
 
 # Interní dokumenty a poznámky (nepatří do produkce)
+# Pozor: na Vercelu jsou commitnuté soubory čitelné přímo přes URL.
 Anketa.txt
 Brief.txt
 Zadání.txt
@@ -28,3 +29,21 @@ Foxtro*.png
 OG image.webp
 seo.md
 README.md
+claude.md
+CLAUDE.md
+
+# Nepoužívané barevné varianty webu (duplicitní obsah, nesmí jít do produkce)
+index2.html
+index3.html
+
+# Zdrojové originály obrázků (produkce používá jen optimalizované varianty)
+assets/photos/pavel-vognarek-hero.webp
+assets/logos/roimark.png
+assets/logos/increative.png
+assets/logos/vinotrh.jpg
+assets/logos/lomax.jpg
+og_pavel_vognarek.webp
+
+# Python cache
+__pycache__/
+*.pyc

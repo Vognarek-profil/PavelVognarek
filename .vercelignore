@@ -1,0 +1,3 @@
+# Build skripty a zdrojová data. Zůstávají v gitu (jsou to build pipeline),
+# ale nesmí se nasadit, protože na Vercelu by šly otevřít přes URL.
+tools/

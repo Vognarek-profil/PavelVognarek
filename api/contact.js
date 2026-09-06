@@ -1,9 +1,39 @@
 const nodemailer = require('nodemailer');
 
+// Jednoduchy rate limit v pameti instance.
+// POZOR: Vercel skaluje po instancich, takze tohle NENI tvrdy globalni limit.
+// Zastavi naivni flood na jednu teplou instanci, ne cileny distribuovany utok.
+// Poradne reseni je sdilene uloziste (Vercel KV / Upstash) nebo Cloudflare Turnstile.
+const HITS = new Map();
+const WINDOW_MS = 10 * 60 * 1000; // 10 minut
+const MAX_HITS = 5;               // max 5 odeslani z jedne IP za okno
+
+function tooManyRequests(ip) {
+  const now = Date.now();
+  // uklid starych zaznamu, aby Map nerostla donekonecna
+  for (const [key, times] of HITS) {
+    const fresh = times.filter((t) => now - t < WINDOW_MS);
+    if (fresh.length) HITS.set(key, fresh);
+    else HITS.delete(key);
+  }
+  const times = HITS.get(ip) || [];
+  if (times.length >= MAX_HITS) return true;
+  times.push(now);
+  HITS.set(ip, times);
+  return false;
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim()
+    || req.socket?.remoteAddress || 'unknown';
+  if (tooManyRequests(ip)) {
+    res.setHeader('Retry-After', '600');
+    return res.status(429).json({ error: 'Příliš mnoho pokusů. Zkuste to prosím za chvíli, nebo napište přímo na pavogppc@gmail.com.' });
   }
 
   try {
@@ -66,7 +96,7 @@ module.exports = async (req, res) => {
     await transporter.sendMail({
       from: `"pavelvognarek.cz" <${user}>`,
       to,
-      replyTo: `"${jmeno}" <${email}>`,
+      replyTo: { name: String(jmeno).slice(0, 200), address: email },
       subject: `Informační formulář – ${jmeno}`,
       text,
       html,

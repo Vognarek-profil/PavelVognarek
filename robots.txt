@@ -1,3 +1,36 @@
+# https://www.pavelvognarek.cz/robots.txt
+
 User-agent: *
 Allow: /
-Sitemap: https://pavelvognarek.cz/sitemap.xml
+
+# ── AI vyhledávače: obsah smí být crawlován i citován ──
+# Vyhledávací a odpovědní agenti (citace v odpovědích)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Crawlery pro trénink a indexaci
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.pavelvognarek.cz/sitemap.xml
