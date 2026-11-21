@@ -1,0 +1,478 @@
+{
+  "_poznamka": "Generováno dashboard/tools/export-web-charts.py. Ručně needitovat. Bez jmen klientů a bez částek v Kč, repo je veřejné.",
+  "vygenerovano": "2026-10-02",
+  "eshop_a": {
+    "srovnani": {
+      "od": "2026-08-01",
+      "do": "2026-08-31",
+      "objednavky": 163,
+      "pno": 31.8
+    },
+    "obdobi": {
+      "od": "2026-09-01",
+      "do": "2026-09-30",
+      "objednavky": 900,
+      "pno": 13.8
+    },
+    "pred_spickou": {
+      "od": "2026-09-01",
+      "do": "2026-09-15",
+      "objednavky": 156,
+      "pno": 18.2
+    },
+    "spicka": {
+      "od": "2026-09-16",
+      "do": "2026-09-25",
+      "objednavky": 686,
+      "pno": 11.9
+    },
+    "po_spicce": {
+      "od": "2026-09-26",
+      "do": "2026-09-30",
+      "objednavky": 58,
+      "pno": 23.8
+    },
+    "nejlepsi_den": {
+      "datum": "2026-09-18",
+      "objednavky": 100,
+      "pno": 8.0,
+      "rozpocet_nasobek": 5.93
+    },
+    "cil_pno": 30,
+    "dny": [
+      {
+        "datum": "2026-09-01",
+        "objednavky": 8,
+        "pno": 16.9,
+        "rozpocet_nasobek": 0.87
+      },
+      {
+        "datum": "2026-09-02",
+        "objednavky": 1,
+        "pno": 317.5,
+        "rozpocet_nasobek": 0.82
+      },
+      {
+        "datum": "2026-09-03",
+        "objednavky": 8,
+        "pno": 13.0,
+        "rozpocet_nasobek": 0.76
+      },
+      {
+        "datum": "2026-09-04",
+        "objednavky": 5,
+        "pno": 28.5,
+        "rozpocet_nasobek": 0.99
+      },
+      {
+        "datum": "2026-09-05",
+        "objednavky": 3,
+        "pno": 83.9,
+        "rozpocet_nasobek": 0.98
+      },
+      {
+        "datum": "2026-09-06",
+        "objednavky": 9,
+        "pno": 19.1,
+        "rozpocet_nasobek": 1.26
+      },
+      {
+        "datum": "2026-09-07",
+        "objednavky": 11,
+        "pno": 31.2,
+        "rozpocet_nasobek": 1.42
+      },
+      {
+        "datum": "2026-09-08",
+        "objednavky": 14,
+        "pno": 13.8,
+        "rozpocet_nasobek": 1.5
+      },
+      {
+        "datum": "2026-09-09",
+        "objednavky": 16,
+        "pno": 10.1,
+        "rozpocet_nasobek": 2.15
+      },
+      {
+        "datum": "2026-09-10",
+        "objednavky": 23,
+        "pno": 15.0,
+        "rozpocet_nasobek": 2.17
+      },
+      {
+        "datum": "2026-09-11",
+        "objednavky": 16,
+        "pno": 30.6,
+        "rozpocet_nasobek": 1.95
+      },
+      {
+        "datum": "2026-09-12",
+        "objednavky": 6,
+        "pno": 43.0,
+        "rozpocet_nasobek": 1.06
+      },
+      {
+        "datum": "2026-09-13",
+        "objednavky": 9,
+        "pno": 19.2,
+        "rozpocet_nasobek": 1.09
+      },
+      {
+        "datum": "2026-09-14",
+        "objednavky": 12,
+        "pno": 14.5,
+        "rozpocet_nasobek": 1.29
+      },
+      {
+        "datum": "2026-09-15",
+        "objednavky": 15,
+        "pno": 12.9,
+        "rozpocet_nasobek": 1.5
+      },
+      {
+        "datum": "2026-09-16",
+        "objednavky": 28,
+        "pno": 11.4,
+        "rozpocet_nasobek": 1.89
+      },
+      {
+        "datum": "2026-09-17",
+        "objednavky": 82,
+        "pno": 6.5,
+        "rozpocet_nasobek": 3.35
+      },
+      {
+        "datum": "2026-09-18",
+        "objednavky": 100,
+        "pno": 8.0,
+        "rozpocet_nasobek": 5.93
+      },
+      {
+        "datum": "2026-09-19",
+        "objednavky": 43,
+        "pno": 14.8,
+        "rozpocet_nasobek": 4.23
+      },
+      {
+        "datum": "2026-09-20",
+        "objednavky": 54,
+        "pno": 15.5,
+        "rozpocet_nasobek": 5.74
+      },
+      {
+        "datum": "2026-09-21",
+        "objednavky": 69,
+        "pno": 13.0,
+        "rozpocet_nasobek": 5.58
+      },
+      {
+        "datum": "2026-09-22",
+        "objednavky": 65,
+        "pno": 13.4,
+        "rozpocet_nasobek": 6.08
+      },
+      {
+        "datum": "2026-09-23",
+        "objednavky": 75,
+        "pno": 14.2,
+        "rozpocet_nasobek": 6.32
+      },
+      {
+        "datum": "2026-09-24",
+        "objednavky": 80,
+        "pno": 13.1,
+        "rozpocet_nasobek": 6.74
+      },
+      {
+        "datum": "2026-09-25",
+        "objednavky": 90,
+        "pno": 13.1,
+        "rozpocet_nasobek": 8.79
+      },
+      {
+        "datum": "2026-09-26",
+        "objednavky": 15,
+        "pno": 19.3,
+        "rozpocet_nasobek": 1.8
+      },
+      {
+        "datum": "2026-09-27",
+        "objednavky": 9,
+        "pno": 43.3,
+        "rozpocet_nasobek": 1.65
+      },
+      {
+        "datum": "2026-09-28",
+        "objednavky": 11,
+        "pno": 24.8,
+        "rozpocet_nasobek": 1.93
+      },
+      {
+        "datum": "2026-09-29",
+        "objednavky": 12,
+        "pno": 21.2,
+        "rozpocet_nasobek": 1.77
+      },
+      {
+        "datum": "2026-09-30",
+        "objednavky": 11,
+        "pno": 21.4,
+        "rozpocet_nasobek": 1.68
+      }
+    ],
+    "heatmapa": {
+      "od": "2026-01-01",
+      "do": "2026-09-30",
+      "radky_po_az_ne": [
+        [
+          10,
+          5,
+          2,
+          0,
+          12,
+          17,
+          63,
+          63,
+          49,
+          59,
+          46,
+          49,
+          41,
+          56,
+          49,
+          44,
+          32,
+          41,
+          49,
+          46,
+          56,
+          80,
+          51,
+          37
+        ],
+        [
+          15,
+          0,
+          0,
+          2,
+          7,
+          17,
+          56,
+          63,
+          76,
+          88,
+          68,
+          59,
+          51,
+          73,
+          49,
+          44,
+          20,
+          39,
+          39,
+          46,
+          83,
+          80,
+          56,
+          32
+        ],
+        [
+          24,
+          10,
+          7,
+          5,
+          12,
+          32,
+          32,
+          78,
+          83,
+          88,
+          61,
+          54,
+          49,
+          88,
+          46,
+          34,
+          32,
+          51,
+          24,
+          44,
+          63,
+          85,
+          95,
+          29
+        ],
+        [
+          12,
+          5,
+          0,
+          5,
+          10,
+          24,
+          46,
+          71,
+          71,
+          80,
+          76,
+          73,
+          59,
+          51,
+          59,
+          51,
+          29,
+          37,
+          39,
+          46,
+          88,
+          83,
+          68,
+          29
+        ],
+        [
+          17,
+          0,
+          0,
+          5,
+          7,
+          27,
+          56,
+          80,
+          100,
+          93,
+          56,
+          51,
+          54,
+          71,
+          63,
+          20,
+          32,
+          24,
+          29,
+          27,
+          51,
+          66,
+          80,
+          29
+        ],
+        [
+          15,
+          2,
+          0,
+          0,
+          0,
+          7,
+          34,
+          46,
+          34,
+          39,
+          37,
+          20,
+          29,
+          34,
+          29,
+          24,
+          29,
+          15,
+          27,
+          20,
+          44,
+          34,
+          24,
+          29
+        ],
+        [
+          10,
+          5,
+          2,
+          0,
+          2,
+          5,
+          39,
+          51,
+          54,
+          56,
+          44,
+          32,
+          29,
+          44,
+          46,
+          34,
+          32,
+          22,
+          20,
+          46,
+          66,
+          78,
+          73,
+          22
+        ]
+      ]
+    }
+  },
+  "eshop_b": {
+    "roky": [
+      "2025",
+      "2026"
+    ],
+    "mesice": [
+      {
+        "mesic": 1,
+        "2025": 10,
+        "2026": 7
+      },
+      {
+        "mesic": 2,
+        "2025": 10,
+        "2026": 10
+      },
+      {
+        "mesic": 3,
+        "2025": 28,
+        "2026": 5
+      },
+      {
+        "mesic": 4,
+        "2025": 21,
+        "2026": 17
+      },
+      {
+        "mesic": 5,
+        "2025": 25,
+        "2026": 16
+      },
+      {
+        "mesic": 6,
+        "2025": 98,
+        "2026": 49
+      },
+      {
+        "mesic": 7,
+        "2025": 85,
+        "2026": 76
+      },
+      {
+        "mesic": 8,
+        "2025": 38,
+        "2026": 135
+      },
+      {
+        "mesic": 9,
+        "2025": 10,
+        "2026": 18
+      }
+    ],
+    "sezona": {
+      "od_mesic": 5,
+      "do_mesic": 8,
+      "2025": 246,
+      "2026": 276
+    },
+    "pno_od_cervence": {
+      "od": "2026-07-01",
+      "do": "2026-08-31",
+      "objednavky": 211,
+      "pno": 27.4
+    }
+  }
+}

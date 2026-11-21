@@ -92,7 +92,7 @@
           "@id": "https://www.pavelvognarek.cz/sprava-google-ads/#service"
         },
         "inLanguage": "cs-CZ",
-        "dateModified": "2026-09-06",
+        "dateModified": "2026-11-21",
         "breadcrumb": {
           "@id": "https://www.pavelvognarek.cz/sprava-google-ads/#breadcrumb"
         }
@@ -191,7 +191,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/assets/css/lp.css"/>
+  <link rel="stylesheet" href="/assets/css/lp.css?v=0c9294f6"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
 </head>
@@ -221,6 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
       <a href="/ppc-audit/">Audit PPC</a>
       <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/">Vyhodnocení</a>
     </div>
     <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
     <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otevřít menu">
@@ -239,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="lead">Správa Google Ads znamená u mě celý cyklus: audit účtu, struktura kampaní, klíčová a negativní klíčová slova, bidding strategie, měření konverzí v GA4 a produktový feed pro Shopping a Performance Max. K tomu měsíční report, ve kterém se dozvíte, co se stalo a proč.</p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#kontakt">Domluvit konzultaci zdarma</a>
-        <a class="btn btn-ghost" href="#faq">Časté otázky</a>
+        <a class="btn btn-ghost" href="#kontakt" data-asistent="stranka">Zjistit, s čím vám pomůžu</a>
       </div>
     </div>
   </header>
@@ -335,7 +336,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Přes <strong>250 milionů Kč</strong> proinvestovaných v reklamních kampaních a <strong>průměrný ROAS 4,3</strong> napříč spravovanými účty. Zkušenosti sbírám od menších e-shopů s rozpočty v desítkách tisíc měsíčně po účty s rozpočty v milionech, jako Doppler, Biju.cz, Lomax nebo Fitmin.</p>
 <p>Dvě věci si můžete ověřit u zdroje, ne jen na mém webu:</p>
 <ul>
-  <li><a href="https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/" target="_blank" rel="noopener">První místo ve Sklik výzvě za nejlepší Black Friday strategii 2025</a> na blogu Seznamu.</li>
+  <li><a href="https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/" target="_blank" rel="noopener">Vítězství ve Sklik výzvě za nejlepší Black Friday strategii 2025</a> na blogu Seznamu.</li>
   <li><a href="https://www.sklikakademie.cz/cs/pripadove-studie/detail/~/17/" target="_blank" rel="noopener">Případová studie Doppler</a> na Sklik Akademii.</li>
 </ul>
 <p>Praxi mám z brněnských agentur ROIMARK a In Creative i z přímé spolupráce s klienty. Podrobnosti o značkách najdete <a href="/#reference">v referencích na úvodní stránce</a>.</p>
@@ -389,6 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
       <h2>Pojďme se podívat do vašeho účtu</h2>
       <p class="contact-lead">Úvodní konzultace trvá asi 30 minut a je zdarma. Projdeme aktuální stav účtu, cíle a jestli má spolupráce vůbec smysl.</p>
+      <p class="contact-diag">Nevíte, jak to popsat? <a href="#contactForm" data-asistent="kontakt">Projděte krátkou diagnostiku</a>, zabere asi dvě minuty.</p>
       <div class="contact-rows">
         <a href="tel:+420608633916">+420 608 633 916</a>
         <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
@@ -433,9 +435,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
       <a href="/ppc-audit/">Audit PPC</a>
       <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/">Vyhodnocení</a>
     </div>
+    <p>Aktualizováno <time datetime="2026-11-21">21. 11. 2026</time></p>
     <p>&copy; 2026 Pavel Vognárek · IČO 76591867 · Velké Bílovice ·
-      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></p>
+      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> ·
+      <a href="#" data-cookie-settings>Nastavení cookies</a></p>
   </footer>
 
   <script>
@@ -455,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     })();
 
-    // Kontaktní formulář – stejný endpoint jako na homepage (/api/contact)
+    // Kontaktní formulář: stejný endpoint jako na homepage (/api/contact)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       var form = e.target, btn = form.querySelector('.submit-btn'), status = document.getElementById('formStatus');
@@ -480,5 +485,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.disabled = false; btn.textContent = 'Odeslat zprávu →';
     });
   </script>
+  <link rel="stylesheet" href="/assets/css/consent.css?v=41091593"/>
+  <link rel="stylesheet" href="/assets/css/asistent.css?v=792f8672" media="print" onload="this.media='all';this.onload=null"/>
+  <script src="/assets/js/consent.js?v=6ddf44c6" defer></script>
+  <script src="/assets/js/diagnostika-data.js?v=870a3621" defer></script>
+  <script src="/assets/js/asistent.js?v=d0c9a5dc" defer></script>
 </body>
 </html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <!-- Google Consent Mode v2 (MUST be before GTM) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    try {
+      var _c = localStorage.getItem('cookieConsent_v1');
+      if (_c) {
+        var _parsed = JSON.parse(_c);
+        if (Date.now() - _parsed.timestamp < 31536000000) {
+          gtag('consent', 'update', _parsed.settings);
+        }
+      }
+    } catch(e) {}
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MQPCXPXD');</script>
+  <!-- End Google Tag Manager -->
+
+  <title>Vyhodnocení PPC kampaní a reporting | Pavel Vognárek</title>
+  <meta name="description" content="Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů."/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <meta name="author" content="Pavel Vognárek"/>
+
+  <link rel="canonical" href="https://www.pavelvognarek.cz/jak-vyhodnocuji/"/>
+  <link rel="alternate" hreflang="cs-CZ" href="https://www.pavelvognarek.cz/jak-vyhodnocuji/"/>
+  <link rel="alternate" hreflang="x-default" href="https://www.pavelvognarek.cz/jak-vyhodnocuji/"/>
+
+  <meta name="geo.region" content="CZ-JM"/>
+  <meta name="geo.placename" content="Velké Bílovice, Břeclav"/>
+  <meta name="geo.position" content="48.84946;16.89932"/>
+  <meta name="ICBM" content="48.84946, 16.89932"/>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='12' fill='%230A33C8'/%3E%3Ctext x='50%25' y='54%25' font-family='Inter,sans-serif' font-weight='900' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPV%3C/text%3E%3C/svg%3E"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0A33C8"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.pavelvognarek.cz/jak-vyhodnocuji/"/>
+  <meta property="og:title" content="Vyhodnocení PPC kampaní a reporting | Pavel Vognárek"/>
+  <meta property="og:description" content="Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů."/>
+  <meta property="og:image" content="https://www.pavelvognarek.cz/og_pavel_vognarek.jpg"/>
+  <meta property="og:image:type" content="image/jpeg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Pavel Vognárek, PPC specialista a Google Ads konzultant z Břeclavi"/>
+  <meta property="og:locale" content="cs_CZ"/>
+  <meta property="og:site_name" content="Pavel Vognárek"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Vyhodnocení PPC kampaní a reporting | Pavel Vognárek"/>
+  <meta name="twitter:description" content="Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů."/>
+  <meta name="twitter:image" content="https://www.pavelvognarek.cz/og_pavel_vognarek.jpg"/>
+  <meta name="twitter:image:alt" content="Pavel Vognárek, PPC specialista a Google Ads konzultant z Břeclavi"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#webpage",
+        "url": "https://www.pavelvognarek.cz/jak-vyhodnocuji/",
+        "name": "Vyhodnocení PPC kampaní a reporting | Pavel Vognárek",
+        "description": "Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů.",
+        "isPartOf": {
+          "@id": "https://www.pavelvognarek.cz/#website"
+        },
+        "about": {
+          "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#service"
+        },
+        "inLanguage": "cs-CZ",
+        "dateModified": "2026-11-21",
+        "breadcrumb": {
+          "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Úvod",
+            "item": "https://www.pavelvognarek.cz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Jak vyhodnocuji",
+            "item": "https://www.pavelvognarek.cz/jak-vyhodnocuji/"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#service",
+        "name": "Vyhodnocení a reporting PPC kampaní",
+        "serviceType": "Reporting a vyhodnocení výkonnostního marketingu",
+        "description": "Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů.",
+        "url": "https://www.pavelvognarek.cz/jak-vyhodnocuji/",
+        "provider": {
+          "@id": "https://www.pavelvognarek.cz/#service"
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Česká republika"
+          },
+          {
+            "@type": "Country",
+            "name": "Slovensko"
+          }
+        ],
+        "inLanguage": "cs-CZ"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.pavelvognarek.cz/jak-vyhodnocuji/#faq",
+        "inLanguage": "cs-CZ",
+        "isPartOf": {
+          "@id": "https://www.pavelvognarek.cz/#website"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Proč se PNO v dashboardu liší od čísel v Google Ads nebo v Metě?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Protože každý reklamní systém počítá konverze po svém a stejnou objednávku si můžou připsat oba. Dashboard bere objednávky přímo z e-shopu a náklady ze všech reklamních účtů dohromady. Vychází z toho jedno PNO za celý e-shop, které bývá horší než čísla v reklamních systémech, ale odpovídá tomu, co e-shopu reálně přišlo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Uvidím data průběžně, nebo až v měsíčním reportu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Průběžně. Klient má do dashboardu vlastní přístup a data v něm jsou aktualizovaná. Měsíční report pak vysvětluje, co se stalo, proč a co se bude dělat dál."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Počítá se PNO z tržeb s DPH a s dopravou?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ne. PNO počítám z tržeb za zboží bez DPH a bez dopravy. DPH ani poštovné nejsou peníze, které e-shopu zůstanou, a s nimi by PNO vycházelo uměle nízko."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co když za nějaký den chybí data z e-shopu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dashboard si u každého dne eviduje, jestli data z e-shopu opravdu dorazila. Den bez potvrzených dat je označený jako neúplný, takže se nula objednávek nezamění za den, kdy se nic neprodalo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jsou snímky z dashboardu skutečné?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dashboard je skutečný, čísla na snímcích ne. Snímky jsou z ukázkového e-shopu s vymyšlenými daty, protože účty klientů nezveřejňuji. Grafy e-shopu A a e-shopu B jsou naopak překreslené ze skutečných dat, jen bez jména e-shopu a bez částek v korunách."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Proč u ukázek neuvádíte jméno e-shopu ani částky?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Čísla klientů patří klientům. Ukázky jsou ze skutečných dat, ale bez jména e-shopu a bez tržeb v korunách. Počty objednávek a PNO jsou přesně tak, jak je ukazuje dashboard. Na úvodní konzultaci rád projdu, jak by takový přehled vypadal pro váš e-shop."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/lp.css?v=0c9294f6"/>
+  <link rel="stylesheet" href="/assets/css/charts.css?v=65c9a5d3"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQPCXPXD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
+
+  <nav class="site-nav">
+    <a href="/" class="logo-nav" aria-label="Pavel Vognárek, úvodní stránka">
+      <svg class="logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="60" height="60" rx="12" fill="#0A33C8"/>
+        <text x="50%" y="52%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
+        <rect x="12" y="50" width="36" height="3" rx="1.5" fill="#10A5C8"/>
+      </svg>
+      <div class="logo-name">
+        <strong>Pavel Vognárek</strong>
+        <span>PPC Specialista</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/sprava-google-ads/">Google Ads</a>
+      <a href="/sprava-meta-ads/">Meta Ads</a>
+      <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
+      <a href="/ppc-audit/">Audit PPC</a>
+      <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/" class="active">Vyhodnocení</a>
+    </div>
+    <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="obsah">
+
+  <header class="lp-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Drobečková navigace">
+        <a href="/">Úvod</a><span>›</span>Jak vyhodnocuji
+      </nav>
+      <h1>Vyhodnocení PPC kampaní<br><span>na skutečných objednávkách</span></h1>
+      <p class="lead">Google Ads i Meta si rády připíšou stejnou objednávku. Proto výsledky nevyhodnocuji v reklamních systémech, ale v dashboardu, kde se potkají skutečné objednávky z e-shopu s náklady ze všech reklamních účtů. Níž jsou ukázky na reálných datech dvou e-shopů, které spravuji.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#kontakt">Domluvit konzultaci zdarma</a>
+        <a class="btn btn-ghost" href="#kontakt" data-asistent="stranka">Zjistit, s čím vám pomůžu</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <h2>Odkud se berou čísla</h2>
+      <div class="prose">
+<p>Reklamní systémy počítají konverze po svém. Google Ads si objednávku připíše po kliknutí, Meta i po zhlédnutí reklamy, a když zákazník viděl obojí, objeví se v obou reportech. Součet konverzí z kanálů pak bývá vyšší než počet objednávek, které e-shop opravdu odeslal. Proto stavím vyhodnocení na jiném základu:</p>
+<ul>
+  <li><strong>Objednávky a tržby</strong> beru přímo z e-shopu, bez DPH a bez dopravy. Zrušené objednávky se odečítají, i když je e-shop stornuje až po několika týdnech.</li>
+  <li><strong>Náklady</strong> sčítám ze všech napojených reklamních účtů dohromady, eura přepočtená na koruny.</li>
+  <li><strong>PNO</strong> je podíl nákladů na reklamu na tržbách za zboží. Jedno číslo za celý e-shop, které si žádný kanál nemůže přikrášlit.</li>
+  <li><strong>Úplnost dat</strong> se hlídá každý den. Když za nějaký den nedorazí objednávky z e-shopu, dashboard to označí, místo aby ukázal nulu, která nemusí být pravda.</li>
+</ul>
+<p>Výsledné PNO bývá horší než to, co ukazují reklamní systémy. Zato odpovídá tomu, co e-shopu reálně přišlo, a podle toho se dá rozhodovat o rozpočtu.</p>
+</div>
+    </div>
+  </section>
+  <section class="bg-light">
+    <div class="container">
+      <h2>Co klient v dashboardu vidí</h2>
+      <div class="prose">
+<p>Data v dashboardu jsou průběžně aktualizovaná a klient do něj má vlastní přístup, takže na čísla nemusí čekat do měsíčního reportu. Report pak vysvětluje, co se stalo, proč a co se bude dělat dál.</p>
+<div class="cards">
+  <div class="card"><h3>Tržby, objednávky a PNO</h3><p>Za zvolené období i po dnech, se srovnáním proti předchozímu období.</p></div>
+  <div class="card"><h3>Náklady po kanálech</h3><p>Denní spend rozdělený podle reklamních účtů a PNO proti cílové hranici.</p></div>
+  <div class="card"><h3>Slevy a akce</h3><p>Kolik objednávek šlo přes slevový kód, kolik vynesly a jaký objem slevy stály.</p></div>
+  <div class="card"><h3>Roční zhodnocení</h3><p>Měsíc po měsíci proti loňsku, aby se sezóna nepletla s výsledkem.</p></div>
+  <div class="card"><h3>Kdy chodí objednávky</h3><p>Den v týdnu a hodina. Podklad pro načasování akcí a rozložení rozpočtu.</p></div>
+  <div class="card"><h3>Bestselleři</h3><p>Které produkty táhnou tržby, aby se rozpočet nelil do zboží, které se prodá samo.</p></div>
+</div>
+<p>Takhle dashboard vypadá. Snímky jsou z ukázkového e-shopu s vymyšlenými čísly, skutečné účty klientů nezveřejňuji.</p>
+<figure class="shot"><picture><source media="(max-width: 599px)" srcset="/assets/img/vyhodnoceni/dashboard-mobil-kpi.webp" width="720" height="785"><img src="/assets/img/vyhodnoceni/dashboard-desktop-kpi.webp" width="1200" height="375" alt="Ukázka dashboardu: dlaždice s čistou tržbou, náklady na reklamu, PNO, ROAS, počtem objednávek a průměrnou objednávkou za 30 dní, u každé změna proti předchozímu období" loading="lazy" decoding="async"></picture><figcaption>Přehled za zvolené období: tržby bez DPH, náklady, PNO, ROAS, objednávky a průměrná objednávka. U každého čísla změna proti předchozímu období. <span class="shot-tag">Ukázková data</span></figcaption></figure>
+<figure class="shot"><picture><source media="(max-width: 599px)" srcset="/assets/img/vyhodnoceni/dashboard-mobil-utrata-pno.webp" width="720" height="836"><img src="/assets/img/vyhodnoceni/dashboard-desktop-utrata-pno.webp" width="1200" height="500" alt="Ukázka grafu z dashboardu: denní náklady rozdělené na Metu a Google Ads ve sloupcích a čára PNO proti cílové hranici 25 procent" loading="lazy" decoding="async"></picture><figcaption>Náklady po dnech rozdělené na Metu a Google a k tomu PNO proti cílové hranici. Je hned vidět, jestli přidaný rozpočet netáhne PNO nad cíl. <span class="shot-tag">Ukázková data</span></figcaption></figure>
+</div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h2>Ukázka: e-shop A, září 2026</h2>
+      <div class="prose">
+<p>Srpen skončil na 163 objednávkách a PNO 31,8 %, tedy nad cílem 30 %. V září přišlo 900 objednávek při PNO 13,8 %.</p>
+<div class="viz-root viz-window"><div class="viz-bar" aria-hidden="true"><i></i><i></i><i></i><strong>Dashboard klienta</strong><span>E-shop A · září 2026</span></div><div class="viz-body"><div class="viz-kpis"><div class="viz-kpi"><div class="viz-kpi-l">Objednávky za září</div><div class="viz-kpi-v">900</div><div class="viz-kpi-s">srpen: 163</div></div><div class="viz-kpi"><div class="viz-kpi-l">PNO za září</div><div class="viz-kpi-v">13,8 %</div><div class="viz-kpi-s">srpen: 31,8 %, cíl 30 %</div></div><div class="viz-kpi"><div class="viz-kpi-l">Nejlepší den</div><div class="viz-kpi-v">100 objednávek</div><div class="viz-kpi-s">18. 9. při PNO 8,0 %</div></div><div class="viz-kpi"><div class="viz-kpi-l">Nejvyšší denní rozpočet</div><div class="viz-kpi-v">8,8×</div><div class="viz-kpi-s">proti průměrnému dni v srpnu</div></div></div><div data-viz-group data-cross data-tips="[[[&quot;úterý 1. 9.&quot;], [&quot;objednávek&quot;, &quot;8&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;0,9×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;16,9 %&quot;, &quot;#0b87a6&quot;]], [[&quot;středa 2. 9.&quot;], [&quot;objednávek&quot;, &quot;1&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;0,8×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;317,5 %&quot;, &quot;#0b87a6&quot;]], [[&quot;čtvrtek 3. 9.&quot;], [&quot;objednávek&quot;, &quot;8&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;0,8×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,0 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pátek 4. 9.&quot;], [&quot;objednávek&quot;, &quot;5&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,0×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;28,5 %&quot;, &quot;#0b87a6&quot;]], [[&quot;sobota 5. 9.&quot;], [&quot;objednávek&quot;, &quot;3&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,0×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;83,9 %&quot;, &quot;#0b87a6&quot;]], [[&quot;neděle 6. 9.&quot;], [&quot;objednávek&quot;, &quot;9&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,3×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;19,1 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pondělí 7. 9.&quot;], [&quot;objednávek&quot;, &quot;11&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,4×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;31,2 %&quot;, &quot;#0b87a6&quot;]], [[&quot;úterý 8. 9.&quot;], [&quot;objednávek&quot;, &quot;14&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,5×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,8 %&quot;, &quot;#0b87a6&quot;]], [[&quot;středa 9. 9.&quot;], [&quot;objednávek&quot;, &quot;16&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;2,1×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;10,1 %&quot;, &quot;#0b87a6&quot;]], [[&quot;čtvrtek 10. 9.&quot;], [&quot;objednávek&quot;, &quot;23&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;2,2×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;15,0 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pátek 11. 9.&quot;], [&quot;objednávek&quot;, &quot;16&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,9×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;30,6 %&quot;, &quot;#0b87a6&quot;]], [[&quot;sobota 12. 9.&quot;], [&quot;objednávek&quot;, &quot;6&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,1×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;43,0 %&quot;, &quot;#0b87a6&quot;]], [[&quot;neděle 13. 9.&quot;], [&quot;objednávek&quot;, &quot;9&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,1×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;19,2 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pondělí 14. 9.&quot;], [&quot;objednávek&quot;, &quot;12&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,3×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;14,5 %&quot;, &quot;#0b87a6&quot;]], [[&quot;úterý 15. 9.&quot;], [&quot;objednávek&quot;, &quot;15&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,5×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;12,9 %&quot;, &quot;#0b87a6&quot;]], [[&quot;středa 16. 9.&quot;], [&quot;objednávek&quot;, &quot;28&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,9×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;11,4 %&quot;, &quot;#0b87a6&quot;]], [[&quot;čtvrtek 17. 9.&quot;], [&quot;objednávek&quot;, &quot;82&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;3,4×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;6,5 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pátek 18. 9.&quot;], [&quot;objednávek&quot;, &quot;100&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;5,9×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;8,0 %&quot;, &quot;#0b87a6&quot;]], [[&quot;sobota 19. 9.&quot;], [&quot;objednávek&quot;, &quot;43&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;4,2×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;14,8 %&quot;, &quot;#0b87a6&quot;]], [[&quot;neděle 20. 9.&quot;], [&quot;objednávek&quot;, &quot;54&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;5,7×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;15,5 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pondělí 21. 9.&quot;], [&quot;objednávek&quot;, &quot;69&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;5,6×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,0 %&quot;, &quot;#0b87a6&quot;]], [[&quot;úterý 22. 9.&quot;], [&quot;objednávek&quot;, &quot;65&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;6,1×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,4 %&quot;, &quot;#0b87a6&quot;]], [[&quot;středa 23. 9.&quot;], [&quot;objednávek&quot;, &quot;75&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;6,3×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;14,2 %&quot;, &quot;#0b87a6&quot;]], [[&quot;čtvrtek 24. 9.&quot;], [&quot;objednávek&quot;, &quot;80&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;6,7×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,1 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pátek 25. 9.&quot;], [&quot;objednávek&quot;, &quot;90&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;8,8×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;13,1 %&quot;, &quot;#0b87a6&quot;]], [[&quot;sobota 26. 9.&quot;], [&quot;objednávek&quot;, &quot;15&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,8×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;19,3 %&quot;, &quot;#0b87a6&quot;]], [[&quot;neděle 27. 9.&quot;], [&quot;objednávek&quot;, &quot;9&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,6×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;43,3 %&quot;, &quot;#0b87a6&quot;]], [[&quot;pondělí 28. 9.&quot;], [&quot;objednávek&quot;, &quot;11&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,9×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;24,8 %&quot;, &quot;#0b87a6&quot;]], [[&quot;úterý 29. 9.&quot;], [&quot;objednávek&quot;, &quot;12&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,8×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;21,2 %&quot;, &quot;#0b87a6&quot;]], [[&quot;středa 30. 9.&quot;], [&quot;objednávek&quot;, &quot;11&quot;, &quot;#0A33C8&quot;], [&quot;rozpočtu proti srpnu&quot;, &quot;1,7×&quot;, &quot;#5b7be0&quot;], [&quot;PNO&quot;, &quot;21,4 %&quot;, &quot;#0b87a6&quot;]]]" role="group" aria-label="E-shop A, září 2026: 900 objednávek a PNO 13,8 %, v srpnu 163 objednávek a PNO 31,8 %."><figure class="viz-fig"><figcaption class="viz-head"><span class="viz-title">Objednávky za den</span><span class="viz-note">září 2026, po dnech</span></figcaption><div class="viz-legend"><span><i class="is-band"></i>akce 16. 9. až 25. 9.</span></div><div class="viz-plot" style="--n:30"><div class="viz-gl" style="bottom:0.00%"><span>0</span></div><div class="viz-gl" style="bottom:33.33%"><span>40</span></div><div class="viz-gl" style="bottom:66.67%"><span>80</span></div><div class="viz-gl" style="bottom:100.00%"><span>120</span></div><div class="viz-band" style="left:50.000%;width:33.333%"></div><div class="viz-cols"><span class="viz-col" data-i="0" style="height:6.67%"></span><span class="viz-col" data-i="1" style="height:0.83%"></span><span class="viz-col" data-i="2" style="height:6.67%"></span><span class="viz-col" data-i="3" style="height:4.17%"></span><span class="viz-col" data-i="4" style="height:2.50%"></span><span class="viz-col" data-i="5" style="height:7.50%"></span><span class="viz-col" data-i="6" style="height:9.17%"></span><span class="viz-col" data-i="7" style="height:11.67%"></span><span class="viz-col" data-i="8" style="height:13.33%"></span><span class="viz-col" data-i="9" style="height:19.17%"></span><span class="viz-col" data-i="10" style="height:13.33%"></span><span class="viz-col" data-i="11" style="height:5.00%"></span><span class="viz-col" data-i="12" style="height:7.50%"></span><span class="viz-col" data-i="13" style="height:10.00%"></span><span class="viz-col" data-i="14" style="height:12.50%"></span><span class="viz-col" data-i="15" style="height:23.33%"></span><span class="viz-col" data-i="16" style="height:68.33%"></span><span class="viz-col" data-i="17" style="height:83.33%"><span class="viz-lab">100</span></span><span class="viz-col" data-i="18" style="height:35.83%"></span><span class="viz-col" data-i="19" style="height:45.00%"></span><span class="viz-col" data-i="20" style="height:57.50%"></span><span class="viz-col" data-i="21" style="height:54.17%"></span><span class="viz-col" data-i="22" style="height:62.50%"></span><span class="viz-col" data-i="23" style="height:66.67%"></span><span class="viz-col" data-i="24" style="height:75.00%"></span><span class="viz-col" data-i="25" style="height:12.50%"></span><span class="viz-col" data-i="26" style="height:7.50%"></span><span class="viz-col" data-i="27" style="height:9.17%"></span><span class="viz-col" data-i="28" style="height:10.00%"></span><span class="viz-col" data-i="29" style="height:9.17%"></span></div></div><div class="viz-x" aria-hidden="true"><span style="left:1.667%">1. 9.</span><span style="left:25.000%">8. 9.</span><span style="left:48.333%">15. 9.</span><span style="left:71.667%">22. 9.</span><span style="left:95.000%">29. 9.</span></div></figure><figure class="viz-fig"><figcaption class="viz-head"><span class="viz-title">Denní rozpočet na reklamu</span><span class="viz-note">1× = průměrný den v srpnu, bez částek</span></figcaption><div class="viz-plot is-short" style="--n:30"><div class="viz-gl" style="bottom:0.00%"><span>0×</span></div><div class="viz-gl" style="bottom:50.00%"><span>5×</span></div><div class="viz-gl" style="bottom:100.00%"><span>10×</span></div><div class="viz-band" style="left:50.000%;width:33.333%"></div><div class="viz-cols"><span class="viz-col is-budget" data-i="0" style="height:8.70%"></span><span class="viz-col is-budget" data-i="1" style="height:8.20%"></span><span class="viz-col is-budget" data-i="2" style="height:7.60%"></span><span class="viz-col is-budget" data-i="3" style="height:9.90%"></span><span class="viz-col is-budget" data-i="4" style="height:9.80%"></span><span class="viz-col is-budget" data-i="5" style="height:12.60%"></span><span class="viz-col is-budget" data-i="6" style="height:14.20%"></span><span class="viz-col is-budget" data-i="7" style="height:15.00%"></span><span class="viz-col is-budget" data-i="8" style="height:21.50%"></span><span class="viz-col is-budget" data-i="9" style="height:21.70%"></span><span class="viz-col is-budget" data-i="10" style="height:19.50%"></span><span class="viz-col is-budget" data-i="11" style="height:10.60%"></span><span class="viz-col is-budget" data-i="12" style="height:10.90%"></span><span class="viz-col is-budget" data-i="13" style="height:12.90%"></span><span class="viz-col is-budget" data-i="14" style="height:15.00%"></span><span class="viz-col is-budget" data-i="15" style="height:18.90%"></span><span class="viz-col is-budget" data-i="16" style="height:33.50%"></span><span class="viz-col is-budget" data-i="17" style="height:59.30%"></span><span class="viz-col is-budget" data-i="18" style="height:42.30%"></span><span class="viz-col is-budget" data-i="19" style="height:57.40%"></span><span class="viz-col is-budget" data-i="20" style="height:55.80%"></span><span class="viz-col is-budget" data-i="21" style="height:60.80%"></span><span class="viz-col is-budget" data-i="22" style="height:63.20%"></span><span class="viz-col is-budget" data-i="23" style="height:67.40%"></span><span class="viz-col is-budget" data-i="24" style="height:87.90%"><span class="viz-lab">8,8×</span></span><span class="viz-col is-budget" data-i="25" style="height:18.00%"></span><span class="viz-col is-budget" data-i="26" style="height:16.50%"></span><span class="viz-col is-budget" data-i="27" style="height:19.30%"></span><span class="viz-col is-budget" data-i="28" style="height:17.70%"></span><span class="viz-col is-budget" data-i="29" style="height:16.80%"></span></div></div><div class="viz-x" aria-hidden="true"><span style="left:1.667%">1. 9.</span><span style="left:25.000%">8. 9.</span><span style="left:48.333%">15. 9.</span><span style="left:71.667%">22. 9.</span><span style="left:95.000%">29. 9.</span></div></figure><figure class="viz-fig"><figcaption class="viz-head"><span class="viz-title">PNO za den</span><span class="viz-note">náklady na reklamu / tržby bez DPH a dopravy</span></figcaption><div class="viz-legend"><span><i class="is-pno"></i>PNO za den</span><span><i class="is-target"></i>cíl 30 %</span><span><b aria-hidden="true">▲</b>nad 50 %, hodnota v tabulce</span></div><div class="viz-plot" style="--n:30"><div class="viz-gl" style="bottom:0.00%"><span>0 %</span></div><div class="viz-gl" style="bottom:50.00%"><span>25 %</span></div><div class="viz-gl" style="bottom:100.00%"><span>50 %</span></div><div class="viz-band" style="left:50.000%;width:33.333%"></div><div class="viz-target" style="bottom:60.00%"></div><svg class="viz-line" viewBox="0 0 30 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0.5 66.20 L1.5 0.00 L2.5 74.00 L3.5 43.00 L4.5 0.00 L5.5 61.80 L6.5 37.60 L7.5 72.40 L8.5 79.80 L9.5 70.00 L10.5 38.80 L11.5 14.00 L12.5 61.60 L13.5 71.00 L14.5 74.20 L15.5 77.20 L16.5 87.00 L17.5 84.00 L18.5 70.40 L19.5 69.00 L20.5 74.00 L21.5 73.20 L22.5 71.60 L23.5 73.80 L24.5 73.80 L25.5 61.40 L26.5 13.40 L27.5 50.40 L28.5 57.60 L29.5 57.20" vector-effect="non-scaling-stroke"/></svg><span class="viz-dot" style="left:55.000%;bottom:13.00%"></span><span class="viz-lab" style="left:55.000%;bottom:13.00%;margin-bottom:9px">6,5 %</span><span class="viz-clip" style="left:5.000%">▲</span><span class="viz-clip" style="left:15.000%">▲</span></div><div class="viz-x" aria-hidden="true"><span style="left:1.667%">1. 9.</span><span style="left:25.000%">8. 9.</span><span style="left:48.333%">15. 9.</span><span style="left:71.667%">22. 9.</span><span style="left:95.000%">29. 9.</span></div></figure></div><details class="viz-table"><summary>Zobrazit data v tabulce</summary><div class="viz-scroll"><table><thead><tr><th scope="col">Den</th><th scope="col">Objednávky</th><th scope="col">Rozpočet (průměr srpen = 1×)</th><th scope="col">PNO</th></tr></thead><tbody><tr><td>1. 9.</td><td>8</td><td>0,9×</td><td>16,9 %</td></tr><tr><td>2. 9.</td><td>1</td><td>0,8×</td><td>317,5 %</td></tr><tr><td>3. 9.</td><td>8</td><td>0,8×</td><td>13,0 %</td></tr><tr><td>4. 9.</td><td>5</td><td>1,0×</td><td>28,5 %</td></tr><tr><td>5. 9.</td><td>3</td><td>1,0×</td><td>83,9 %</td></tr><tr><td>6. 9.</td><td>9</td><td>1,3×</td><td>19,1 %</td></tr><tr><td>7. 9.</td><td>11</td><td>1,4×</td><td>31,2 %</td></tr><tr><td>8. 9.</td><td>14</td><td>1,5×</td><td>13,8 %</td></tr><tr><td>9. 9.</td><td>16</td><td>2,1×</td><td>10,1 %</td></tr><tr><td>10. 9.</td><td>23</td><td>2,2×</td><td>15,0 %</td></tr><tr><td>11. 9.</td><td>16</td><td>1,9×</td><td>30,6 %</td></tr><tr><td>12. 9.</td><td>6</td><td>1,1×</td><td>43,0 %</td></tr><tr><td>13. 9.</td><td>9</td><td>1,1×</td><td>19,2 %</td></tr><tr><td>14. 9.</td><td>12</td><td>1,3×</td><td>14,5 %</td></tr><tr><td>15. 9.</td><td>15</td><td>1,5×</td><td>12,9 %</td></tr><tr><td>16. 9.</td><td>28</td><td>1,9×</td><td>11,4 %</td></tr><tr><td>17. 9.</td><td>82</td><td>3,4×</td><td>6,5 %</td></tr><tr><td>18. 9.</td><td>100</td><td>5,9×</td><td>8,0 %</td></tr><tr><td>19. 9.</td><td>43</td><td>4,2×</td><td>14,8 %</td></tr><tr><td>20. 9.</td><td>54</td><td>5,7×</td><td>15,5 %</td></tr><tr><td>21. 9.</td><td>69</td><td>5,6×</td><td>13,0 %</td></tr><tr><td>22. 9.</td><td>65</td><td>6,1×</td><td>13,4 %</td></tr><tr><td>23. 9.</td><td>75</td><td>6,3×</td><td>14,2 %</td></tr><tr><td>24. 9.</td><td>80</td><td>6,7×</td><td>13,1 %</td></tr><tr><td>25. 9.</td><td>90</td><td>8,8×</td><td>13,1 %</td></tr><tr><td>26. 9.</td><td>15</td><td>1,8×</td><td>19,3 %</td></tr><tr><td>27. 9.</td><td>9</td><td>1,6×</td><td>43,3 %</td></tr><tr><td>28. 9.</td><td>11</td><td>1,9×</td><td>24,8 %</td></tr><tr><td>29. 9.</td><td>12</td><td>1,8×</td><td>21,2 %</td></tr><tr><td>30. 9.</td><td>11</td><td>1,7×</td><td>21,4 %</td></tr></tbody></table></div></details></div></div>
+<p>Špičku od 16. 9. do 25. 9. táhla slevová akce. Proto se nedívám jen na ni, ale i na dny před ní a po ní:</p>
+<div class="viz-root viz-phases-wrap"><table class="viz-phases"><thead><tr><th scope="col">Období</th><th scope="col">Srpen<small>celý měsíc</small></th><th scope="col">Před akcí<small>1. 9. až 15. 9.</small></th><th scope="col">Akce<small>16. 9. až 25. 9.</small></th><th scope="col">Po akci<small>26. 9. až 30. 9.</small></th></tr></thead><tbody><tr><th scope="row">Objednávek za den</th><td>5,3</td><td>10,4</td><td class="is-hot">68,6</td><td>11,6</td></tr><tr><th scope="row">Objednávek celkem</th><td>163</td><td>156</td><td class="is-hot">686</td><td>58</td></tr><tr><th scope="row">PNO</th><td>31,8 %</td><td>18,2 %</td><td class="is-hot">11,9 %</td><td>23,8 %</td></tr></tbody></table></div>
+<ul>
+  <li><strong>Před akcí</strong> kleslo PNO na 18,2 %, tedy už v první polovině měsíce, bez slevy.</li>
+  <li><strong>Během akce</strong> přišlo 686 objednávek za 10 dní. Denní rozpočet se zvedl až na 8,8násobek průměrného dne v srpnu a PNO přesto zůstalo na 11,9 %.</li>
+  <li><strong>Po akci</strong> se objednávky vrátily k běžné úrovni a PNO na 23,8 %, pořád pod úrovní ze srpna.</li>
+</ul>
+<p>Tohle je rozdíl mezi reportem a vyhodnocením. Report řekne, že měsíc byl skvělý. Vyhodnocení řekne, kolik z toho udělala akce, kolik zůstalo po ní a jestli e-shop unese vyšší rozpočet i příště.</p>
+</div>
+    </div>
+  </section>
+  <section class="bg-light">
+    <div class="container">
+      <h2>Ukázka: sezónní e-shop B</h2>
+      <div class="prose">
+<p>E-shop B prodává letní sortiment a mimo sezónu má celé týdny bez objednávky. Roční průměr u něj nic neříká, a proto ho vůbec nepoužívám. Srovnává se sezóna se sezónou.</p>
+<div class="viz-root viz-window"><div class="viz-bar" aria-hidden="true"><i></i><i></i><i></i><strong>Dashboard klienta</strong><span>E-shop B · sezóna 2026</span></div><div class="viz-body"><div class="viz-kpis is-3"><div class="viz-kpi"><div class="viz-kpi-l">Sezóna květen až srpen</div><div class="viz-kpi-v">276</div><div class="viz-kpi-s">2025: 246, +12 %</div></div><div class="viz-kpi"><div class="viz-kpi-l">Srpen 2026</div><div class="viz-kpi-v">135</div><div class="viz-kpi-s">2025: 38, 3,6×</div></div><div class="viz-kpi"><div class="viz-kpi-l">Červen 2026</div><div class="viz-kpi-v">49</div><div class="viz-kpi-s">2025: 98, −50 %</div></div></div><div data-viz-group data-tips="[[[&quot;Leden&quot;], [&quot;2026&quot;, &quot;7&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;10&quot;, &quot;#9aa5be&quot;]], [[&quot;Únor&quot;], [&quot;2026&quot;, &quot;10&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;10&quot;, &quot;#9aa5be&quot;]], [[&quot;Březen&quot;], [&quot;2026&quot;, &quot;5&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;28&quot;, &quot;#9aa5be&quot;]], [[&quot;Duben&quot;], [&quot;2026&quot;, &quot;17&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;21&quot;, &quot;#9aa5be&quot;]], [[&quot;Květen&quot;], [&quot;2026&quot;, &quot;16&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;25&quot;, &quot;#9aa5be&quot;]], [[&quot;Červen&quot;], [&quot;2026&quot;, &quot;49&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;98&quot;, &quot;#9aa5be&quot;]], [[&quot;Červenec&quot;], [&quot;2026&quot;, &quot;76&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;85&quot;, &quot;#9aa5be&quot;]], [[&quot;Srpen&quot;], [&quot;2026&quot;, &quot;135&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;38&quot;, &quot;#9aa5be&quot;]], [[&quot;Září&quot;], [&quot;2026&quot;, &quot;18&quot;, &quot;#0A33C8&quot;], [&quot;2025&quot;, &quot;10&quot;, &quot;#9aa5be&quot;]]]" role="group" aria-label="E-shop B, objednávky po měsících, 2026 proti 2025. Sezóna květen až srpen: 276 proti 246."><figure class="viz-fig"><figcaption class="viz-head"><span class="viz-title">Objednávky po měsících</span><span class="viz-note">2026 proti 2025</span></figcaption><div class="viz-legend"><span><i class=""></i>2026</span><span><i class="is-last"></i>2025</span><span><i class="is-band"></i>sezóna květen až srpen</span></div><div class="viz-plot" style="--n:9"><div class="viz-gl" style="bottom:0.00%"><span>0</span></div><div class="viz-gl" style="bottom:33.33%"><span>50</span></div><div class="viz-gl" style="bottom:66.67%"><span>100</span></div><div class="viz-gl" style="bottom:100.00%"><span>150</span></div><div class="viz-band" style="left:44.444%;width:44.444%"></div><div class="viz-cols"><div class="viz-grp" data-i="0"><span class="viz-col is-last" style="height:6.67%"></span><span class="viz-col" style="height:4.67%"></span></div><div class="viz-grp" data-i="1"><span class="viz-col is-last" style="height:6.67%"></span><span class="viz-col" style="height:6.67%"></span></div><div class="viz-grp" data-i="2"><span class="viz-col is-last" style="height:18.67%"></span><span class="viz-col" style="height:3.33%"></span></div><div class="viz-grp" data-i="3"><span class="viz-col is-last" style="height:14.00%"></span><span class="viz-col" style="height:11.33%"></span></div><div class="viz-grp" data-i="4"><span class="viz-col is-last" style="height:16.67%"></span><span class="viz-col" style="height:10.67%"></span></div><div class="viz-grp" data-i="5"><span class="viz-col is-last" style="height:65.33%"><span class="viz-lab is-soft">98</span></span><span class="viz-col" style="height:32.67%"><span class="viz-lab">49</span></span></div><div class="viz-grp" data-i="6"><span class="viz-col is-last" style="height:56.67%"></span><span class="viz-col" style="height:50.67%"></span></div><div class="viz-grp" data-i="7"><span class="viz-col is-last" style="height:25.33%"><span class="viz-lab is-soft">38</span></span><span class="viz-col" style="height:90.00%"><span class="viz-lab">135</span></span></div><div class="viz-grp" data-i="8"><span class="viz-col is-last" style="height:6.67%"></span><span class="viz-col" style="height:12.00%"></span></div></div></div><div class="viz-x" aria-hidden="true"><span style="left:5.556%">led</span><span style="left:16.667%">úno</span><span style="left:27.778%">bře</span><span style="left:38.889%">dub</span><span style="left:50.000%">kvě</span><span style="left:61.111%">čvn</span><span style="left:72.222%">čvc</span><span style="left:83.333%">srp</span><span style="left:94.444%">zář</span></div></figure></div><details class="viz-table"><summary>Zobrazit data v tabulce</summary><div class="viz-scroll"><table><thead><tr><th scope="col">Měsíc</th><th scope="col">2026</th><th scope="col">2025</th></tr></thead><tbody><tr><td>leden</td><td>7</td><td>10</td></tr><tr><td>únor</td><td>10</td><td>10</td></tr><tr><td>březen</td><td>5</td><td>28</td></tr><tr><td>duben</td><td>17</td><td>21</td></tr><tr><td>květen</td><td>16</td><td>25</td></tr><tr><td>červen</td><td>49</td><td>98</td></tr><tr><td>červenec</td><td>76</td><td>85</td></tr><tr><td>srpen</td><td>135</td><td>38</td></tr><tr><td>září</td><td>18</td><td>10</td></tr></tbody></table></div></details></div></div>
+<p>Srovnání měsíc proti měsíci by v červnu vypadalo jako propad o polovinu: 49 objednávek proti 98 loni. Sezóna květen až srpen přitom skončila na 276 objednávkách proti 246 loni, tedy o 12 % víc, a srpen přinesl 3,6krát víc objednávek než loni. Kdo by vyhodnocoval po jednom měsíci, sahal by na rozpočet ve chvíli, kdy sezóna teprve začínala.</p>
+<p>PNO za červenec a srpen 2026 vyšlo na 27,4 %, pod cílem 30 %. Starší PNO neukazuji, protože dashboard sčítá náklady z Google Ads i z Mety až od července. Srovnání s dřívějškem by míchalo dvě různě spočítaná čísla.</p>
+</div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <h2>Kdy chodí objednávky</h2>
+      <div class="prose">
+<p>Heatmapa ukazuje, který den v týdnu a ve kterou hodinu objednávky přicházejí. U e-shopu A jsou nejsilnější všední dny ráno mezi 7. a 10. hodinou a večer mezi 20. a 23. hodinou. Nejslabší je sobota.</p>
+<div class="viz-root viz-window"><div class="viz-bar" aria-hidden="true"><i></i><i></i><i></i><strong>Dashboard klienta</strong><span>E-shop A · den a hodina</span></div><div class="viz-body"><figure class="viz-fig"><figcaption class="viz-head"><span class="viz-title">Kdy chodí objednávky</span><span class="viz-note">leden až září 2026, den v týdnu × hodina</span></figcaption><div class="viz-heat" role="img" aria-label="Heatmapa objednávek E-shopu A podle dne v týdnu a hodiny. Nejvíc objednávek přichází ve všední dny ráno mezi 7. a 10. hodinou a večer mezi 20. a 23. hodinou, nejslabší den je sobota."><b>Po</b><span class="viz-cell" style="background:#d5e0f8" data-tip="[[&quot;pondělí 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;10 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;pondělí 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e9eefa" data-tip="[[&quot;pondělí 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;2 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;pondělí 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#d0ddf7" data-tip="[[&quot;pondělí 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;12 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#c4d4f6" data-tip="[[&quot;pondělí 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;17 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5982e0" data-tip="[[&quot;pondělí 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;63 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5982e0" data-tip="[[&quot;pondělí 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;63 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;pondělí 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#628ae2" data-tip="[[&quot;pondělí 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;59 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;pondělí 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;pondělí 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#8baaec" data-tip="[[&quot;pondělí 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;41 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;pondělí 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;pondělí 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;pondělí 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;pondělí 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#8baaec" data-tip="[[&quot;pondělí 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;41 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;pondělí 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;pondělí 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;pondělí 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3461d6" data-tip="[[&quot;pondělí 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;80 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;pondělí 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#94b1ee" data-tip="[[&quot;pondělí 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;37 %&quot;, &quot;&quot;]]"></span><b>Út</b><span class="viz-cell" style="background:#c9d8f6" data-tip="[[&quot;úterý 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;15 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;úterý 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;úterý 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e9eefa" data-tip="[[&quot;úterý 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;2 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#dde6f9" data-tip="[[&quot;úterý 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;7 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#c4d4f6" data-tip="[[&quot;úterý 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;17 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;úterý 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5982e0" data-tip="[[&quot;úterý 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;63 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3c69d8" data-tip="[[&quot;úterý 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;76 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2351d0" data-tip="[[&quot;úterý 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;88 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#4e79dd" data-tip="[[&quot;úterý 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;68 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#628ae2" data-tip="[[&quot;úterý 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;59 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;úterý 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#436fda" data-tip="[[&quot;úterý 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;73 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;úterý 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;úterý 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#bdcff5" data-tip="[[&quot;úterý 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;20 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#90aeed" data-tip="[[&quot;úterý 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;39 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#90aeed" data-tip="[[&quot;úterý 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;39 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;úterý 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2d5bd4" data-tip="[[&quot;úterý 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;83 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3461d6" data-tip="[[&quot;úterý 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;80 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;úterý 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;úterý 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><b>St</b><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;středa 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#d5e0f8" data-tip="[[&quot;středa 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;10 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#dde6f9" data-tip="[[&quot;středa 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;7 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;středa 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#d0ddf7" data-tip="[[&quot;středa 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;12 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;středa 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;středa 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3865d7" data-tip="[[&quot;středa 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;78 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2d5bd4" data-tip="[[&quot;středa 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;83 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2351d0" data-tip="[[&quot;středa 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;88 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5d86e1" data-tip="[[&quot;středa 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;61 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#6d93e5" data-tip="[[&quot;středa 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;54 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#799ce8" data-tip="[[&quot;středa 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;49 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2351d0" data-tip="[[&quot;středa 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;88 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;středa 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;středa 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;středa 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;středa 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;středa 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;středa 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5982e0" data-tip="[[&quot;středa 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;63 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2957d2" data-tip="[[&quot;středa 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;85 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#1440cc" data-tip="[[&quot;středa 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;95 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;středa 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><b>Čt</b><span class="viz-cell" style="background:#d0ddf7" data-tip="[[&quot;čtvrtek 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;12 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;čtvrtek 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;čtvrtek 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;čtvrtek 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#d5e0f8" data-tip="[[&quot;čtvrtek 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;10 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;čtvrtek 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;čtvrtek 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#4773db" data-tip="[[&quot;čtvrtek 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;71 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#4773db" data-tip="[[&quot;čtvrtek 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;71 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3461d6" data-tip="[[&quot;čtvrtek 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;80 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3c69d8" data-tip="[[&quot;čtvrtek 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;76 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#436fda" data-tip="[[&quot;čtvrtek 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;73 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#628ae2" data-tip="[[&quot;čtvrtek 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;59 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;čtvrtek 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#628ae2" data-tip="[[&quot;čtvrtek 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;59 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;čtvrtek 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;čtvrtek 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#94b1ee" data-tip="[[&quot;čtvrtek 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;37 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#90aeed" data-tip="[[&quot;čtvrtek 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;39 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;čtvrtek 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2351d0" data-tip="[[&quot;čtvrtek 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;88 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#2d5bd4" data-tip="[[&quot;čtvrtek 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;83 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#4e79dd" data-tip="[[&quot;čtvrtek 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;68 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;čtvrtek 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><b>Pá</b><span class="viz-cell" style="background:#c4d4f6" data-tip="[[&quot;pátek 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;17 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;pátek 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;pátek 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;pátek 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#dde6f9" data-tip="[[&quot;pátek 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;7 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#acc3f2" data-tip="[[&quot;pátek 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;27 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;pátek 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3461d6" data-tip="[[&quot;pátek 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;80 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#0a33c8" data-tip="[[&quot;pátek 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;100 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#1845cd" data-tip="[[&quot;pátek 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;93 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;pátek 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;pátek 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#6d93e5" data-tip="[[&quot;pátek 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;54 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#4773db" data-tip="[[&quot;pátek 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;71 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#5982e0" data-tip="[[&quot;pátek 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;63 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#bdcff5" data-tip="[[&quot;pátek 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;20 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;pátek 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;pátek 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;pátek 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#acc3f2" data-tip="[[&quot;pátek 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;27 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;pátek 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#527dde" data-tip="[[&quot;pátek 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;66 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3461d6" data-tip="[[&quot;pátek 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;80 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;pátek 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><b>So</b><span class="viz-cell" style="background:#c9d8f6" data-tip="[[&quot;sobota 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;15 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e9eefa" data-tip="[[&quot;sobota 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;2 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;sobota 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;sobota 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;sobota 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#dde6f9" data-tip="[[&quot;sobota 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;7 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;sobota 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;sobota 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;sobota 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#90aeed" data-tip="[[&quot;sobota 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;39 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#94b1ee" data-tip="[[&quot;sobota 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;37 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#bdcff5" data-tip="[[&quot;sobota 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;20 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;sobota 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;sobota 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;sobota 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;sobota 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;sobota 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#c9d8f6" data-tip="[[&quot;sobota 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;15 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#acc3f2" data-tip="[[&quot;sobota 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;27 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#bdcff5" data-tip="[[&quot;sobota 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;20 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;sobota 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;sobota 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b3c8f3" data-tip="[[&quot;sobota 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;24 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;sobota 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><b>Ne</b><span class="viz-cell" style="background:#d5e0f8" data-tip="[[&quot;neděle 0:00 až 1:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;10 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;neděle 1:00 až 2:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e9eefa" data-tip="[[&quot;neděle 2:00 až 3:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;2 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#eef2fb" data-tip="[[&quot;neděle 3:00 až 4:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;0 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e9eefa" data-tip="[[&quot;neděle 4:00 až 5:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;2 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#e2e9fa" data-tip="[[&quot;neděle 5:00 až 6:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;5 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#90aeed" data-tip="[[&quot;neděle 6:00 až 7:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;39 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#7498e7" data-tip="[[&quot;neděle 7:00 až 8:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;51 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#6d93e5" data-tip="[[&quot;neděle 8:00 až 9:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;54 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#698fe4" data-tip="[[&quot;neděle 9:00 až 10:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;56 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;neděle 10:00 až 11:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;neděle 11:00 až 12:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a7bff1" data-tip="[[&quot;neděle 12:00 až 13:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;29 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#84a5ea" data-tip="[[&quot;neděle 13:00 až 14:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;44 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;neděle 14:00 až 15:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#9cb6ef" data-tip="[[&quot;neděle 15:00 až 16:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;34 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#a0baf0" data-tip="[[&quot;neděle 16:00 až 17:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;32 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b8cbf4" data-tip="[[&quot;neděle 17:00 až 18:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;22 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#bdcff5" data-tip="[[&quot;neděle 18:00 až 19:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;20 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#80a1e9" data-tip="[[&quot;neděle 19:00 až 20:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;46 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#527dde" data-tip="[[&quot;neděle 20:00 až 21:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;66 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#3865d7" data-tip="[[&quot;neděle 21:00 až 22:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;78 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#436fda" data-tip="[[&quot;neděle 22:00 až 23:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;73 %&quot;, &quot;&quot;]]"></span><span class="viz-cell" style="background:#b8cbf4" data-tip="[[&quot;neděle 23:00 až 24:00&quot;], [&quot;z nejsilnější hodiny&quot;, &quot;22 %&quot;, &quot;&quot;]]"></span></div><div class="viz-heat-x" aria-hidden="true"><span></span><span style="grid-column:2">0</span><span style="grid-column:8">6</span><span style="grid-column:14">12</span><span style="grid-column:20">18</span></div><div class="viz-scale" aria-hidden="true"><span>méně</span><i style="background:linear-gradient(90deg,#eef2fb,#769ae7,#0a33c8)"></i><span>více objednávek</span></div></figure></div></div>
+<p>Podle toho se plánuje, kdy spustit akci, kdy poslat newsletter nebo jak rozložit rozpočet v týdnu. U jiného e-shopu vypadá rozložení úplně jinak, proto se vždycky dívám na data konkrétního klienta, ne na obecné poučky.</p>
+<p class="viz-root viz-foot">Skutečná data z klientského dashboardu. Jméno e-shopu a částky v korunách nezveřejňuji, počty objednávek a PNO jsou přesně tak, jak je dashboard ukazuje.</p>
+</div>
+    </div>
+  </section>
+
+  <section class="bg-light" id="faq">
+    <div class="container">
+      <div class="section-tag">FAQ</div>
+      <h2>Časté otázky k vyhodnocování</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Proč se PNO v dashboardu liší od čísel v Google Ads nebo v Metě? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Protože každý reklamní systém počítá konverze po svém a stejnou objednávku si můžou připsat oba. Dashboard bere objednávky přímo z e-shopu a náklady ze všech reklamních účtů dohromady. Vychází z toho jedno PNO za celý e-shop, které bývá horší než čísla v reklamních systémech, ale odpovídá tomu, co e-shopu reálně přišlo.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Uvidím data průběžně, nebo až v měsíčním reportu? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Průběžně. Klient má do dashboardu vlastní přístup a data v něm jsou aktualizovaná. Měsíční report pak vysvětluje, co se stalo, proč a co se bude dělat dál.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Počítá se PNO z tržeb s DPH a s dopravou? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Ne. PNO počítám z tržeb za zboží bez DPH a bez dopravy. DPH ani poštovné nejsou peníze, které e-shopu zůstanou, a s nimi by PNO vycházelo uměle nízko.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Co když za nějaký den chybí data z e-shopu? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Dashboard si u každého dne eviduje, jestli data z e-shopu opravdu dorazila. Den bez potvrzených dat je označený jako neúplný, takže se nula objednávek nezamění za den, kdy se nic neprodalo.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Jsou snímky z dashboardu skutečné? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Dashboard je skutečný, čísla na snímcích ne. Snímky jsou z ukázkového e-shopu s vymyšlenými daty, protože účty klientů nezveřejňuji. Grafy e-shopu A a e-shopu B jsou naopak překreslené ze skutečných dat, jen bez jména e-shopu a bez částek v korunách.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Proč u ukázek neuvádíte jméno e-shopu ani částky? <span class="faq-toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-a">Čísla klientů patří klientům. Ukázky jsou ze skutečných dat, ale bez jména e-shopu a bez tržeb v korunách. Počty objednávek a PNO jsou přesně tak, jak je ukazuje dashboard. Na úvodní konzultaci rád projdu, jak by takový přehled vypadal pro váš e-shop.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-tag">Dál na webu</div>
+      <h2>Související služby</h2>
+      <div class="related">
+        <a href="/ppc-pro-eshopy/">PPC pro e-shopy<span>Feedy, srovnávače a propojení kanálů</span></a>
+        <a href="/sprava-google-ads/">Správa Google Ads<span>Search, Shopping a Performance Max pro e-shopy a B2B</span></a>
+        <a href="/sprava-meta-ads/">Správa Meta Ads<span>Facebook a Instagram, kreativa a škálování výkonu</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-bg" id="kontakt">
+    <div class="container">
+      <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
+      <h2>Chcete takový přehled i pro svůj e-shop?</h2>
+      <p class="contact-lead">Úvodní konzultace trvá asi 30 minut a je zdarma. Projdeme, jak dnes vyhodnocujete kampaně a co by vám ukázal přehled postavený na skutečných objednávkách.</p>
+      <p class="contact-diag">Nevíte, jak to popsat? <a href="#contactForm" data-asistent="kontakt">Projděte krátkou diagnostiku</a>, zabere asi dvě minuty.</p>
+      <div class="contact-rows">
+        <a href="tel:+420608633916">+420 608 633 916</a>
+        <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
+      </div>
+      <div class="form-wrap">
+        <form id="contactForm">
+          <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true">
+            <label for="f-website">Website</label>
+            <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off"/>
+          </div>
+          <div class="form-row">
+            <label for="f-jmeno">Jméno</label>
+            <input id="f-jmeno" type="text" name="jmeno" placeholder="Jan Novák" autocomplete="name" required/>
+          </div>
+          <div class="form-row">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" name="email" placeholder="jan@firma.cz" autocomplete="email" required/>
+          </div>
+          <div class="form-row">
+            <label for="f-telefon">Telefon</label>
+            <input id="f-telefon" type="tel" name="telefon" placeholder="+420 ..." autocomplete="tel"/>
+          </div>
+          <div class="form-row">
+            <label for="f-zprava">Zpráva</label>
+            <textarea id="f-zprava" name="zprava" placeholder="Napište mi, na jaké platformě běží váš e-shop a jak dnes vyhodnocujete výsledky kampaní..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Odeslat zprávu →</button>
+          <p class="form-consent">Odesláním formuláře souhlasíte se zpracováním osobních údajů podle <a href="/zasady-ochrany-osobnich-udaju.html">zásad ochrany osobních údajů</a>. Údaje používám výhradně pro odpověď na vaši poptávku.</p>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="foot-nav">
+      <a href="/">Úvod</a>
+      <a href="/sprava-google-ads/">Google Ads</a>
+      <a href="/sprava-meta-ads/">Meta Ads</a>
+      <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
+      <a href="/ppc-audit/">Audit PPC</a>
+      <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/">Vyhodnocení</a>
+    </div>
+    <p>Aktualizováno <time datetime="2026-11-21">21. 11. 2026</time></p>
+    <p>&copy; 2026 Pavel Vognárek · IČO 76591867 · Velké Bílovice ·
+      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> ·
+      <a href="#" data-cookie-settings>Nastavení cookies</a></p>
+  </footer>
+
+  <script>
+    // Mobilní menu
+    (function(){
+      var btn = document.getElementById('navToggle'), menu = document.getElementById('navLinks');
+      if (!btn || !menu) return;
+      function setOpen(open){
+        menu.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
+      }
+      btn.addEventListener('click', function(){ setOpen(!menu.classList.contains('is-open')); });
+      menu.addEventListener('click', function(e){ if (e.target.tagName === 'A') setOpen(false); });
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && menu.classList.contains('is-open')) { setOpen(false); btn.focus(); }
+      });
+    })();
+
+    // Kontaktní formulář: stejný endpoint jako na homepage (/api/contact)
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var form = e.target, btn = form.querySelector('.submit-btn'), status = document.getElementById('formStatus');
+      btn.disabled = true; btn.textContent = 'Odesílám…'; status.innerHTML = '';
+      var data = Object.fromEntries(new FormData(form).entries());
+      try {
+        var res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        var json = await res.json().catch(function(){ return {}; });
+        if (res.ok && json.ok) {
+          status.innerHTML = '<span style="color:var(--cyan)">Zpráva odeslána. Ozvu se vám co nejdříve.</span>';
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'form_submit', form_id: 'contactForm', form_location: window.location.pathname });
+          form.reset();
+        } else { throw new Error(json.error || 'Chyba serveru'); }
+      } catch (err) {
+        status.innerHTML = '<span style="color:#ff6b6b">Nepodařilo se odeslat. Zkuste to znovu nebo napište přímo na <a href="mailto:pavogppc@gmail.com" style="color:#ff6b6b">pavogppc@gmail.com</a>.</span>';
+      }
+      btn.disabled = false; btn.textContent = 'Odeslat zprávu →';
+    });
+  </script>
+  <script src="/assets/js/charts.js?v=1b350438" defer></script>
+  <link rel="stylesheet" href="/assets/css/consent.css?v=41091593"/>
+  <link rel="stylesheet" href="/assets/css/asistent.css?v=792f8672" media="print" onload="this.media='all';this.onload=null"/>
+  <script src="/assets/js/consent.js?v=6ddf44c6" defer></script>
+  <script src="/assets/js/diagnostika-data.js?v=870a3621" defer></script>
+  <script src="/assets/js/asistent.js?v=d0c9a5dc" defer></script>
+</body>
+</html>

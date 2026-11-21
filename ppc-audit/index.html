@@ -92,7 +92,7 @@
           "@id": "https://www.pavelvognarek.cz/ppc-audit/#service"
         },
         "inLanguage": "cs-CZ",
-        "dateModified": "2026-09-06",
+        "dateModified": "2026-11-21",
         "breadcrumb": {
           "@id": "https://www.pavelvognarek.cz/ppc-audit/#breadcrumb"
         }
@@ -191,7 +191,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/assets/css/lp.css"/>
+  <link rel="stylesheet" href="/assets/css/lp.css?v=0c9294f6"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
 </head>
@@ -221,6 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
       <a href="/ppc-audit/" class="active">Audit PPC</a>
       <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/">Vyhodnocení</a>
     </div>
     <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
     <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otevřít menu">
@@ -239,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="lead">Audit projde Google Ads, Sklik, Meta Ads, měření v GA4 a produktový feed a odpoví na dvě otázky: kde se utrácí zbytečně a kde leží nevyužitý potenciál. Výstupem je seřazený plán s odhadem dopadu, ne obecný seznam doporučení, který si můžete přečíst v každém blogu.</p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#kontakt">Domluvit konzultaci zdarma</a>
-        <a class="btn btn-ghost" href="#faq">Časté otázky</a>
+        <a class="btn btn-ghost" href="#kontakt" data-asistent="stranka">Zjistit, s čím vám pomůžu</a>
       </div>
     </div>
   </header>
@@ -379,6 +380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
       <h2>Chcete vědět, co se ve vašem účtu opravdu děje?</h2>
       <p class="contact-lead">Úvodní konzultace trvá asi 30 minut a je zdarma. Řekneme si, co vás trápí, a já odhadnu, jestli má audit u vás smysl.</p>
+      <p class="contact-diag">Nevíte, jak to popsat? <a href="#contactForm" data-asistent="kontakt">Projděte krátkou diagnostiku</a>, zabere asi dvě minuty.</p>
       <div class="contact-rows">
         <a href="tel:+420608633916">+420 608 633 916</a>
         <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
@@ -423,9 +425,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/ppc-pro-eshopy/">PPC pro e-shopy</a>
       <a href="/ppc-audit/">Audit PPC</a>
       <a href="/ppc-specialista-brno/">PPC Brno</a>
+      <a href="/jak-vyhodnocuji/">Vyhodnocení</a>
     </div>
+    <p>Aktualizováno <time datetime="2026-11-21">21. 11. 2026</time></p>
     <p>&copy; 2026 Pavel Vognárek · IČO 76591867 · Velké Bílovice ·
-      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></p>
+      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> ·
+      <a href="#" data-cookie-settings>Nastavení cookies</a></p>
   </footer>
 
   <script>
@@ -445,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     })();
 
-    // Kontaktní formulář – stejný endpoint jako na homepage (/api/contact)
+    // Kontaktní formulář: stejný endpoint jako na homepage (/api/contact)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       var form = e.target, btn = form.querySelector('.submit-btn'), status = document.getElementById('formStatus');
@@ -470,5 +475,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       btn.disabled = false; btn.textContent = 'Odeslat zprávu →';
     });
   </script>
+  <link rel="stylesheet" href="/assets/css/consent.css?v=41091593"/>
+  <link rel="stylesheet" href="/assets/css/asistent.css?v=792f8672" media="print" onload="this.media='all';this.onload=null"/>
+  <script src="/assets/js/consent.js?v=6ddf44c6" defer></script>
+  <script src="/assets/js/diagnostika-data.js?v=870a3621" defer></script>
+  <script src="/assets/js/asistent.js?v=d0c9a5dc" defer></script>
 </body>
 </html>
