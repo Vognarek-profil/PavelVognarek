@@ -8,6 +8,7 @@ HTML se z něj vždycky přegeneruje.
 
 Použití:  python tools/build_pages.py
 """
+import hashlib
 import io
 import json
 import os
@@ -19,6 +20,96 @@ from pages_data import PAGES, NAV, SITE  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = SITE["base"]
+
+
+def asset(path):
+    """/assets/... s otiskem obsahu (?v=xxxxxxxx). vercel.json posílá na /assets/* cache
+    na rok s immutable, takže bez otisku by se změna CSS nebo JS k vracejícím se
+    návštěvníkům nedostala."""
+    fp = os.path.join(ROOT, path.lstrip("/"))
+    h = hashlib.md5(io.open(fp, "rb").read()).hexdigest()[:8]
+    return f"{path}?v={h}"
+
+
+def shared_block(charts=False):
+    """Konec <body> na všech stránkách: cookie lišta, volitelně grafy (homepage), asistent Diagnostika.
+
+    consent.css je obyčejný stylesheet na konci body: nic nad ním neblokuje a odložené skripty
+    na něj počkají, takže lišta nikdy neblikne bez stylů. charts.css na homepage je neblokující,
+    grafy jsou hluboko pod ohybem. Pořadí skriptů: consent.js před asistent.js, asistent podle
+    viditelnosti lišty schovává plovoucí tlačítko."""
+    out = [f'  <link rel="stylesheet" href="{asset("/assets/css/consent.css")}"/>']
+    if charts:
+        out.append(f'  <link rel="stylesheet" href="{asset("/assets/css/charts.css")}" media="print" onload="this.media=\'all\';this.onload=null"/>')
+    out.append(f'  <link rel="stylesheet" href="{asset("/assets/css/asistent.css")}" media="print" onload="this.media=\'all\';this.onload=null"/>')
+    out.append(f'  <script src="{asset("/assets/js/consent.js")}" defer></script>')
+    if charts:
+        out.append(f'  <script src="{asset("/assets/js/charts.js")}" defer></script>')
+    out.append(f'  <script src="{asset("/assets/js/diagnostika-data.js")}" defer></script>')
+    out.append(f'  <script src="{asset("/assets/js/asistent.js")}" defer></script>')
+    return "\n".join(out)
+
+
+HOME = os.path.join(ROOT, "index.html")
+H_SHARED_START = "<!-- SDILENE:START (generovano tools/build_pages.py) -->"
+H_SHARED_END = "<!-- SDILENE:END -->"
+
+
+def modified(p):
+    """Datum poslední změny stránky: vlastní klíč `modified` v pages_data.py, jinak SITE["modified"]."""
+    return p.get("modified", SITE["modified"])
+
+
+def cz_date(iso):
+    y, m, d = iso.split("-")
+    return f"{int(d)}. {int(m)}. {y}"
+
+
+def update_homepage():
+    """Homepage se mezi markery SDILENE ručně needituje, blok s otisky souborů píše tenhle skript.
+    Datum změny homepage (WebPage dateModified) bere z SITE["home_modified"]."""
+    s = io.open(HOME, encoding="utf-8").read()
+    if H_SHARED_START not in s or H_SHARED_END not in s:
+        sys.exit("CHYBA: markery SDILENE nenalezeny v index.html")
+    i, j = s.index(H_SHARED_START), s.index(H_SHARED_END) + len(H_SHARED_END)
+    s = s[:i] + H_SHARED_START + "\n" + shared_block(charts=True) + "\n  " + H_SHARED_END + s[j:]
+    if s.count('"dateModified": "') != 1:
+        sys.exit("CHYBA: v index.html má být právě jedno dateModified")
+    k = s.index('"dateModified": "') + len('"dateModified": "')
+    s = s[:k] + SITE["home_modified"] + s[k + 10:]
+    io.open(HOME, "w", encoding="utf-8", newline="").write(s)
+
+
+# Pořadí a priorita v sitemap.xml. Stránka, která tu chybí, dostane 0.7.
+PRIORITY = {"sprava-google-ads": "0.9", "sprava-meta-ads": "0.9", "ppc-pro-eshopy": "0.9",
+            "ppc-audit": "0.9", "ppc-specialista-brno": "0.8"}
+
+
+def write_sitemap():
+    """sitemap.xml se generuje, aby lastmod vždycky seděl s dateModified na stránkách."""
+    rows = [(BASE + "/", SITE["home_modified"], "monthly", "1.0")]
+    rows += [(f"{BASE}/{p['slug']}/", modified(p), "monthly", PRIORITY.get(p["slug"], "0.7")) for p in PAGES]
+    rows.append((BASE + "/zasady-ochrany-osobnich-udaju.html", SITE["privacy_modified"], "yearly", "0.3"))
+    body = "".join(
+        f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{mod}</lastmod>\n"
+        f"    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>\n"
+        for loc, mod, freq, prio in rows)
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n")
+    io.open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write(xml)
+
+
+def update_llms_date():
+    """V llms.txt řádek „Poslední aktualizace: RRRR-MM-DD“ = nejnovější změna na webu."""
+    p = os.path.join(ROOT, "llms.txt")
+    s = io.open(p, encoding="utf-8", newline="").read()
+    newest = max([SITE["home_modified"], SITE["privacy_modified"]] + [modified(x) for x in PAGES])
+    key = "Poslední aktualizace: "
+    if s.count(key) != 1:
+        sys.exit("CHYBA: v llms.txt má být právě jeden řádek Poslední aktualizace")
+    k = s.index(key) + len(key)
+    s = s[:k] + newest + s[k + 10:]
+    io.open(p, "w", encoding="utf-8", newline="").write(s)
 
 CONSENT_GTM = """  <!-- Google Consent Mode v2 (MUST be before GTM) -->
   <script>
@@ -75,7 +166,7 @@ PAGE_JS = """  <script>
       });
     })();
 
-    // Kontaktní formulář – stejný endpoint jako na homepage (/api/contact)
+    // Kontaktní formulář: stejný endpoint jako na homepage (/api/contact)
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       var form = e.target, btn = form.querySelector('.submit-btn'), status = document.getElementById('formStatus');
@@ -136,7 +227,7 @@ def jsonld(p, url):
             "isPartOf": {"@id": BASE + "/#website"},
             "about": {"@id": url + "#service"},
             "inLanguage": "cs-CZ",
-            "dateModified": SITE["modified"],
+            "dateModified": modified(p),
             "breadcrumb": {"@id": url + "#breadcrumb"},
         },
         {
@@ -200,6 +291,9 @@ def render(p):
     foot_nav = "\n".join(
         f'      <a href="{i["href"]}">{escape(i["label"], quote=False)}</a>' for i in NAV
     )
+    # Volitelné styly a skripty jen pro jednu stránku (grafy na /jak-vyhodnocuji/).
+    extra_css = "".join(f'  <link rel="stylesheet" href="{asset(c)}"/>\n' for c in p.get("css", []))
+    extra_js = "".join(f'  <script src="{asset(j)}" defer></script>\n' for j in p.get("js", []))
 
     return f"""<!DOCTYPE html>
 <html lang="cs">
@@ -252,8 +346,8 @@ def render(p):
 {jsonld(p, url)}
   </script>
 
-  <link rel="stylesheet" href="/assets/css/lp.css"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
+  <link rel="stylesheet" href="{asset('/assets/css/lp.css')}"/>
+{extra_css}  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
 </head>
 <body>
@@ -277,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="lead">{escape(p["lead"], quote=False)}</p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="#kontakt">Domluvit konzultaci zdarma</a>
-        <a class="btn btn-ghost" href="#faq">Časté otázky</a>
+        <a class="btn btn-ghost" href="#kontakt" data-asistent="stranka">Zjistit, s čím vám pomůžu</a>
       </div>
     </div>
   </header>
@@ -309,6 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
       <h2>{escape(p["cta_title"], quote=False)}</h2>
       <p class="contact-lead">{escape(p["cta_text"], quote=False)}</p>
+      <p class="contact-diag">Nevíte, jak to popsat? <a href="#contactForm" data-asistent="kontakt">Projděte krátkou diagnostiku</a>, zabere asi dvě minuty.</p>
       <div class="contact-rows">
         <a href="tel:+420608633916">+420 608 633 916</a>
         <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
@@ -350,11 +445,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/">Úvod</a>
 {foot_nav}
     </div>
+    <p>Aktualizováno <time datetime="{modified(p)}">{cz_date(modified(p))}</time></p>
     <p>&copy; 2026 Pavel Vognárek · IČO 76591867 · Velké Bílovice ·
-      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a></p>
+      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> ·
+      <a href="#" data-cookie-settings>Nastavení cookies</a></p>
   </footer>
 
 {PAGE_JS}
+{extra_js}{shared_block()}
 </body>
 </html>
 """
@@ -371,7 +469,10 @@ def main():
         io.open(out, "w", encoding="utf-8", newline="").write(render(p))
         words = len(" ".join(sec["html"] for sec in p["sections"]).split())
         print(f"  {p['slug']:26s} -> {p['slug']}/index.html   (~{words} slov v sekcích, {len(p['faq'])} FAQ)")
-    print(f"OK: {len(PAGES)} stránek")
+    update_homepage()
+    write_sitemap()
+    update_llms_date()
+    print(f"OK: {len(PAGES)} stránek, blok na homepage, sitemap.xml a datum v llms.txt")
 
 
 if __name__ == "__main__":

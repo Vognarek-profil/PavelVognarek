@@ -23,7 +23,8 @@ Allow: /
 User-agent: Perplexity-User
 Allow: /
 
-# Crawlery pro trénink a indexaci
+# Trénink modelů: GPTBot (OpenAI), ClaudeBot (Anthropic), Google-Extended (trénink a grounding Gemini).
+# Na zařazení ve vyhledávání Google, Bing ani v AI vyhledávání nemají vliv.
 User-agent: GPTBot
 Allow: /
 

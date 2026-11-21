@@ -1,0 +1,166 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   charts.css – grafy v sekci Jak vyhodnocuji (homepage i /jak-vyhodnocuji/).
+   HTML generuje tools/build_charts.py z tools/vyhodnoceni_data.json.
+
+   Psáno MOBILE FIRST. Grafy jsou HTML + CSS, ne SVG s viewBoxem: popisky
+   se tak nezmenšují s grafem a zůstávají čitelné i na 360 px.
+
+   Barvy prošly validátorem (dataviz skill): letošek navy proti loňsku šedé
+   je bezpečné i pro barvoslepé, čára PNO je o stupeň tmavší než brandová
+   cyan, protože ta má na bílé kontrast jen 2,8:1.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.viz-root{
+  --v-surface:#fff;
+  --v-ink:#040e2e;
+  --v-ink-2:#475569;
+  --v-muted:#64748b;
+  --v-grid:#e6eaf2;
+  --v-orders:#0A33C8;
+  --v-budget:#5b7be0;
+  --v-pno:#0b87a6;
+  --v-last:#9aa5be;
+  --v-band:rgba(16,165,200,0.10);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  color:var(--v-ink);
+}
+
+/* ── OKNO DASHBOARDU ─────────────────────────────────────────────────────── */
+.viz-window{background:var(--v-surface);border:1px solid rgba(10,51,200,0.12);border-radius:14px;
+  box-shadow:0 12px 32px -18px rgba(4,14,46,0.35);overflow:hidden;margin:24px 0}
+.viz-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#f1f4fb;
+  border-bottom:1px solid rgba(10,51,200,0.08);font-size:12px;color:var(--v-ink-2)}
+.viz-bar i{width:9px;height:9px;border-radius:50%;background:#cfd6e6;flex-shrink:0}
+.viz-bar strong{margin-left:6px;color:var(--v-ink);font-weight:700;white-space:nowrap;flex-shrink:0}
+.viz-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viz-body{padding:16px 14px 14px}
+
+/* ── KPI DLAŽDICE ────────────────────────────────────────────────────────── */
+.viz-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:22px}
+.viz-kpi{border:1px solid var(--v-grid);border-radius:10px;padding:12px}
+.viz-kpi-l{font-size:12px;color:var(--v-muted);line-height:1.3}
+.viz-kpi-v{font-size:22px;font-weight:700;color:var(--v-ink);line-height:1.2;margin:4px 0 2px}
+.viz-kpi-s{font-size:12px;color:var(--v-ink-2);line-height:1.35}
+
+/* ── GRAF ────────────────────────────────────────────────────────────────── */
+.viz-fig{margin:0}
+.viz-fig + .viz-fig{margin-top:22px}
+.viz-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px;margin-bottom:12px}
+.viz-title{font-size:14px;font-weight:700;color:var(--v-ink)}
+.viz-note{font-size:12px;color:var(--v-muted)}
+.viz-plot{position:relative;height:140px;margin-left:36px;touch-action:pan-y}
+.viz-plot.is-short{height:110px}
+.viz-gl{position:absolute;left:0;right:0;height:0;border-top:1px solid var(--v-grid)}
+.viz-gl span{position:absolute;right:calc(100% + 6px);top:-8px;font-size:11px;line-height:16px;
+  color:var(--v-muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.viz-band{position:absolute;top:-6px;bottom:0;background:var(--v-band);border-radius:6px}
+.viz-cols{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));
+  grid-template-rows:100%;column-gap:2px;align-items:end}
+.viz-col{position:relative;display:block;width:100%;max-width:24px;justify-self:center;background:var(--v-orders);
+  border-radius:4px 4px 0 0;min-height:2px;transition:opacity .15s}
+.viz-col.is-budget{background:var(--v-budget)}
+.viz-grp{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:100%;transition:opacity .15s}
+.viz-grp .viz-col{width:42%;max-width:18px;justify-self:auto}
+.viz-col.is-last{background:var(--v-last)}
+.viz-lab{position:absolute;transform:translateX(-50%);font-size:11px;font-weight:700;color:var(--v-ink);
+  white-space:nowrap;line-height:1;margin-bottom:4px;pointer-events:none}
+.viz-lab.is-soft{font-weight:600;color:var(--v-ink-2)}
+.viz-col > .viz-lab{left:50%;bottom:100%}
+
+/* Čára PNO: SVG roztažené na plochu grafu, tloušťka čáry se neškáluje. */
+.viz-line{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.viz-line path{fill:none;stroke:var(--v-pno);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.viz-dot{position:absolute;width:8px;height:8px;margin:0 0 -4px -4px;border-radius:50%;background:var(--v-pno);
+  box-shadow:0 0 0 2px var(--v-surface);pointer-events:none}
+.viz-clip{position:absolute;top:-2px;transform:translate(-50%,-100%);font-size:10px;line-height:1;
+  color:var(--v-ink-2);white-space:nowrap;pointer-events:none}
+.viz-target{position:absolute;left:0;right:0;height:0;border-top:1.5px dashed var(--v-muted)}
+.viz-target span{position:absolute;right:0;bottom:3px;font-size:11px;font-weight:600;color:var(--v-ink-2);
+  background:var(--v-surface);padding:0 3px;border-radius:3px}
+.viz-cross{position:absolute;top:0;bottom:0;width:1px;margin-left:-.5px;background:var(--v-ink);
+  opacity:.28;pointer-events:none;display:none}
+
+/* Zvýraznění sloupce pod kurzorem: ostatní ustoupí. */
+.viz-group.has-hot [data-i]:not(.is-hot){opacity:.45}
+
+.viz-x{position:relative;height:16px;margin:6px 0 0 36px}
+.viz-x span{position:absolute;top:0;transform:translateX(-50%);font-size:11px;color:var(--v-muted);
+  white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.viz-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:-4px 0 12px;font-size:12px;color:var(--v-ink-2)}
+.viz-legend span{display:inline-flex;align-items:center;gap:6px}
+.viz-legend i{width:12px;height:12px;border-radius:3px;background:var(--v-orders)}
+.viz-legend i.is-last{background:var(--v-last)}
+.viz-legend i.is-band{background:var(--v-band);box-shadow:inset 0 0 0 1px rgba(16,165,200,0.35)}
+/* Čáry v legendě: plná pro PNO, čárkovaná pro cíl. Značka ▲ pro useknuté dny. */
+.viz-legend i.is-pno{height:0;border-radius:0;background:none;border-top:2px solid var(--v-pno)}
+.viz-legend i.is-target{height:0;border-radius:0;background:none;border-top:1.5px dashed var(--v-muted)}
+.viz-legend b{font-size:10px;font-weight:400;color:var(--v-ink-2);line-height:1}
+
+/* ── HEATMAPA ────────────────────────────────────────────────────────────── */
+.viz-heat{display:grid;grid-template-columns:26px repeat(24,minmax(0,1fr));gap:2px}
+.viz-heat b{font-size:11px;font-weight:600;color:var(--v-muted);line-height:1;align-self:center}
+.viz-cell{aspect-ratio:1/1;border-radius:3px;min-width:0}
+.viz-heat-x{display:grid;grid-template-columns:26px repeat(24,minmax(0,1fr));gap:2px;margin-top:6px}
+.viz-heat-x span{font-size:11px;color:var(--v-muted);white-space:nowrap}
+.viz-scale{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:var(--v-muted)}
+.viz-scale i{display:block;width:120px;height:8px;border-radius:4px}
+
+/* ── TABULKA (přístupná varianta každého grafu) ──────────────────────────── */
+.viz-table{margin-top:16px;font-size:13px}
+.viz-table summary{cursor:pointer;color:var(--v-ink-2);font-weight:600;font-size:13px}
+.viz-table summary:hover{color:var(--v-orders)}
+.viz-table .viz-scroll{overflow-x:auto;margin-top:10px}
+.viz-table table{border-collapse:collapse;width:100%;min-width:300px}
+.viz-table th,.viz-table td{padding:6px 8px;border-bottom:1px solid var(--v-grid);text-align:right;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.viz-table th:first-child,.viz-table td:first-child{text-align:left}
+.viz-table th{font-size:12px;color:var(--v-muted);font-weight:600}
+
+/* Fáze kolem akce: před, během, po. */
+.viz-phases{width:100%;border-collapse:collapse;margin:18px 0 4px;font-size:13px}
+.viz-phases th,.viz-phases td{padding:8px 4px;border-bottom:1px solid var(--v-grid);text-align:right;
+  font-variant-numeric:tabular-nums}
+.viz-phases th:first-child,.viz-phases td:first-child{text-align:left}
+.viz-phases thead th{font-size:13px;color:var(--v-ink);font-weight:700;vertical-align:bottom}
+.viz-phases thead th small{display:block;font-size:11px;font-weight:400;color:var(--v-muted);margin-top:2px}
+.viz-phases td.is-hot{font-weight:700;color:var(--v-ink)}
+.viz-phases-wrap{overflow-x:auto}
+
+.viz-foot{font-size:12px;line-height:1.6;color:var(--v-muted);margin:14px 0 0}
+
+/* ── TOOLTIP ─────────────────────────────────────────────────────────────── */
+.viz-tip{position:fixed;z-index:150;pointer-events:none;background:#040e2e;color:#fff;border-radius:8px;
+  padding:8px 10px;font-size:12px;line-height:1.5;box-shadow:0 8px 24px rgba(4,14,46,0.3);max-width:240px}
+.viz-tip .viz-tip-h{color:rgba(255,255,255,0.7);margin-bottom:2px}
+.viz-tip .viz-tip-r{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.viz-tip .viz-tip-r i{width:10px;height:2px;border-radius:1px;flex-shrink:0}
+.viz-tip strong{font-weight:700;color:#fff}
+
+/* ── ODKAZ NA PODSTRÁNKU (homepage) ──────────────────────────────────────── */
+.viz-more{display:inline-flex;align-items:center;gap:6px;margin-top:22px;padding:13px 22px;border-radius:9px;
+  background:var(--v-orders);color:#fff;font-weight:700;font-size:15px;text-decoration:none}
+.viz-more:hover{background:#071f7a}
+
+/* ── Snímky nástrojů s ukázkovými daty (homepage i /jak-vyhodnocuji/) ───────────────── */
+.shot{margin:22px 0 26px}
+.shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid rgba(10,51,200,0.12);
+  box-shadow:0 12px 32px -18px rgba(4,14,46,0.35);background:#fff}
+/* Náhled na homepage je jen upoutávka, plná velikost je na podstránce. */
+.viz-root.shot{max-width:680px}
+.shot figcaption{margin-top:10px;font-size:14px;line-height:1.6;color:#64748b}
+.shot-tag{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:10px;background:#fff4d6;color:#7a5200;
+  font-size:12px;font-weight:700;white-space:nowrap}
+
+/* ══ TABLET A VÝŠ ════════════════════════════════════════════════════════ */
+@media (min-width:600px){
+  .viz-body{padding:20px 22px 18px}
+  .viz-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .viz-kpis.is-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .viz-kpi-v{font-size:26px}
+  .viz-plot{height:170px}
+  .viz-plot.is-short{height:120px}
+  .viz-phases{font-size:14px}
+  .viz-phases th,.viz-phases td{padding:8px 6px}
+  .viz-phases thead th small{white-space:nowrap}
+}

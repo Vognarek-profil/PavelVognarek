@@ -17,7 +17,7 @@
   },
   {
     "q": "Jak probíhá spolupráce s PPC konzultantem?",
-    "a": "První krok je úvodní call (cca 30 min) zdarma – probereme váš business, cíle, aktuální stav PPC a co od spolupráce čekáte. Pokud to dává smysl, navazuje audit (1–2 týdny) – analýza Google Ads, Sklik, Meta účtu, měření, feedu a celkové strategie. Po auditu dostanete konkrétní plán a kalkulaci. Pak buď pokračujeme dlouhodobou správou (optimalizace, reporting, strategické konzultace), nebo s vámi předáme změny vašemu týmu. Komunikace je online přes Google Meet, e-mail a sdílené dashboardy."
+    "a": "První krok je úvodní konzultace. Trvá asi 30 minut a je zdarma: probereme váš business, cíle, aktuální stav PPC a co od spolupráce čekáte. Pokud to dává smysl, navazuje audit, který trvá 1 až 2 týdny: analýza Google Ads, Sklik, Meta účtu, měření, feedu a celkové strategie. Po auditu dostanete konkrétní plán a kalkulaci. Pak buď pokračujeme dlouhodobou správou (optimalizace, reporting, strategické konzultace), nebo s vámi předáme změny vašemu týmu. Komunikace je online přes Google Meet, e-mail a sdílené dashboardy."
   },
   {
     "q": "Jak dlouho trvá, než se PPC kampaň rozjede?",
@@ -32,6 +32,10 @@
     "a": "Sklik spravuji a u českých e-shopů ho považuju za povinnou součást, ne za doplněk. Má jinou aukci a jiné publikum než Google Ads, takže se často vyplatí i tam, kde je Google už nasycený. Ve Skliku jsem vyhrál Sklik výzvu za nejlepší Black Friday strategii 2025. Standardně tedy pracuji se čtyřmi kanály: Google Ads, Sklik, Meta Ads a zbožové srovnávače, a hodnotím je proti sobě, aby rozpočet tekl tam, kde reálně vydělává."
   },
   {
+    "q": "Spravujete i Microsoft Ads (Bing), YouTube a reklamu v ChatGPT?",
+    "a": "Ano. Hlavní kanály jsou Google Ads, Sklik, Meta Ads a zbožové srovnávače, k nim spravuji i Microsoft Ads (Bing), video kampaně na YouTube a reklamu v ChatGPT. Výsledky všech kanálů vyhodnocuji společně na skutečných objednávkách z e-shopu, aby se jedna objednávka nepočítala dvakrát a rozpočet šel tam, kde opravdu prodává."
+  },
+  {
     "q": "Pracujete i s produktovými feedy pro Google Shopping, Heureku a Zboží.cz?",
     "a": "Ano a u e-shopů je to jedna z nejvýnosnějších částí práce. Feed rozhoduje o tom, na jaké dotazy se produkt vůbec ukáže, takže se v něm dá získat víc než dolaďováním nabídek v kampani. Konkrétně řeším kvalitu a úplnost dat v Google Merchant Centru, názvy a popisky produktů podle toho, co lidé reálně hledají, doplňování chybějících atributů jako GTIN, značka nebo velikost, správnou kategorizaci, vylučování neprodejných a nedostupných položek a pravidla v Mergadu. Napojení jde na Google Shopping a Performance Max, na Heureku, Zboží.cz, Favi, Biano a na katalog v Metě, aby všechny kanály jely z jednoho čistého zdroje dat."
   },
@@ -41,11 +45,11 @@
   },
   {
     "q": "Proč mi nefungují kampaně?",
-    "a": "Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor – zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business."
+    "a": "Problém bývá zřídka jen v kampani samotné. Nejčastěji za špatnými výsledky stojí kombinace slabého webu, nekompetitivního produktu, nulového brandu nebo chybně nastaveného měření. Kampaně jsou jen amplifikátor, zesilují to, co už existuje. Proto vždy začínám komplexním pohledem na celý business."
   },
   {
     "q": "Proč mi klesá ROAS?",
-    "a": "Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný – proto začínám auditem dat a kampaní."
+    "a": "Nejčastější příčiny jsou vyšší konkurence v aukcích, saturace publika, oslabený brand nebo změny v trackingu po iOS aktualizacích. Každý případ je jiný, proto začínám auditem dat a kampaní."
   },
   {
     "q": "Jak poznám, že mi PPC agentura nefunguje?",
@@ -61,7 +65,7 @@
   },
   {
     "q": "Pracujete i s klienty z Břeclavi a okolí?",
-    "a": "Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně – často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci."
+    "a": "Ano, sídlím ve Velkých Bílovicích kousek od Břeclavi a osobně se rád potkám s klienty z Břeclavi, Mikulova, Hodonína i dalších měst v okolí. Na Břeclavsku je PPC konkurence slabší než v Praze nebo Brně. Často stačí dobře nastavené Google Ads a zbožové srovnávače, aby se malá firma dostala před větší konkurenci."
   },
   {
     "q": "Pokrýváte jen jižní Moravu, nebo i zbytek Česka?",

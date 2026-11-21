@@ -12,6 +12,9 @@ Ověřuje:
   5. přesně jeden <h1> na stránku
   6. všechny lokální soubory, na které se odkazuje (src/href), existují na disku
   7. každé URL v sitemap.xml odpovídá stránce v repu
+  8. asistent Diagnostika: skript na každé stránce (kromě 404 a zásad), každé pravidlo
+     má otázky na konzultaci v api/_lib/diagnostika-email.js, v textech pro návštěvníky
+     nejsou vykřičníky ani pomlčky uprostřed věty
 """
 import glob
 import io
@@ -130,6 +133,80 @@ for path in html_pages():
             base = ROOT if u.startswith("/") else os.path.dirname(path)
             if not os.path.exists(os.path.join(base, u.lstrip("/"))):
                 err(f"{name}: srcset odkazuje na neexistující {u}")
+
+# 10) text bez pomlček a vykřičníků (Pavlovo pravidlo: prozrazují strojový text).
+# Kontroluje viditelný text, alt a title atributy a JSON-LD. Kód (script, style) a komentáře ne.
+for path in html_pages():
+    name = rel(path)
+    s = io.open(path, encoding="utf-8").read()
+    t = re.sub(r"<!--.*?-->", " ", s, flags=re.S)
+    ld = " ".join(re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, flags=re.S))
+    t = re.sub(r"<(script|style)\b.*?</\1>", " ", t, flags=re.S | re.I)
+    attrs = " ".join(re.findall(r'(?:alt|title|aria-label|content|placeholder)="([^"]*)"', t))
+    t = re.sub(r"<!DOCTYPE[^>]*>", " ", t, flags=re.I)
+    for kde, text in (("text", strip_tags(t)), ("atributy", unescape(attrs)), ("JSON-LD", ld)):
+        for m in re.finditer(r"[–—!]", text):
+            err(f"{name}: {'pomlčka' if m.group() != '!' else 'vykřičník'} v ({kde}): „…{text[max(0, m.start() - 40):m.end() + 20].strip()}…“")
+            break
+
+# 11) lastmod v sitemap = dateModified stránky (AI i vyhledávače berou datum jako signál čerstvosti)
+_sm = os.path.join(ROOT, "sitemap.xml")
+if os.path.exists(_sm):
+    _lm = dict(re.findall(r"<loc>(.*?)</loc>\s*<lastmod>(.*?)</lastmod>", io.open(_sm, encoding="utf-8").read()))
+    for path in html_pages():
+        name = rel(path)
+        if name == "404.html":
+            continue
+        dm = re.findall(r'"dateModified":\s*"([^"]+)"', io.open(path, encoding="utf-8").read())
+        url = DOMAIN + "/" + (name.replace("/index.html", "/") if name != "index.html" else "")
+        if dm and url in _lm and _lm[url] != dm[0]:
+            err(f"{name}: dateModified {dm[0]} nesedí s lastmod {_lm[url]} v sitemap.xml")
+
+# 9) asistent Diagnostika
+BEZ_ASISTENTA = ("404.html", "zasady-ochrany-osobnich-udaju.html")
+for path in html_pages():
+    name = rel(path)
+    if name in BEZ_ASISTENTA:
+        continue
+    s = io.open(path, encoding="utf-8").read()
+    for f in ("/assets/js/diagnostika-data.js", "/assets/js/asistent.js", "/assets/css/asistent.css"):
+        if f not in s:
+            err(f"{name}: chybí {f} (asistent Diagnostika)")
+
+try:
+    import subprocess
+    js = (
+        "const D=require(process.argv[1]);const E=require(process.argv[2]);"
+        "const t=[];D.otazky.forEach(o=>{t.push(o.text,o.kratce);o.volby.forEach(v=>{t.push(v.text);if(v.textSk)t.push(v.textSk);});});"
+        "Object.values(D.sluzby).forEach(x=>t.push(x.nazev,x.nazevSk||'',x.popis,x.popisSk||''));"
+        "Object.values(D.texty).forEach(x=>t.push(x));"
+        "console.log(JSON.stringify({pravidla:D.pravidla.map(p=>p.id),email:Object.keys(E.OTAZKY_NA_KONZULTACI),texty:t,"
+        "sluzby:Object.values(D.sluzby).map(x=>x.url)}));"
+    )
+    out = subprocess.run(
+        ["node", "-e", js, os.path.join(ROOT, "assets", "js", "diagnostika-data.js"),
+         os.path.join(ROOT, "api", "_lib", "diagnostika-email.js")],
+        cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True).stdout
+    dg = json.loads(out)
+    for pid in dg["pravidla"]:
+        if pid not in dg["email"]:
+            err(f"asistent: pravidlo {pid} nemá otázky na konzultaci v api/_lib/diagnostika-email.js")
+    for pid in dg["email"]:
+        if pid not in dg["pravidla"]:
+            warn(f"asistent: api/_lib/diagnostika-email.js má otázky pro neexistující pravidlo {pid}")
+    for t in dg["texty"]:
+        if "!" in t or "–" in t or "—" in t:
+            err(f"asistent: vykřičník nebo pomlčka v textu „{t[:60]}“")
+    for u in dg["sluzby"]:
+        fp = os.path.join(ROOT, u.split("#")[0].lstrip("/"))
+        if os.path.isdir(fp):
+            fp = os.path.join(fp, "index.html")
+        if not os.path.exists(fp):
+            err(f"asistent: služba odkazuje na neexistující {u}")
+except FileNotFoundError:
+    warn("asistent: node není k dispozici, kontrola pravidel a textů přeskočena")
+except subprocess.CalledProcessError as e:
+    err(f"asistent: načtení diagnostika-data.js selhalo: {e.stderr.strip()[:300]}")
 
 # 8) sitemap vs. realita
 sm = os.path.join(ROOT, "sitemap.xml")

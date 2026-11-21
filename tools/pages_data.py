@@ -12,10 +12,35 @@ Pravidla, která tu platí:
     (tools/faq.json), jinak si stránky konkurují navzájem.
 """
 
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_charts import CHARTS, N  # noqa: E402  grafy a čísla pro /jak-vyhodnocuji/
+
+# Data posledních změn. Při úpravě stránky přepsat její datum: podstránka klíčem "modified"
+# ve svém slovníku (jinak platí SITE["modified"]), homepage a zásady tady. Z těchhle dat se
+# generuje dateModified, viditelné „Aktualizováno“, sitemap.xml i datum v llms.txt.
 SITE = {
     "base": "https://www.pavelvognarek.cz",
-    "modified": "2026-09-06",
+    "modified": "2026-11-21",
+    "home_modified": "2026-11-21",
+    "privacy_modified": "2026-11-21",
 }
+
+IMG = "/assets/img/vyhodnoceni/"
+
+
+def shot(desktop, dw, dh, alt, caption, mobile=None, mw=0, mh=0):
+    """Snímek nástroje s vymyšlenými daty. Na mobilu vlastní výřez (čitelný na 390 px), od 600 px desktopový.
+    Popisek vždy končí štítkem Ukázková data, aby si nikdo nespletl čísla se skutečným klientem."""
+    src = (f'<source media="(max-width: 599px)" srcset="{IMG}{mobile}" width="{mw}" height="{mh}">'
+           if mobile else "")
+    return (
+        f'<figure class="shot"><picture>{src}'
+        f'<img src="{IMG}{desktop}" width="{dw}" height="{dh}" alt="{alt}" loading="lazy" decoding="async">'
+        f'</picture><figcaption>{caption} <span class="shot-tag">Ukázková data</span></figcaption></figure>'
+    )
 
 NAV = [
     {"slug": "sprava-google-ads", "href": "/sprava-google-ads/", "label": "Google Ads"},
@@ -23,6 +48,7 @@ NAV = [
     {"slug": "ppc-pro-eshopy", "href": "/ppc-pro-eshopy/", "label": "PPC pro e-shopy"},
     {"slug": "ppc-audit", "href": "/ppc-audit/", "label": "Audit PPC"},
     {"slug": "ppc-specialista-brno", "href": "/ppc-specialista-brno/", "label": "PPC Brno"},
+    {"slug": "jak-vyhodnocuji", "href": "/jak-vyhodnocuji/", "label": "Vyhodnocení"},
 ]
 
 PAGES = [
@@ -131,7 +157,7 @@ PAGES = [
 <p>Přes <strong>250 milionů Kč</strong> proinvestovaných v reklamních kampaních a <strong>průměrný ROAS 4,3</strong> napříč spravovanými účty. Zkušenosti sbírám od menších e-shopů s rozpočty v desítkách tisíc měsíčně po účty s rozpočty v milionech, jako Doppler, Biju.cz, Lomax nebo Fitmin.</p>
 <p>Dvě věci si můžete ověřit u zdroje, ne jen na mém webu:</p>
 <ul>
-  <li><a href="https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/" target="_blank" rel="noopener">První místo ve Sklik výzvě za nejlepší Black Friday strategii 2025</a> na blogu Seznamu.</li>
+  <li><a href="https://blog.seznam.cz/2025/12/sklik-vyzva-nejlepsi-black-friday-strategie-ma-viteze/" target="_blank" rel="noopener">Vítězství ve Sklik výzvě za nejlepší Black Friday strategii 2025</a> na blogu Seznamu.</li>
   <li><a href="https://www.sklikakademie.cz/cs/pripadove-studie/detail/~/17/" target="_blank" rel="noopener">Případová studie Doppler</a> na Sklik Akademii.</li>
 </ul>
 <p>Praxi mám z brněnských agentur ROIMARK a In Creative i z přímé spolupráce s klienty. Podrobnosti o značkách najdete <a href="/#reference">v referencích na úvodní stránce</a>.</p>
@@ -205,7 +231,7 @@ PAGES = [
   <li><strong>Vyčerpané publikum</strong>
     <p>Kampaň už oslovila prakticky všechny, kdo dávají smysl. Řešení je rozšíření do šířky: nová publika, nové trhy, nové formáty umístění.</p></li>
   <li><strong>Rozbité měření</strong>
-    <p>Algoritmus dostává neúplný nebo zdvojený signál a optimalizuje na špatný cíl. Dokud tohle neseděší, každá další změna jen mění, jakým směrem se plýtvá.</p></li>
+    <p>Algoritmus dostává neúplný nebo zdvojený signál a optimalizuje na špatný cíl. Dokud tohle nesedí, každá další změna jen mění, jakým směrem se plýtvá.</p></li>
 </ol>
 <p>Samotné škálování pak vedu dvěma směry. Do šířky přes nová publika a trhy, do hloubky přes obměnu kreativy a konsolidaci sestav. Rozpočet zvedám postupně, ne skokově, protože velký skok resetuje učící fázi. A každý krok se posuzuje na tom, kolik objednávek reálně přibylo, ne kolik si Meta připsala.</p>
 """,
@@ -458,7 +484,7 @@ PAGES = [
         "service_type": "Správa PPC kampaní",
         "area": ["Česká republika"],
         "h1": "PPC specialista pro Brno<br><span>a okolí</span>",
-        "lead": "Praxi jsem sbíral jako Team Leader PPC v brněnských agenturách ROIMARK a In Creative a dnes spolupracuji s firmami z Brna napřímo. Spravuji Google Ads, Sklik, Meta Ads a zbožové srovnávače. Osobní schůzka v Brně není problém, ale spolupráci vedu z větší části online.",
+        "lead": "Praxi jsem sbíral v brněnských agenturách, jako Team Leader PPC v In Creative a jako konzultant v ROIMARK, a dnes spolupracuji s firmami z Brna napřímo. Spravuji Google Ads, Sklik, Meta Ads a zbožové srovnávače. Osobní schůzka v Brně není problém, ale spolupráci vedu z větší části online.",
         "faq_title": "Časté otázky ke spolupráci v Brně",
         "cta_title": "Sejdeme se v Brně, nebo online",
         "cta_text": "Úvodní konzultace trvá asi 30 minut a je zdarma. Můžeme ji vzít přes Google Meet, nebo se potkat osobně v Brně.",
@@ -514,6 +540,116 @@ PAGES = [
              "Ne, spolupráce s ROIMARKem pokračuje v roli konzultanta a je to na webu uvedené otevřeně. Konflikt by nastal, kdybych vedl dva přímo konkurenční e-shopy ve stejné kategorii, a to nedělám. Pokud by k takové situaci mělo dojít, řeknu to dřív, než začneme."),
             ("Děláte i školení nebo konzultace pro interní tým?",
              "Ano. U firem, které mají vlastního člověka na PPC, dává často větší smysl konzultační režim než plná správa: pravidelné konzultace, revize účtu a nastavení procesů, zatímco denní práci dělá váš tým. Řekneme si to na úvodní konzultaci podle toho, jak je tým silný a co reálně potřebuje."),
+        ],
+    },
+    # ══════════════════════════════════════════════════════════════════════
+    # Čísla v textech se berou z N (tools/build_charts.py), grafy z CHARTS.
+    # Nikdy je nepsat natvrdo, jinak se po dalším exportu dat rozejdou s grafy.
+    {
+        "slug": "jak-vyhodnocuji",
+        "nav_label": "Jak vyhodnocuji",
+        "teaser": "PNO ze skutečných objednávek, ukázky z dashboardu",
+        "crumb": "Jak vyhodnocuji",
+        "title": "Vyhodnocení PPC kampaní a reporting | Pavel Vognárek",
+        "description": "Jak vyhodnocuji PPC kampaně: denní dashboard a PNO ze skutečných objednávek v e-shopu, ne z čísel reklamních systémů. Ukázky na reálných datech dvou e-shopů.",
+        "service_name": "Vyhodnocení a reporting PPC kampaní",
+        "service_type": "Reporting a vyhodnocení výkonnostního marketingu",
+        "area": ["Česká republika", "Slovensko"],
+        "css": ["/assets/css/charts.css"],
+        "js": ["/assets/js/charts.js"],
+        "h1": "Vyhodnocení PPC kampaní<br><span>na skutečných objednávkách</span>",
+        "lead": "Google Ads i Meta si rády připíšou stejnou objednávku. Proto výsledky nevyhodnocuji v reklamních systémech, ale v dashboardu, kde se potkají skutečné objednávky z e-shopu s náklady ze všech reklamních účtů. Níž jsou ukázky na reálných datech dvou e-shopů, které spravuji.",
+        "faq_title": "Časté otázky k vyhodnocování",
+        "cta_title": "Chcete takový přehled i pro svůj e-shop?",
+        "cta_text": "Úvodní konzultace trvá asi 30 minut a je zdarma. Projdeme, jak dnes vyhodnocujete kampaně a co by vám ukázal přehled postavený na skutečných objednávkách.",
+        "form_placeholder": "Napište mi, na jaké platformě běží váš e-shop a jak dnes vyhodnocujete výsledky kampaní...",
+        "related": ["ppc-pro-eshopy", "sprava-google-ads", "sprava-meta-ads"],
+        "sections": [
+            {
+                "h2": "Odkud se berou čísla",
+                "html": """
+<p>Reklamní systémy počítají konverze po svém. Google Ads si objednávku připíše po kliknutí, Meta i po zhlédnutí reklamy, a když zákazník viděl obojí, objeví se v obou reportech. Součet konverzí z kanálů pak bývá vyšší než počet objednávek, které e-shop opravdu odeslal. Proto stavím vyhodnocení na jiném základu:</p>
+<ul>
+  <li><strong>Objednávky a tržby</strong> beru přímo z e-shopu, bez DPH a bez dopravy. Zrušené objednávky se odečítají, i když je e-shop stornuje až po několika týdnech.</li>
+  <li><strong>Náklady</strong> sčítám ze všech napojených reklamních účtů dohromady, eura přepočtená na koruny.</li>
+  <li><strong>PNO</strong> je podíl nákladů na reklamu na tržbách za zboží. Jedno číslo za celý e-shop, které si žádný kanál nemůže přikrášlit.</li>
+  <li><strong>Úplnost dat</strong> se hlídá každý den. Když za nějaký den nedorazí objednávky z e-shopu, dashboard to označí, místo aby ukázal nulu, která nemusí být pravda.</li>
+</ul>
+<p>Výsledné PNO bývá horší než to, co ukazují reklamní systémy. Zato odpovídá tomu, co e-shopu reálně přišlo, a podle toho se dá rozhodovat o rozpočtu.</p>
+""",
+            },
+            {
+                "h2": "Co klient v dashboardu vidí",
+                "class": "bg-light",
+                "html": f"""
+<p>Data v dashboardu jsou průběžně aktualizovaná a klient do něj má vlastní přístup, takže na čísla nemusí čekat do měsíčního reportu. Report pak vysvětluje, co se stalo, proč a co se bude dělat dál.</p>
+<div class="cards">
+  <div class="card"><h3>Tržby, objednávky a PNO</h3><p>Za zvolené období i po dnech, se srovnáním proti předchozímu období.</p></div>
+  <div class="card"><h3>Náklady po kanálech</h3><p>Denní spend rozdělený podle reklamních účtů a PNO proti cílové hranici.</p></div>
+  <div class="card"><h3>Slevy a akce</h3><p>Kolik objednávek šlo přes slevový kód, kolik vynesly a jaký objem slevy stály.</p></div>
+  <div class="card"><h3>Roční zhodnocení</h3><p>Měsíc po měsíci proti loňsku, aby se sezóna nepletla s výsledkem.</p></div>
+  <div class="card"><h3>Kdy chodí objednávky</h3><p>Den v týdnu a hodina. Podklad pro načasování akcí a rozložení rozpočtu.</p></div>
+  <div class="card"><h3>Bestselleři</h3><p>Které produkty táhnou tržby, aby se rozpočet nelil do zboží, které se prodá samo.</p></div>
+</div>
+<p>Takhle dashboard vypadá. Snímky jsou z ukázkového e-shopu s vymyšlenými čísly, skutečné účty klientů nezveřejňuji.</p>
+{shot("dashboard-desktop-kpi.webp", 1200, 375,
+      "Ukázka dashboardu: dlaždice s čistou tržbou, náklady na reklamu, PNO, ROAS, počtem objednávek a průměrnou objednávkou za 30 dní, u každé změna proti předchozímu období",
+      "Přehled za zvolené období: tržby bez DPH, náklady, PNO, ROAS, objednávky a průměrná objednávka. U každého čísla změna proti předchozímu období.",
+      "dashboard-mobil-kpi.webp", 720, 785)}
+{shot("dashboard-desktop-utrata-pno.webp", 1200, 500,
+      "Ukázka grafu z dashboardu: denní náklady rozdělené na Metu a Google Ads ve sloupcích a čára PNO proti cílové hranici 25 procent",
+      "Náklady po dnech rozdělené na Metu a Google a k tomu PNO proti cílové hranici. Je hned vidět, jestli přidaný rozpočet netáhne PNO nad cíl.",
+      "dashboard-mobil-utrata-pno.webp", 720, 836)}
+""",
+            },
+            {
+                "h2": f"Ukázka: e-shop A, {N['a_month']} {N['a_year']}",
+                "html": f"""
+<p>{N['a_base_month'].capitalize()} skončil na {N['a_base_orders']} objednávkách a PNO {N['a_base_pno']}, tedy nad cílem {N['a_target']}. V {N['a_month_lok']} přišlo {N['a_orders']} objednávek při PNO {N['a_pno']}.</p>
+{CHARTS['a']}
+<p>Špičku od {N['a_peak_from']} do {N['a_peak_to']} táhla slevová akce. Proto se nedívám jen na ni, ale i na dny před ní a po ní:</p>
+{CHARTS['a_phases']}
+<ul>
+  <li><strong>Před akcí</strong> kleslo PNO na {N['a_before_pno']}, tedy už v první polovině měsíce, bez slevy.</li>
+  <li><strong>Během akce</strong> přišlo {N['a_peak_orders']} objednávek za {N['a_peak_days']}. Denní rozpočet se zvedl až na {N['a_max_budget']}násobek průměrného dne v {N['a_base_lok']} a PNO přesto zůstalo na {N['a_peak_pno']}.</li>
+  <li><strong>Po akci</strong> se objednávky vrátily k běžné úrovni a PNO na {N['a_after_pno']}, pořád pod úrovní {N['a_base_z_gen']}.</li>
+</ul>
+<p>Tohle je rozdíl mezi reportem a vyhodnocením. Report řekne, že měsíc byl skvělý. Vyhodnocení řekne, kolik z toho udělala akce, kolik zůstalo po ní a jestli e-shop unese vyšší rozpočet i příště.</p>
+""",
+            },
+            {
+                "h2": "Ukázka: sezónní e-shop B",
+                "class": "bg-light",
+                "html": f"""
+<p>E-shop B prodává letní sortiment a mimo sezónu má celé týdny bez objednávky. Roční průměr u něj nic neříká, a proto ho vůbec nepoužívám. Srovnává se sezóna se sezónou.</p>
+{CHARTS['b']}
+<p>Srovnání měsíc proti měsíci by v {N['b_drop_lok']} vypadalo jako propad {N['b_drop_words']}: {N['b_drop_y1']} objednávek proti {N['b_drop_y0']} loni. Sezóna {N['b_season']} přitom skončila na {N['b_season_y1']} objednávkách proti {N['b_season_y0']} loni, tedy {N['b_season_change_txt']}, a {N['b_rise_month']} přinesl {N['b_rise_x']}krát víc objednávek než loni. Kdo by vyhodnocoval po jednom měsíci, sahal by na rozpočet ve chvíli, kdy sezóna teprve začínala.</p>
+<p>PNO za {N['b_pno_months']} {N['b_y1']} vyšlo na {N['b_pno']}, {N['b_target_rel']} {N['b_target']}. Starší PNO neukazuji, protože dashboard sčítá náklady z Google Ads i z Mety až od {N['b_pno_from']}. Srovnání s dřívějškem by míchalo dvě různě spočítaná čísla.</p>
+""",
+            },
+            {
+                "h2": "Kdy chodí objednávky",
+                "html": f"""
+<p>Heatmapa ukazuje, který den v týdnu a ve kterou hodinu objednávky přicházejí. U e-shopu A jsou nejsilnější {N['heat_weekdays']}{N['heat_peaks']}. Nejslabší je {N['heat_weakest']}.</p>
+{CHARTS['heat']}
+<p>Podle toho se plánuje, kdy spustit akci, kdy poslat newsletter nebo jak rozložit rozpočet v týdnu. U jiného e-shopu vypadá rozložení úplně jinak, proto se vždycky dívám na data konkrétního klienta, ne na obecné poučky.</p>
+{CHARTS['foot']}
+""",
+            },
+        ],
+        "faq": [
+            ("Proč se PNO v dashboardu liší od čísel v Google Ads nebo v Metě?",
+             "Protože každý reklamní systém počítá konverze po svém a stejnou objednávku si můžou připsat oba. Dashboard bere objednávky přímo z e-shopu a náklady ze všech reklamních účtů dohromady. Vychází z toho jedno PNO za celý e-shop, které bývá horší než čísla v reklamních systémech, ale odpovídá tomu, co e-shopu reálně přišlo."),
+            ("Uvidím data průběžně, nebo až v měsíčním reportu?",
+             "Průběžně. Klient má do dashboardu vlastní přístup a data v něm jsou aktualizovaná. Měsíční report pak vysvětluje, co se stalo, proč a co se bude dělat dál."),
+            ("Počítá se PNO z tržeb s DPH a s dopravou?",
+             "Ne. PNO počítám z tržeb za zboží bez DPH a bez dopravy. DPH ani poštovné nejsou peníze, které e-shopu zůstanou, a s nimi by PNO vycházelo uměle nízko."),
+            ("Co když za nějaký den chybí data z e-shopu?",
+             "Dashboard si u každého dne eviduje, jestli data z e-shopu opravdu dorazila. Den bez potvrzených dat je označený jako neúplný, takže se nula objednávek nezamění za den, kdy se nic neprodalo."),
+            ("Jsou snímky z dashboardu skutečné?",
+             "Dashboard je skutečný, čísla na snímcích ne. Snímky jsou z ukázkového e-shopu s vymyšlenými daty, protože účty klientů nezveřejňuji. Grafy e-shopu A a e-shopu B jsou naopak překreslené ze skutečných dat, jen bez jména e-shopu a bez částek v korunách."),
+            ("Proč u ukázek neuvádíte jméno e-shopu ani částky?",
+             "Čísla klientů patří klientům. Ukázky jsou ze skutečných dat, ale bez jména e-shopu a bez tržeb v korunách. Počty objednávek a PNO jsou přesně tak, jak je ukazuje dashboard. Na úvodní konzultaci rád projdu, jak by takový přehled vypadal pro váš e-shop."),
         ],
     },
 ]

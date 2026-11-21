@@ -1,6 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": true,
   "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:slug/index.html",
+      "destination": "/:slug/",
+      "permanent": true
+    },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "pavel-vognarek.vercel.app" }],

@@ -1,0 +1,106 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   asistent.css: okno Diagnostiky a plovoucí tlačítko (assets/js/asistent.js).
+   MOBILE FIRST: na telefonu celá obrazovka, od 600 px panel vpravo dole.
+   Vše pod prefixem pv-as, aby se nic nebilo se styly webu.
+   ────────────────────────────────────────────────────────────────────────── */
+.pv-as{--as-navy:#0A33C8;--as-navy-d:#071f7a;--as-cyan:#10A5C8;--as-ink:#040e2e;--as-ink2:#475569;
+  --as-line:#e2e8f0;--as-bot:#f1f4fb;--as-me:#0A33C8;
+  position:fixed;inset:0;z-index:10001;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.pv-as[hidden],.pv-as-launch[hidden]{display:none}
+.pv-as-open,.pv-as-open body{overflow:hidden}
+.pv-as-backdrop{position:absolute;inset:0;background:rgba(4,14,46,0.45)}
+
+.pv-as-panel{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;color:var(--as-ink)}
+.pv-as-head{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;
+  background:linear-gradient(135deg,var(--as-navy-d),var(--as-navy));color:#fff}
+.pv-as-ava{flex-shrink:0;width:38px;height:38px;border-radius:10px;background:#fff;color:var(--as-navy);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;box-shadow:inset 0 -3px 0 var(--as-cyan)}
+.pv-as-titles{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.pv-as-titles strong{font-size:16px;font-weight:700}
+.pv-as-titles span{font-size:12px;color:rgba(255,255,255,0.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-as-x{flex-shrink:0;width:44px;height:44px;border:0;border-radius:10px;background:transparent;color:#fff;
+  font-size:28px;line-height:1;cursor:pointer}
+.pv-as-x:hover{background:rgba(255,255,255,0.12)}
+
+.pv-as-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px 6px;
+  font-size:12px;color:var(--as-ink2);min-height:36px}
+.pv-as-back{border:0;background:none;color:var(--as-navy);font:inherit;font-weight:600;padding:6px 0;cursor:pointer}
+.pv-as-back[hidden]{display:block;visibility:hidden}
+.pv-as-steps{margin-left:auto}
+.pv-as-bar{height:3px;background:var(--as-line)}
+.pv-as-bar span{display:block;height:100%;width:0;background:var(--as-cyan);transition:width .25s}
+
+.pv-as-body{position:relative;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px 20px}
+.pv-as-log{display:flex;flex-direction:column;gap:8px}
+.pv-as-msg{max-width:88%;padding:10px 13px;border-radius:14px;font-size:15px;line-height:1.5}
+.pv-as-msg p{margin:0}
+.pv-as-msg.is-bot{align-self:flex-start;background:var(--as-bot);border-bottom-left-radius:4px}
+.pv-as-msg.is-me{align-self:flex-end;background:var(--as-me);color:#fff;border-bottom-right-radius:4px}
+
+.pv-as-ctrl{margin-top:14px}
+.pv-as-opts{display:flex;flex-direction:column;gap:8px}
+.pv-as-opt{display:block;width:100%;text-align:left;padding:12px 14px;border:1.5px solid rgba(10,51,200,0.25);
+  border-radius:12px;background:#fff;color:var(--as-ink);font:inherit;font-size:15px;line-height:1.35;cursor:pointer;
+  transition:border-color .15s,background .15s}
+.pv-as-opt:hover{border-color:var(--as-navy);background:#f6f8fe}
+.pv-as-opt.is-check{position:relative;padding-left:42px}
+.pv-as-opt.is-check::before{content:'';position:absolute;left:14px;top:50%;width:18px;height:18px;margin-top:-9px;
+  border:1.5px solid rgba(10,51,200,0.45);border-radius:5px;background:#fff}
+.pv-as-opt[aria-pressed="true"]{border-color:var(--as-navy);background:#eef2fd}
+.pv-as-opt[aria-pressed="true"]::before{background:var(--as-navy);border-color:var(--as-navy);
+  box-shadow:inset 0 0 0 3px #fff}
+
+.pv-as-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px}
+.pv-as-btn{border:0;border-radius:10px;background:var(--as-navy);color:#fff;font:inherit;font-weight:700;font-size:15px;
+  padding:13px 22px;cursor:pointer}
+.pv-as-btn:hover{background:var(--as-navy-d)}
+.pv-as-btn:disabled{opacity:.45;cursor:not-allowed}
+.pv-as-btn.is-wide{width:100%;margin-top:6px}
+.pv-as-link{border:0;background:none;color:var(--as-ink2);font:inherit;font-weight:600;text-decoration:underline;
+  text-underline-offset:3px;padding:8px 2px;cursor:pointer}
+
+.pv-as-input{display:block;width:100%;box-sizing:border-box;padding:11px 12px;border:1.5px solid var(--as-line);
+  border-radius:10px;font:inherit;font-size:16px;color:var(--as-ink);background:#fff}
+textarea.pv-as-input{resize:vertical;min-height:84px}
+.pv-as-input:focus{outline:none;border-color:var(--as-navy);box-shadow:0 0 0 3px rgba(10,51,200,0.15)}
+.pv-as-form{display:flex;flex-direction:column;gap:10px}
+.pv-as-field label{display:block;font-size:13px;font-weight:600;color:var(--as-ink2);margin-bottom:4px}
+.pv-as-consent{margin:2px 0 0;font-size:12px;line-height:1.5;color:var(--as-ink2)}
+.pv-as-consent a{color:var(--as-navy)}
+.pv-as-status{margin:0;font-size:14px;color:#b42318}
+.pv-as-status:empty{display:none}
+.pv-as-hp{position:absolute;left:-9999px;top:-9999px}
+
+.pv-as-cards{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.pv-as-card{display:block;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--as-line);
+  text-decoration:none;color:var(--as-ink)}
+.pv-as-card strong{display:block;font-size:14px;color:var(--as-navy);margin-bottom:2px}
+.pv-as-card span{display:block;font-size:13px;line-height:1.45;color:var(--as-ink2)}
+.pv-as-card:hover{border-color:var(--as-navy)}
+
+.pv-as-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.pv-as :focus-visible,.pv-as-launch:focus-visible{outline:3px solid var(--as-cyan);outline-offset:2px}
+
+/* Plovoucí tlačítko */
+.pv-as-launch{position:fixed;right:14px;bottom:14px;z-index:9990;display:flex;align-items:center;gap:8px;
+  border:0;border-radius:999px;padding:12px 16px 12px 12px;background:#0A33C8;color:#fff;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;font-weight:700;
+  box-shadow:0 10px 28px -8px rgba(4,14,46,0.55);cursor:pointer}
+.pv-as-launch:hover{background:#071f7a}
+.pv-as-launch-ico{width:22px;height:22px;border-radius:50%;background:#10A5C8;position:relative;flex-shrink:0}
+.pv-as-launch-ico::before,.pv-as-launch-ico::after{content:'';position:absolute;background:#fff;border-radius:2px}
+.pv-as-launch-ico::before{left:6px;top:7px;width:10px;height:2px;box-shadow:0 4px 0 #fff}
+.pv-as-launch-ico::after{left:6px;top:15px;width:6px;height:2px;opacity:0}
+
+@media (prefers-reduced-motion:reduce){
+  .pv-as-bar span,.pv-as-opt{transition:none}
+}
+
+/* ══ TABLET A VÝŠ: panel vpravo dole ═══════════════════════════════════ */
+@media (min-width:600px){
+  .pv-as-backdrop{background:rgba(4,14,46,0.25)}
+  .pv-as-panel{inset:auto 20px 20px auto;width:400px;height:min(680px,calc(100vh - 40px));border-radius:18px;
+    overflow:hidden;box-shadow:0 24px 60px -12px rgba(4,14,46,0.45)}
+  .pv-as-launch{right:20px;bottom:20px}
+}
