@@ -11,8 +11,8 @@ const OTAZKY_NA_KONZULTACI = {
     'Jaká je marže? Podle ní se spočítá strop PNO.',
   ],
   p_mereni: [
-    'Jak se dnes měří konverze: GA4, Consent Mode, přenos objednávek z e-shopu?',
-    'Sedí konverze v reklamních systémech s objednávkami v e-shopu?',
+    'Jak se dnes měří konverze: GA4, Consent Mode, přenos objednávek nebo poptávek do reklamy?',
+    'Sedí konverze v reklamních systémech se skutečnými objednávkami nebo poptávkami?',
   ],
   p_kanal_bez_mety: ['Kolik obratu jde z Googlu? Zkoušeli už Metu a s jakým výsledkem?'],
   p_kanal_bez_googlu: ['Kolik obratu jde z Mety? Běží vůbec vyhledávání na brand a produkty?'],
@@ -35,6 +35,11 @@ const OTAZKY_NA_KONZULTACI = {
   ],
   p_jine: ['Projít volný text a doptat se na cíl.'],
   p_eshop: ['Platforma e-shopu a odkud jde produktový feed (Mergado, přímý export)?'],
+  p_b2b: [
+    'Kolik poptávek měsíčně chodí a kolik z nich obchod uzavře?',
+    'Jaká je průměrná hodnota zakázky a jak dlouhý je obchodní cyklus?',
+    'Kde se poptávky evidují (CRM, e-mail, tabulka) a dá se stav poslat zpátky do reklamy?',
+  ],
   p_lokalni: ['Jaká oblast a jestli chce schůzku osobně.'],
   p_srovnavace: ['Které srovnávače běží a s jakým PNO?'],
   p_bez_reklamy: ['Jaký rozpočet a marži čekají, aby šel nastavit start?'],

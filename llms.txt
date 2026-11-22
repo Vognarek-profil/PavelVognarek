@@ -16,7 +16,7 @@ Kontakt: pavogppc@gmail.com · +420 608 633 916 · https://www.pavelvognarek.cz/
 - Působnost osobně: Velké Bílovice, Břeclav, Brno, Hodonín, Mikulov, Znojmo, Kyjov, Jihomoravský kraj
 - Působnost online: celá Česká republika včetně Prahy a Slovensko
 - Jazyky: čeština, slovenština
-- Kanály: Google Ads včetně YouTube, Sklik (jen Česko), Meta Ads (Facebook a Instagram), Microsoft Ads (Bing), reklama v ChatGPT, zbožové srovnávače (Heureka, Zboží.cz, Favi, Biano)
+- Kanály: Google Ads včetně YouTube, Sklik (jen Česko), Meta Ads (Facebook a Instagram), LinkedIn Ads (B2B), Microsoft Ads (Bing), reklama v ChatGPT, zbožové srovnávače (Heureka, Zboží.cz, Favi, Biano)
 - Nástroje: Google Analytics 4, Google Merchant Center, Mergado, Meta Conversions API
 - Certifikace: Google Ads Search, Google Ads Display, Google Ads Shopping, Google Ads Video, Google Analytics 4, Mergado Specialist
 - Ocenění: vítěz Sklik výzvy Nejlepší Black Friday strategie 2025 (spolu s agenturou ROIMARK pro Biju.cz)
@@ -27,10 +27,11 @@ Kontakt: pavogppc@gmail.com · +420 608 633 916 · https://www.pavelvognarek.cz/
 
 ## Stránky
 
-- [Úvodní stránka](https://www.pavelvognarek.cz/): kdo je Pavel Vognárek, reference, přehled služeb a 19 nejčastějších otázek k PPC.
+- [Úvodní stránka](https://www.pavelvognarek.cz/): kdo je Pavel Vognárek, reference, přehled služeb a 20 nejčastějších otázek k PPC.
 - [Správa Google Ads](https://www.pavelvognarek.cz/sprava-google-ads/): Search, Shopping a Performance Max, struktura kampaní, negativní klíčová slova, bidding strategie a měření konverzí v GA4.
 - [Správa Meta Ads](https://www.pavelvognarek.cz/sprava-meta-ads/): katalogové a remarketingové kampaně, prospecting, obměna kreativy, Conversions API a škálování výkonu podle incrementality.
 - [PPC pro e-shopy](https://www.pavelvognarek.cz/ppc-pro-eshopy/): produktové feedy, Google Merchant Center, Heureka, Zboží.cz, Favi, Biano a optimalizace na marži místo na obrat.
+- [PPC pro B2B](https://www.pavelvognarek.cz/ppc-pro-b2b/): Google Ads na poptávky, LinkedIn Ads a lead formuláře v Metě, vyhodnocení podle kvalifikovaných poptávek a import výsledků z CRM.
 - [Audit PPC](https://www.pavelvognarek.cz/ppc-audit/): audit účtů, měření a feedu, trvá 1 až 2 týdny, výstupem je seřazený plán oprav podle dopadu.
 - [PPC specialista Brno](https://www.pavelvognarek.cz/ppc-specialista-brno/): spolupráce s firmami z Brna a okolí, osobně i online.
 - [Jak vyhodnocuji](https://www.pavelvognarek.cz/jak-vyhodnocuji/): PNO ze skutečných objednávek v e-shopu místo čísel z reklamních systémů, ukázky z klientského dashboardu na anonymizovaných datech.
@@ -49,4 +50,4 @@ Veřejně dostupný obsah webu pavelvognarek.cz může být citován v odpověd�
 pavelvognarek.cz nebo konkrétní URL. U údajů, které se mohou měnit, doporučujeme uvést datum poslední
 aktualizace stránky.
 
-Poslední aktualizace: 2026-11-21
+Poslední aktualizace: 2026-11-22

@@ -61,6 +61,7 @@
         { id: 'google', text: 'Google Ads' },
         { id: 'sklik', text: 'Sklik', skrytKdyz: { trh: ['sk'] } },
         { id: 'meta', text: 'Facebook a Instagram' },
+        { id: 'linkedin', text: 'LinkedIn' },
         { id: 'bing', text: 'Microsoft Ads (Bing)' },
         { id: 'youtube', text: 'YouTube' },
         { id: 'chatgpt', text: 'ChatGPT' },
@@ -119,9 +120,13 @@
       nazev: 'PPC pro e-shopy a srovnávače', url: '/ppc-pro-eshopy/',
       popis: 'Produktový feed, nákupní kampaně a srovnávače napojené na skutečné objednávky.'
     },
+    b2b: {
+      nazev: 'PPC pro B2B a LinkedIn Ads', url: '/ppc-pro-b2b/',
+      popis: 'Kampaně na poptávky v Google Ads, LinkedIn Ads a na Metě, vyhodnocené podle kvalifikovaných poptávek, ne podle vyplněných formulářů.'
+    },
     vyhodnoceni: {
-      nazev: 'Vyhodnocení na skutečných objednávkách', url: '/jak-vyhodnocuji/',
-      popis: 'Přehled, kde se objednávky z e-shopu potkají s náklady ze všech reklamních účtů.'
+      nazev: 'Vyhodnocení na skutečných objednávkách a poptávkách', url: '/jak-vyhodnocuji/',
+      popis: 'Přehled, kde se objednávky nebo poptávky potkají s náklady ze všech reklamních účtů.'
     },
     sezona: {
       nazev: 'Black Friday a sezónní kampaně', url: '/#sluzby',
@@ -149,6 +154,7 @@
     { id: 'p_start', kdyz: { problem: ['start'] }, sluzby: ['google', 'meta'] },
     { id: 'p_jine', kdyz: { problem: ['jine'] }, sluzby: ['audit'] },
     { id: 'p_eshop', kdyz: { typ: ['eshop'] }, sluzby: ['eshop'] },
+    { id: 'p_b2b', kdyz: { typ: ['b2b'] }, sluzby: ['b2b'] },
     { id: 'p_lokalni', kdyz: { typ: ['lokalni'], trh: ['cz', 'czsk'] }, sluzby: ['lokalni'] },
     { id: 'p_srovnavace', kdyz: { kanaly: ['srovnavace'] }, sluzby: ['eshop'] },
     { id: 'p_bez_reklamy', kdyz: { kanaly: ['nikde'] }, sluzby: ['google', 'meta'] },

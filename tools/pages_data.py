@@ -23,8 +23,8 @@ from build_charts import CHARTS, N  # noqa: E402  grafy a čísla pro /jak-vyhod
 # generuje dateModified, viditelné „Aktualizováno“, sitemap.xml i datum v llms.txt.
 SITE = {
     "base": "https://www.pavelvognarek.cz",
-    "modified": "2026-11-21",
-    "home_modified": "2026-11-21",
+    "modified": "2026-11-22",
+    "home_modified": "2026-11-22",
     "privacy_modified": "2026-11-21",
 }
 
@@ -46,6 +46,7 @@ NAV = [
     {"slug": "sprava-google-ads", "href": "/sprava-google-ads/", "label": "Google Ads"},
     {"slug": "sprava-meta-ads", "href": "/sprava-meta-ads/", "label": "Meta Ads"},
     {"slug": "ppc-pro-eshopy", "href": "/ppc-pro-eshopy/", "label": "PPC pro e-shopy"},
+    {"slug": "ppc-pro-b2b", "href": "/ppc-pro-b2b/", "label": "PPC pro B2B"},
     {"slug": "ppc-audit", "href": "/ppc-audit/", "label": "Audit PPC"},
     {"slug": "ppc-specialista-brno", "href": "/ppc-specialista-brno/", "label": "PPC Brno"},
     {"slug": "jak-vyhodnocuji", "href": "/jak-vyhodnocuji/", "label": "Vyhodnocení"},
@@ -354,6 +355,92 @@ PAGES = [
              "Ano. Pro Slovensko se feed lokalizuje: měna, dostupnost, doprava, texty a napojení na Heureka.sk. Nestačí přepnout jazyk, protože kategorie i zvyky ve vyhledávání se liší. Právě proto tam bývá prostor získat výhodu proti konkurenci, která nasadila český feed beze změny."),
             ("Kolik produktů musí e-shop mít, aby to dávalo smysl?",
              "Neexistuje spodní hranice v počtu produktů, rozhoduje objem poptávky a marže. Viděl jsem dobře fungující účty s několika desítkami produktů i účty s tisíci položkami, kde se rozpočet utápěl v položkách bez poptávky. Důležitější než počet je, jestli má katalog jasné bestsellery, na které jde soustředit rozpočet, a jestli sedí data o dostupnosti."),
+        ],
+    },
+    # ══════════════════════════════════════════════════════════════════════
+    {
+        "slug": "ppc-pro-b2b",
+        "nav_label": "PPC pro B2B",
+        "teaser": "Poptávky z Google Ads a LinkedIn Ads, měření až do CRM",
+        "crumb": "PPC pro B2B",
+        "title": "PPC pro B2B: poptávky z Google Ads a LinkedIn Ads | Pavel Vognárek",
+        "description": "PPC pro B2B firmy: Google Ads na poptávky, LinkedIn Ads, lead formuláře v Metě a vyhodnocení podle kvalifikovaných poptávek až do CRM. Česko i Slovensko.",
+        "service_name": "PPC a LinkedIn Ads pro B2B firmy",
+        "service_type": "Výkonnostní marketing pro B2B",
+        "area": ["Česká republika", "Slovensko"],
+        "h1": "PPC pro B2B<br><span>poptávky, ze kterých jsou zakázky</span>",
+        "lead": "U B2B nerozhoduje počet vyplněných formulářů, ale kolik z nich je skutečná poptávka, ze které obchod udělá zakázku. Kampaně v Google Ads, LinkedIn Ads a na Metě proto nastavuji a vyhodnocuji podle kvalifikovaných poptávek, ne podle nejlevnějších leadů.",
+        "faq_title": "Časté otázky k PPC pro B2B",
+        "cta_title": "Podíváme se, kolik z vašich poptávek je skutečných",
+        "cta_text": "Úvodní konzultace trvá asi 30 minut a je zdarma. Stačí vědět, kolik poptávek měsíčně chodí a kolik z nich obchod uzavře.",
+        "form_placeholder": "Napište mi, čím se firma zabývá, kolik poptávek měsíčně chodí a jak dnes poznáte, které jsou kvalitní...",
+        "related": ["sprava-google-ads", "sprava-meta-ads", "ppc-audit"],
+        "sections": [
+            {
+                "h2": "Poptávka není konverze",
+                "html": """
+<p>Reklamní systémy optimalizují na to, co jim nahlásíte jako konverzi. Když je konverzí každý odeslaný formulář, algoritmus se naučí hledat lidi, kteří rádi vyplňují formuláře. Přijdou studenti, dodavatelé, konkurence a spam a cena za konverzi přitom vypadá skvěle.</p>
+<p>Proto u B2B začínám u obchodu, ne u kampaní:</p>
+<ul>
+  <li><strong>Co je kvalifikovaná poptávka.</strong> S obchodem se dohodneme na kritériích: obor, velikost firmy, role toho, kdo poptává, rozpočet nebo typ zakázky.</li>
+  <li><strong>Stav poptávky zpátky do reklamy.</strong> Kvalifikované poptávky a uzavřené zakázky se z CRM nebo z tabulky posílají zpátky do Google Ads a Mety. Algoritmus pak hledá podobné firmy, ne podobné formuláře.</li>
+  <li><strong>Hodnota zakázky a délka cyklu.</strong> U B2B se obchod uzavírá týdny i měsíce. Vyhodnocuji proto na delším okně a s hodnotou zakázky, ne podle toho, co se stalo včera.</li>
+</ul>
+""",
+            },
+            {
+                "h2": "Kanály, které u B2B dávají smysl",
+                "class": "bg-light",
+                "html": """
+<div class="cards">
+  <div class="card">
+    <div class="card-num">01</div>
+    <h3>Google Ads</h3>
+    <p>Vyhledávání na problém, který řešíte, na typ služby a na značku. Zachytí firmy, které už řešení hledají. <a href="/sprava-google-ads/">Více o správě Google Ads</a>.</p>
+  </div>
+  <div class="card">
+    <div class="card-num">02</div>
+    <h3>LinkedIn Ads</h3>
+    <p>Cílení podle oboru, pozice a velikosti firmy, formuláře přímo v LinkedInu. Proklik je dražší, publikum ale přesně to, se kterým obchod chce mluvit. LinkedIn Ads vedu například pro Kinalisoft.</p>
+  </div>
+  <div class="card">
+    <div class="card-num">03</div>
+    <h3>Meta Ads</h3>
+    <p>Remarketing na návštěvníky webu a lead formuláře u služeb se širší cílovou skupinou. Levnější dosah, ale přísnější hlídání kvality poptávek. <a href="/sprava-meta-ads/">Více o správě Meta Ads</a>.</p>
+  </div>
+  <div class="card">
+    <div class="card-num">04</div>
+    <h3>Microsoft Ads a ChatGPT</h3>
+    <p>Bing jako doplněk ke Google Ads s jinou aukcí a nově reklama v ChatGPT, kde lidé popisují svůj problém celými větami.</p>
+  </div>
+</div>
+<p style="margin-top:22px">Všechny kanály vedu jako jednu strategii a porovnávám je na stejném čísle: kolik stojí kvalifikovaná poptávka a kolik z nich se změní v zakázku.</p>
+""",
+            },
+            {
+                "h2": "Jak vypadá vyhodnocení u B2B",
+                "html": """
+<p>Princip je stejný jako u e-shopů na stránce <a href="/jak-vyhodnocuji/">Jak vyhodnocuji</a>: čísla nebrat z reklamních systémů, ale ze skutečnosti. U B2B je skutečností poptávka v CRM, ne objednávka v e-shopu.</p>
+<ul>
+  <li><strong>Poptávky po kanálech</strong> a cena za poptávku i za kvalifikovanou poptávku.</li>
+  <li><strong>Podíl kvalifikovaných poptávek</strong> v čase, aby bylo vidět, když kampaň začne nosit levné, ale prázdné leady.</li>
+  <li><strong>Oddělení obchodních a náborových formulářů.</strong> Když firma zároveň nabírá lidi, odpovědi na inzeráty se nesmí míchat s obchodními poptávkami, jinak vyhodnocení lže.</li>
+  <li><strong>Náklady proti cíli</strong> po měsících, protože u B2B kolísá počet poptávek víc než u e-shopu.</li>
+</ul>
+""",
+            },
+        ],
+        "faq": [
+            ("Vyplatí se LinkedIn Ads, když je proklik tak drahý?",
+             "Záleží na hodnotě zakázky. LinkedIn umí cílit podle oboru, pozice a velikosti firmy, takže drahý proklik často znamená přesnějšího člověka. Pokud má jedna zakázka hodnotu desítek nebo stovek tisíc, stačí pár kvalifikovaných poptávek měsíčně. Začínám malým testem a hodnotím ho podle ceny za kvalifikovanou poptávku, ne podle ceny za proklik."),
+            ("Jak poznám, že jsou poptávky z reklamy kvalitní?",
+             "Dohodneme se s obchodem na tom, co je kvalifikovaná poptávka, a každou poptávku v CRM nebo v tabulce označíme. Z toho vychází cena za kvalifikovanou poptávku po kanálech a kampaních. Teprve tohle číslo říká, kam přidat rozpočet. Cena za vyplněný formulář sama o sobě klame."),
+            ("Umíte poslat výsledky z CRM zpátky do Google Ads?",
+             "Ano. Google Ads umí importovat konverze z CRM, takže kampaně se učí na kvalifikovaných poptávkách a uzavřených zakázkách místo na všech formulářích. Podmínkou je, aby formulář na webu ukládal identifikátor kliknutí a aby šlo stav poptávky pravidelně předávat. Podobně se dají stavy poptávek posílat do Mety."),
+            ("Hodí se pro B2B Performance Max?",
+             "Opatrně. Performance Max bez dobrého signálu kvality umí nosit hodně levných poptávek nízké kvality. Začínám proto vyhledávacími kampaněmi a Performance Max přidávám až ve chvíli, kdy se do účtu vrací informace o tom, které poptávky byly skutečné."),
+            ("Co je potřeba připravit, než spustíme kampaně na poptávky?",
+             "Stránku s jasnou nabídkou a krátkým formulářem, měření odeslání formuláře, dohodu s obchodem na tom, co je kvalifikovaná poptávka, a místo, kde se výsledek poptávek eviduje. Stačí i tabulka. Bez toho se dá kampaň spustit, ale ne vyhodnotit."),
         ],
     },
     # ══════════════════════════════════════════════════════════════════════
