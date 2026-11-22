@@ -375,6 +375,7 @@ PAGES = [
         "cta_text": "Úvodní konzultace trvá asi 30 minut a je zdarma. Stačí vědět, kolik poptávek měsíčně chodí a kolik z nich obchod uzavře.",
         "form_placeholder": "Napište mi, čím se firma zabývá, kolik poptávek měsíčně chodí a jak dnes poznáte, které jsou kvalitní...",
         "related": ["sprava-google-ads", "sprava-meta-ads", "ppc-audit"],
+        "css": ["/assets/css/charts.css"],
         "sections": [
             {
                 "h2": "Poptávka není konverze",
@@ -419,7 +420,7 @@ PAGES = [
             },
             {
                 "h2": "Jak vypadá vyhodnocení u B2B",
-                "html": """
+                "html": f"""
 <p>Princip je stejný jako u e-shopů na stránce <a href="/jak-vyhodnocuji/">Jak vyhodnocuji</a>: čísla nebrat z reklamních systémů, ale ze skutečnosti. U B2B je skutečností poptávka v CRM, ne objednávka v e-shopu.</p>
 <ul>
   <li><strong>Poptávky po kanálech</strong> a cena za poptávku i za kvalifikovanou poptávku.</li>
@@ -427,6 +428,10 @@ PAGES = [
   <li><strong>Oddělení obchodních a náborových formulářů.</strong> Když firma zároveň nabírá lidi, odpovědi na inzeráty se nesmí míchat s obchodními poptávkami, jinak vyhodnocení lže.</li>
   <li><strong>Náklady proti cíli</strong> po měsících, protože u B2B kolísá počet poptávek víc než u e-shopu.</li>
 </ul>
+{shot("dashboard-b2b-desktop-kpi.webp", 1200, 435,
+      "Ukázka B2B dashboardu: náklady, prokliky, konverze a cena za konverzi a pod tím odeslané poptávky a náborové přihlášky zvlášť",
+      "Náklady, prokliky a cena za konverzi z reklamy a pod tím poptávky z formulářů na webu. Náborové přihlášky jsou vedené zvlášť a do poptávek se nepočítají.",
+      "dashboard-b2b-mobil-kpi.webp", 720, 945)}
 """,
             },
         ],
@@ -721,6 +726,22 @@ PAGES = [
 {CHARTS['heat']}
 <p>Podle toho se plánuje, kdy spustit akci, kdy poslat newsletter nebo jak rozložit rozpočet v týdnu. U jiného e-shopu vypadá rozložení úplně jinak, proto se vždycky dívám na data konkrétního klienta, ne na obecné poučky.</p>
 {CHARTS['foot']}
+""",
+            },
+            {
+                "h2": "Ukázka: B2B firma, poptávky místo objednávek",
+                "class": "bg-light",
+                "html": f"""
+<p>U B2B se objednávka nekoná. Skutečností je odeslaná poptávka a to, co z ní obchod udělá. Dashboard proto u B2B klientů počítá poptávky z formulářů na webu a odděleně od nich přihlášky do náboru, aby se nemíchaly s obchodem. Snímky jsou z ukázkové firmy s vymyšlenými čísly.</p>
+{shot("dashboard-b2b-desktop-kpi.webp", 1200, 435,
+      "Ukázka B2B dashboardu: náklady, prokliky, konverze a cena za konverzi a pod tím odeslané poptávky a náborové přihlášky zvlášť",
+      "Náklady, prokliky a cena za konverzi z reklamy a pod tím poptávky z formulářů na webu. Náborové přihlášky jsou vedené zvlášť a do poptávek se nepočítají.",
+      "dashboard-b2b-mobil-kpi.webp", 720, 945)}
+{shot("dashboard-b2b-desktop-konverzni-akce.webp", 1200, 878,
+      "Ukázka tabulky konverzních akcí: hlavní konverze, náborové přihlášky zvlášť a sekundární akce včetně kvalifikovaných poptávek importovaných z CRM",
+      "Konverzní akce rozdělené na hlavní, náborové a sekundární. Kvalifikované poptávky z CRM se vrací zpátky do reklamy jako samostatná akce.",
+      "dashboard-b2b-mobil-konverzni-akce.webp", 720, 1604)}
+<p>Jak stavím kampaně na poptávky, popisuji na stránce <a href="/ppc-pro-b2b/">PPC pro B2B</a>.</p>
 """,
             },
         ],
