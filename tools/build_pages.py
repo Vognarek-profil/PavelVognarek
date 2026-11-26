@@ -10,6 +10,7 @@ Použití:  python tools/build_pages.py
 """
 import hashlib
 import io
+import re
 import json
 import os
 import sys
@@ -73,6 +74,9 @@ def update_homepage():
         sys.exit("CHYBA: markery SDILENE nenalezeny v index.html")
     i, j = s.index(H_SHARED_START), s.index(H_SHARED_END) + len(H_SHARED_END)
     s = s[:i] + H_SHARED_START + "\n" + shared_block(charts=True) + "\n  " + H_SHARED_END + s[j:]
+    s, n = re.subn(r'href="/assets/css/site\.css(\?v=[0-9a-f]{8})?"', f'href="{asset("/assets/css/site.css")}"', s)
+    if n != 1:
+        sys.exit("CHYBA: v index.html má být právě jeden odkaz na site.css")
     if s.count('"dateModified": "') != 1:
         sys.exit("CHYBA: v index.html má být právě jedno dateModified")
     k = s.index('"dateModified": "') + len('"dateModified": "')
@@ -143,10 +147,13 @@ CONSENT_GTM = """  <!-- Google Consent Mode v2 (MUST be before GTM) -->
   })(window,document,'script','dataLayer','GTM-MQPCXPXD');</script>
   <!-- End Google Tag Manager -->"""
 
-LOGO_SVG = """      <svg class="logo-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="60" height="60" rx="12" fill="#0A33C8"/>
-        <text x="50%" y="52%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
-        <rect x="12" y="50" width="36" height="3" rx="1.5" fill="#10A5C8"/>
+FONT_URL = "https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@300..800,0..1,0..100&display=swap"
+FONT_LOGO_URL = "https://fonts.googleapis.com/css2?family=Inter:wght@900&text=PV&display=swap"
+
+LOGO_SVG = """      <svg class="logo-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect class="logo-ctverec" width="60" height="60" rx="12"/>
+        <text class="logo-pismo" x="50%" y="52%" font-size="24" text-anchor="middle" dominant-baseline="middle">PV</text>
+        <rect class="logo-lista" x="12" y="50" width="36" height="3" rx="1.5"/>
       </svg>"""
 
 PAGE_JS = """  <script>
@@ -180,15 +187,15 @@ PAGE_JS = """  <script>
         });
         var json = await res.json().catch(function(){ return {}; });
         if (res.ok && json.ok) {
-          status.innerHTML = '<span style="color:var(--cyan)">Zpráva odeslána. Ozvu se vám co nejdříve.</span>';
+          status.innerHTML = '<span class="ok">Zpráva odeslána. Ozvu se vám co nejdříve.</span>';
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({ event: 'form_submit', form_id: 'contactForm', form_location: window.location.pathname });
           form.reset();
         } else { throw new Error(json.error || 'Chyba serveru'); }
       } catch (err) {
-        status.innerHTML = '<span style="color:#ff6b6b">Nepodařilo se odeslat. Zkuste to znovu nebo napište přímo na <a href="mailto:pavogppc@gmail.com" style="color:#ff6b6b">pavogppc@gmail.com</a>.</span>';
+        status.innerHTML = '<span class="chyba">Nepodařilo se odeslat. Zkuste to znovu nebo napište přímo na <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>.</span>';
       }
-      btn.disabled = false; btn.textContent = 'Odeslat zprávu →';
+      btn.disabled = false; btn.textContent = 'Odeslat zprávu';
     });
   </script>"""
 
@@ -198,17 +205,18 @@ def nav_html(slug):
     for item in NAV:
         active = ' class="active"' if item["slug"] == slug else ""
         links.append(f'      <a href="{item["href"]}"{active}>{escape(item["label"])}</a>')
-    return f"""  <nav class="site-nav">
+    return f"""  <nav class="site-nav ma-hodne" aria-label="Hlavní menu">
     <a href="/" class="logo-nav" aria-label="Pavel Vognárek, úvodní stránka">
 {LOGO_SVG}
       <div class="logo-name">
         <strong>Pavel Vognárek</strong>
-        <span>PPC Specialista</span>
+        <span>PPC specialista</span>
       </div>
     </a>
     <div class="nav-links" id="navLinks">
 {chr(10).join(links)}
     </div>
+    <a class="nav-tel" href="tel:+420608633916">608 633 916</a>
     <a href="#kontakt" class="nav-cta">Domluvit konzultaci</a>
     <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Otevřít menu">
       <span></span><span></span><span></span>
@@ -322,7 +330,7 @@ def render(p):
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='12' fill='%230A33C8'/%3E%3Ctext x='50%25' y='54%25' font-family='Inter,sans-serif' font-weight='900' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPV%3C/text%3E%3C/svg%3E"/>
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png"/>
-  <meta name="theme-color" content="#0A33C8"/>
+  <meta name="theme-color" content="#12264D"/>
 
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="{url}"/>
@@ -346,9 +354,10 @@ def render(p):
 {jsonld(p, url)}
   </script>
 
-  <link rel="stylesheet" href="{asset('/assets/css/lp.css')}"/>
-{extra_css}  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" media="print" onload="this.media='all';this.onload=null"/>
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"/></noscript>
+  <link rel="stylesheet" href="{asset('/assets/css/site.css')}"/>
+{extra_css}  <link rel="stylesheet" href="{FONT_URL}" media="print" onload="this.media='all';this.onload=null"/>
+  <link rel="stylesheet" href="{FONT_LOGO_URL}" media="print" onload="this.media='all';this.onload=null"/>
+  <noscript><link rel="stylesheet" href="{FONT_URL}"/></noscript>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -378,9 +387,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {sections}
 
-  <section class="bg-light" id="faq">
+  <section id="faq">
     <div class="container">
-      <div class="section-tag">FAQ</div>
       <h2>{escape(p["faq_title"], quote=False)}</h2>
       <div class="faq-list">
 {faq_rows}
@@ -390,7 +398,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section>
     <div class="container">
-      <div class="section-tag">Dál na webu</div>
       <h2>Související služby</h2>
       <div class="related">
 {related}
@@ -400,13 +407,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="contact-bg" id="kontakt">
     <div class="container">
-      <div class="section-tag" style="color:var(--cyan)">Kontakt</div>
+     <div class="kontakt-mriz">
+      <div>
       <h2>{escape(p["cta_title"], quote=False)}</h2>
       <p class="contact-lead">{escape(p["cta_text"], quote=False)}</p>
       <p class="contact-diag">Nevíte, jak to popsat? <a href="#contactForm" data-asistent="kontakt">Projděte krátkou diagnostiku</a>, zabere asi dvě minuty.</p>
       <div class="contact-rows">
-        <a href="tel:+420608633916">+420 608 633 916</a>
-        <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
+        <span>Telefon</span><a href="tel:+420608633916">+420 608 633 916</a>
+        <span>E-mail</span><a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
+      </div>
       </div>
       <div class="form-wrap">
         <form id="contactForm">
@@ -416,39 +425,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="form-row">
             <label for="f-jmeno">Jméno</label>
-            <input id="f-jmeno" type="text" name="jmeno" placeholder="Jan Novák" autocomplete="name" required/>
+            <input id="f-jmeno" type="text" name="jmeno" autocomplete="name" required/>
           </div>
           <div class="form-row">
-            <label for="f-email">Email</label>
-            <input id="f-email" type="email" name="email" placeholder="jan@firma.cz" autocomplete="email" required/>
+            <label for="f-email">E-mail</label>
+            <input id="f-email" type="email" name="email" autocomplete="email" required/>
           </div>
           <div class="form-row">
-            <label for="f-telefon">Telefon</label>
-            <input id="f-telefon" type="tel" name="telefon" placeholder="+420 ..." autocomplete="tel"/>
+            <label for="f-telefon">Telefon (nepovinné)</label>
+            <input id="f-telefon" type="tel" name="telefon" autocomplete="tel"/>
           </div>
           <div class="form-row">
             <label for="f-zprava">Zpráva</label>
             <textarea id="f-zprava" name="zprava" placeholder="{escape(p["form_placeholder"])}" required></textarea>
           </div>
-          <button type="submit" class="submit-btn">Odeslat zprávu →</button>
+          <button type="submit" class="submit-btn">Odeslat zprávu</button>
           <p class="form-consent">Odesláním formuláře souhlasíte se zpracováním osobních údajů podle <a href="/zasady-ochrany-osobnich-udaju.html">zásad ochrany osobních údajů</a>. Údaje používám výhradně pro odpověď na vaši poptávku.</p>
           <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
         </form>
       </div>
+     </div>
     </div>
   </section>
 
   </main>
 
   <footer>
-    <div class="foot-nav">
-      <a href="/">Úvod</a>
+    <div class="container">
+      <div class="foot-nav">
+        <a href="/">Úvod</a>
 {foot_nav}
+      </div>
+      <p>Aktualizováno <time datetime="{modified(p)}">{cz_date(modified(p))}</time></p>
+      <p>&copy; 2026 Pavel Vognárek, PPC specialista a konzultant, Zárybnická 457, 691 02 Velké Bílovice, IČO 76591867</p>
+      <p><a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> &nbsp; <a href="#" data-cookie-settings>Nastavení cookies</a></p>
     </div>
-    <p>Aktualizováno <time datetime="{modified(p)}">{cz_date(modified(p))}</time></p>
-    <p>&copy; 2026 Pavel Vognárek · IČO 76591867 · Velké Bílovice ·
-      <a href="/zasady-ochrany-osobnich-udaju.html">Zásady ochrany osobních údajů</a> ·
-      <a href="#" data-cookie-settings>Nastavení cookies</a></p>
   </footer>
 
 {PAGE_JS}
@@ -461,6 +472,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 PAGES_BY_SLUG = {p["slug"]: p for p in PAGES}
 
 
+STATIC_PAGES = ("404.html", "zasady-ochrany-osobnich-udaju.html")
+
+
+def update_static_css():
+    """404 a zásady se píšou ručně, otisk site.css (?v=) jim doplňuje tenhle skript, jinak by po změně
+    stylu vracející se návštěvníci viděli starý soubor z ročně platné cache."""
+    for name in STATIC_PAGES:
+        fp = os.path.join(ROOT, name)
+        s = io.open(fp, encoding="utf-8", newline="").read()
+        s, n = re.subn(r'href="/assets/css/site\.css(\?v=[0-9a-f]{8})?"', f'href="{asset("/assets/css/site.css")}"', s)
+        if n != 1:
+            sys.exit(f"CHYBA: v {name} má být právě jeden odkaz na site.css")
+        io.open(fp, "w", encoding="utf-8", newline="").write(s)
+
+
 def main():
     for p in PAGES:
         d = os.path.join(ROOT, p["slug"])
@@ -470,6 +496,7 @@ def main():
         words = len(" ".join(sec["html"] for sec in p["sections"]).split())
         print(f"  {p['slug']:26s} -> {p['slug']}/index.html   (~{words} slov v sekcích, {len(p['faq'])} FAQ)")
     update_homepage()
+    update_static_css()
     write_sitemap()
     update_llms_date()
     print(f"OK: {len(PAGES)} stránek, blok na homepage, sitemap.xml a datum v llms.txt")

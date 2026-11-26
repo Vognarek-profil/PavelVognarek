@@ -23,8 +23,8 @@ from build_charts import CHARTS, N  # noqa: E402  grafy a čísla pro /jak-vyhod
 # generuje dateModified, viditelné „Aktualizováno“, sitemap.xml i datum v llms.txt.
 SITE = {
     "base": "https://www.pavelvognarek.cz",
-    "modified": "2026-11-22",
-    "home_modified": "2026-11-22",
+    "modified": "2026-11-26",
+    "home_modified": "2026-11-26",
     "privacy_modified": "2026-11-21",
 }
 

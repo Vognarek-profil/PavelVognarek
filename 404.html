@@ -7,88 +7,35 @@
   <meta name="description" content="Tato stránka na pavelvognarek.cz neexistuje. Přejděte na úvodní stránku nebo mě rovnou kontaktujte."/>
   <meta name="robots" content="noindex, follow"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='12' fill='%230A33C8'/%3E%3Ctext x='50%25' y='54%25' font-family='Inter,sans-serif' font-weight='900' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPV%3C/text%3E%3C/svg%3E"/>
-  <meta name="theme-color" content="#0A33C8"/>
+  <meta name="theme-color" content="#12264D"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/assets/css/site.css?v=0bff061f"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@300..800,0..1,0..100&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@900&text=PV&display=swap"/>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --navy:#0A33C8;
-      --navy-dark:#040e2e;
-      --cyan:#10A5C8;
-      --white:#fff;
-    }
-    body{
-      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-      background:linear-gradient(135deg,var(--navy-dark) 0%,#071f7a 45%,var(--navy) 100%);
-      color:var(--white);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:32px 20px;
-      line-height:1.6;
-    }
-    .wrap{max-width:560px;text-align:center}
-    .logo{
-      display:inline-flex;align-items:center;gap:10px;
-      font-weight:900;font-size:20px;letter-spacing:-0.01em;
-      color:var(--white);text-decoration:none;margin-bottom:36px;
-    }
-    .logo-mark{
-      width:38px;height:38px;border-radius:9px;background:var(--navy);
-      display:grid;place-items:center;font-size:15px;font-weight:900;
-      border-bottom:3px solid var(--cyan);
-    }
-    .code{
-      font-size:72px;font-weight:900;line-height:1;
-      color:var(--cyan);letter-spacing:-0.03em;margin-bottom:12px;
-    }
-    h1{font-size:24px;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
-    p{color:rgba(255,255,255,0.72);font-size:15px;margin-bottom:28px}
-    .actions{display:flex;flex-direction:column;gap:12px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:15px 26px;border-radius:12px;font-weight:700;font-size:15px;
-      text-decoration:none;transition:transform .2s,box-shadow .2s;
-    }
-    .btn-primary{background:var(--cyan);color:var(--navy-dark)}
-    .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.35)}
-    .btn:hover{transform:translateY(-2px)}
-    .btn:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
-    .links{margin-top:32px;font-size:14px;color:rgba(255,255,255,0.6)}
-    .links a{color:var(--cyan);text-decoration:none;font-weight:600}
-    .links a:hover{text-decoration:underline}
-    .links a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
-    @media (min-width:600px){
-      .code{font-size:96px}
-      h1{font-size:30px}
-      .actions{flex-direction:row;justify-content:center}
-    }
+    .wrap{min-height:100vh;min-height:100dvh;display:grid;align-content:center;gap:1.1rem;max-width:640px;margin:0 auto;
+      padding:3rem max(18px,env(safe-area-inset-right,0px)) 3rem max(18px,env(safe-area-inset-left,0px))}
+    .kod{font-size:clamp(4rem,3rem + 6vw,7rem);font-weight:720;line-height:1;letter-spacing:-.04em;color:var(--signal)}
+    .wrap h1{font-size:clamp(1.8rem,1.3rem + 2vw,2.6rem);font-weight:680;line-height:1.1;letter-spacing:-.02em}
+    .wrap>p{font-size:1.1rem;color:var(--text)}
+    .wrap .links{font-size:.95rem;color:var(--text-2)}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <a href="/" class="logo">
-      <span class="logo-mark">PV</span>
-      <span>Pavel Vognárek</span>
+    <a href="/" class="logo-nav" aria-label="Pavel Vognárek, úvodní stránka">
+      <svg class="logo-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect class="logo-ctverec" width="60" height="60" rx="12"/><text class="logo-pismo" x="50%" y="52%" font-size="24" text-anchor="middle" dominant-baseline="middle">PV</text><rect class="logo-lista" x="12" y="50" width="36" height="3" rx="1.5"/></svg>
+      <div class="logo-name"><strong>Pavel Vognárek</strong><span>PPC specialista</span></div>
     </a>
-
-    <div class="code">404</div>
+    <p class="kod" aria-hidden="true">404</p>
     <h1>Tuhle stránku tady nemám</h1>
     <p>Adresa neexistuje, nebo se přesunula. Zkuste úvodní stránku, nebo mi napište a řeknu vám, co hledáte.</p>
-
-    <div class="actions">
-      <a class="btn btn-primary" href="/">Zpět na úvod</a>
-      <a class="btn btn-ghost" href="/#kontakt">Napsat zprávu</a>
+    <div class="tlacitka">
+      <a class="btn" href="/">Zpět na úvod</a>
+      <a class="btn-2" href="/#kontakt">Napsat zprávu</a>
     </div>
-
-    <p class="links">
-      Nebo rovnou na <a href="/#sluzby">služby</a>,
-      <a href="/#reference">reference</a> a
-      <a href="/#faq">časté otázky</a>.
-    </p>
+    <p class="links">Nebo rovnou na <a href="/#sluzby">služby</a>, <a href="/#vysledky">výsledky</a> a <a href="/#faq">časté otázky</a>.</p>
   </main>
 </body>
 </html>

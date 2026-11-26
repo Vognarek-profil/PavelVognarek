@@ -30,10 +30,10 @@ HTML = os.path.join(ROOT, "index.html")
 H_START = "<!-- VYHODNOCENI:START (generovano tools/build_charts.py) -->"
 H_END = "<!-- VYHODNOCENI:END -->"
 
-C_ORDERS = "#0A33C8"
-C_BUDGET = "#5b7be0"
-C_PNO = "#0b87a6"
-C_LAST = "#9aa5be"
+C_ORDERS = "#8DB0FF"
+C_BUDGET = "#5A78C8"
+C_PNO = "#5FD3C6"
+C_LAST = "#6B7A96"
 NBSP = " "
 PNO_CAP = 50  # osa PNO končí na 50 %, vyšší dny se useknou a označí ▲ s hodnotou
 
@@ -130,7 +130,7 @@ def table(caption, head, rows):
 def window(title, sub, inner):
     return (
         '<div class="viz-root viz-window">'
-        '<div class="viz-bar" aria-hidden="true"><i></i><i></i><i></i>'
+        '<div class="viz-bar" aria-hidden="true">'
         f'<strong>{escape(title)}</strong><span>{escape(sub)}</span></div>'
         f'<div class="viz-body">{inner}</div></div>'
     )
@@ -403,7 +403,7 @@ def _hex(lab):
     return "#" + out
 
 
-HEAT_LO, HEAT_HI = _oklab("#eef2fb"), _oklab("#0A33C8")
+HEAT_LO, HEAT_HI = _oklab("#1A2741"), _oklab("#F2B33D")
 
 
 def heat_color(v):
@@ -582,18 +582,84 @@ def konstelace_teaser():
     )
 
 
+U_START = "<!-- UVOD-KARTA:START (generovano tools/build_charts.py) -->"
+U_END = "<!-- UVOD-KARTA:END -->"
+
+
+def uvod_karta():
+    """Karta s čísly E-shopu A přes úvodní fotku na homepage: objednávky, PNO a malý graf po dnech."""
+    vals = [d["objednavky"] or 0 for d in DAYS]
+    top = max(vals) or 1
+    imax = max(range(NA), key=lambda i: vals[i])
+    cols = "".join(
+        f'<i class="{("a m" if i == imax else "a") if i in PEAK_I else ""}" style="--h:{max(v / top * 100, 1):.0f}"></i>'.replace(' class=""', "")
+        for i, v in enumerate(vals))
+    return (
+        f"{U_START}\n"
+        '          <div class="karta karta-kpi">\n'
+        f'            <div class="karta-hlava"><p class="mala">E-shop A, {SHOW_MONTH} {SHOW_YEAR}</p><span class="pill-mala ok">skutečná data</span></div>\n'
+        f'            <p class="velke">{N["a_orders"]} objednávek</p>\n'
+        f'            <p class="pod">PNO <b>{N["a_pno"]}</b>, cíl {N["a_target"]}</p>\n'
+        f'            <div class="mini" aria-hidden="true">{cols}</div>\n'
+        f'            <p class="popis"><span>{dm(DAYS[0]["datum"])}</span><b>akce: {N["a_peak_orders"]}</b><span>{dm(DAYS[-1]["datum"])}</span></p>\n'
+        "          </div>\n"
+        f"          {U_END}"
+    )
+
+
 def homepage_block():
-    inner = window("Dashboard klienta", f"E-shop A · {SHOW_MONTH} {SHOW_YEAR}", kpi_a(3) + chart_a(full=False))
+    """Sekce Výsledky na homepage: E-shop A, B2B ukázka a E-shop B jako případovky."""
+    nad = "nad cílem" if A["srovnani"]["pno"] > A["cil_pno"] else "pod cílem"
+    a_case = (
+        '<article class="konzole" aria-labelledby="h-pripad-a"><div class="pripad-mriz"><div>'
+        f'<div class="pripad-hlava"><span class="pripad-nazev">E-shop A, {SHOW_MONTH} {SHOW_YEAR}</span><span class="pill ok">Skutečná data</span></div>'
+        f'<h3 class="vysledek" id="h-pripad-a">{N["a_orders"]} objednávek při PNO {N["a_pno"]}</h3>'
+        '<ul class="pribeh">'
+        f'<li><b>Výchozí stav</b><span>{BASE_MONTH.capitalize()}: {N["a_base_orders"]} objednávek, PNO {N["a_base_pno"]}, {nad} {N["a_target"]}.</span></li>'
+        f'<li><b>Co se dělo</b><span>Slevová akce {N["a_peak_from"]} až {N["a_peak_to"]} Denní rozpočet rostl postupně až na {N["a_max_budget"]}násobek průměrného dne v {BASE_LOK}.</span></li>'
+        f'<li><b>Výsledek</b><span>Za akci {N["a_peak_orders"]} objednávek při PNO {N["a_peak_pno"]}. Nejlepší den {N["a_best_day"]}: {N["a_best_orders"]} objednávek, PNO {N["a_best_pno"]}.</span></li>'
+        '</ul></div>'
+        f'<div class="viz-root">{chart_a(full=False)}</div></div>'
+        f'<p class="pata">{escape(FOOT)}</p></article>'
+    )
+    b2b_case = (
+        '<article class="panel" aria-labelledby="h-pripad-c"><div class="pripad-mriz"><div>'
+        '<div class="pripad-hlava"><span class="pripad-nazev">B2B firma</span><span class="stitek">Ukázková data</span></div>'
+        '<h3 class="vysledek" id="h-pripad-c">Cena za kvalifikovanou poptávku, ne za formulář</h3>'
+        '<ul class="pribeh">'
+        '<li><b>Co se měří</b><span>Odeslané poptávky z webu. Náborové přihlášky zvlášť, aby se nemíchaly s obchodem.</span></li>'
+        '<li><b>Co se vrací do reklamy</b><span>Kvalifikované poptávky a uzavřené zakázky z CRM. Algoritmus pak hledá podobné firmy, ne podobné formuláře.</span></li>'
+        '<li><b>Podle čeho se rozhoduje</b><span>Cena za kvalifikovanou poptávku po kanálech a kampaních, na delším okně a s hodnotou zakázky.</span></li>'
+        '</ul><p class="dal-odkaz" style="margin-top:1.1rem"><a href="/ppc-pro-b2b/">Jak stavím kampaně na poptávky</a></p></div>'
+        '<figure><div class="snimek"><picture>'
+        '<source media="(max-width: 600px)" srcset="/assets/img/vyhodnoceni/dashboard-b2b-mobil-kpi.webp" width="720" height="945">'
+        '<img src="/assets/img/vyhodnoceni/dashboard-b2b-desktop-kpi.webp" width="1200" height="435" loading="lazy" decoding="async" '
+        'alt="Ukázka B2B dashboardu: náklady, prokliky, konverze, CPA a pod tím poptávky a náborové přihlášky zvlášť"></picture></div>'
+        '<figcaption class="pata">Vymyšlená firma, skutečný dashboard, ve kterém pracuji.</figcaption></figure>'
+        '</div></article>'
+    )
+    b_case = (
+        '<article class="panel" aria-labelledby="h-pripad-b"><div class="pripad-mriz"><div>'
+        '<div class="pripad-hlava"><span class="pripad-nazev">E-shop B, letní sortiment</span><span class="pill ok">Skutečná data</span></div>'
+        f'<h3 class="vysledek" id="h-pripad-b">V sezóně {N["b_season_change_txt"]} objednávek než loni</h3>'
+        '<ul class="pribeh">'
+        f'<li><b>Sezóna {N["b_season"]}</b><span>{N["b_season_y1"]} objednávek proti {N["b_season_y0"]} loni. '
+        f'{N["b_drop_month"].capitalize()} slabší, {N["b_rise_month"]} {N["b_rise_y1"]} proti {N["b_rise_y0"]}.</span></li>'
+        f'<li><b>PNO</b><span>{N["b_pno_months"].capitalize()} {N["b_pno"]}, {N["b_target_rel"]} {N["b_target"]}.</span></li>'
+        '<li><b>Proč sezóna se sezónou</b><span>Mimo léto se skoro neprodává, celoroční průměr by výsledek zkreslil.</span></li>'
+        '</ul></div>'
+        f'<div class="viz-root">{chart_b()}</div></div></article>'
+    )
     return (
         f"{H_START}\n"
-        '      <div class="section-tag">Jak vyhodnocuji</div>\n'
-        '      <h2 class="section-title">Výsledky měřím na objednávkách, ne v reklamním systému</h2>\n'
-        '      <p class="answer-first">V dashboardu se potkají skutečné objednávky z e-shopu '
-        's náklady ze všech reklamních účtů, data jsou průběžně aktualizovaná. PNO počítám z tržeb bez DPH a bez dopravy, takže si ho Google ani Meta '
-        'nemůžou přikrášlit. Podle toho se rozhoduje, kam přidat rozpočet a kde ubrat.</p>\n'
-        f"      {inner}\n"
-        f'      <p class="viz-root viz-foot">{escape(FOOT)}</p>\n'
-        '      <a class="viz-root viz-more" href="/jak-vyhodnocuji/">Jak přesně vyhodnocuji →</a>\n'
+        '      <div class="hlava">\n'
+        '        <h2 id="h-vysledky">Výsledky na skutečných datech</h2>\n'
+        '        <p class="odpoved">Výsledky neměřím podle toho, co hlásí Google Ads nebo Meta, ale na skutečných datech: '
+        'objednávkách z e-shopu, poptávkách z webu a jejich stavu v CRM. U e-shopu sleduji PNO z tržeb bez DPH a bez dopravy, '
+        'u B2B cenu za kvalifikovanou poptávku.</p>\n'
+        '      </div>\n'
+        f'      <div class="pripady">{a_case}{b2b_case}{b_case}</div>\n'
+        '      <p class="dal-odkaz"><a href="/jak-vyhodnocuji/">Jak přesně vyhodnocuji, s heatmapou a dalšími grafy</a></p>\n'
         f"      {H_END}"
     )
 
@@ -604,6 +670,10 @@ def main():
         sys.exit("CHYBA: markery VYHODNOCENI nenalezeny v index.html")
     i, j = s.index(H_START), s.index(H_END) + len(H_END)
     s = s[:i] + homepage_block() + s[j:]
+    if U_START not in s or U_END not in s:
+        sys.exit("CHYBA: markery UVOD-KARTA nenalezeny v index.html")
+    i, j = s.index(U_START), s.index(U_END) + len(U_END)
+    s = s[:i] + uvod_karta() + s[j:]
     io.open(HTML, "w", encoding="utf-8", newline="").write(s)
     print(f"OK: homepage blok Jak vyhodnocuji (E-shop A {SHOW_MONTH} {SHOW_YEAR}: "
           f"{N['a_orders']} obj., PNO {N['a_pno']})")

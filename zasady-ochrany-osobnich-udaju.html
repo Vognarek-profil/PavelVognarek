@@ -14,95 +14,47 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
 
+  <link rel="stylesheet" href="/assets/css/site.css?v=0bff061f"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@300..800,0..1,0..100&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@900&text=PV&display=swap"/>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --navy:#0A33C8;
-      --navy-dark:#071f7a;
-      --cyan:#10A5C8;
-      --white:#fff;
-      --light:#f4f7ff;
-      --gray:#64748b;
-      --text:#1a1a2e;
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.7}
-
-    @keyframes bgPulse {
-      0%   { background-position: 0% 50% }
-      50%  { background-position: 100% 50% }
-      100% { background-position: 0% 50% }
-    }
-
-    /* NAV */
-    nav{background:linear-gradient(-45deg,#040e2e,#071f7a,#0A33C8,#071f7a);background-size:400% 400%;animation:bgPulse 20s ease infinite;padding:14px 60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-    .logo-nav{display:flex;align-items:center;gap:12px;color:var(--white);text-decoration:none}
-    .logo-icon{width:40px;height:40px;flex-shrink:0}
-    .logo-text{font-size:18px;font-weight:700;letter-spacing:-0.5px}
-    .back-link{color:var(--white);text-decoration:none;font-size:14px;font-weight:600;padding:10px 22px;border:1.5px solid rgba(255,255,255,0.3);border-radius:999px;transition:all 0.25s}
-    .back-link:hover{background:rgba(255,255,255,0.1);border-color:var(--cyan)}
-
-    /* HERO */
-    .hero{background:linear-gradient(135deg,#040e2e 0%,#071f7a 55%,#0A33C8 100%);padding:80px 60px 60px;color:var(--white);text-align:center}
-    .hero h1{font-size:44px;font-weight:900;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
-    .hero-sub{font-size:16px;opacity:0.85;max-width:700px;margin:0 auto;font-weight:400}
-    .hero-sub strong{color:var(--cyan);font-weight:600}
-
-    /* CONTENT */
-    main{max-width:880px;margin:0 auto;padding:60px 40px 80px}
-    h2{color:var(--navy);font-size:24px;font-weight:700;margin:44px 0 16px;letter-spacing:-0.3px;border-left:4px solid var(--cyan);padding-left:16px}
-    h2:first-of-type{margin-top:0}
-    h3{color:var(--navy-dark);font-size:18px;font-weight:700;margin:24px 0 10px}
-    p{margin-bottom:14px;color:var(--text)}
-    ul, ol{margin:10px 0 16px 22px}
-    li{margin-bottom:8px}
-    strong{color:var(--navy-dark);font-weight:700}
-    a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--cyan);text-underline-offset:3px}
-    a:hover{color:var(--cyan)}
-
-    .info-box{background:var(--light);border-left:4px solid var(--navy);padding:20px 24px;margin:20px 0;border-radius:8px}
-    .info-box p{margin-bottom:6px}
-    .info-box p:last-child{margin-bottom:0}
-
-    .effective{margin-top:50px;padding-top:24px;border-top:1px solid #e5e7eb;color:var(--gray);font-size:14px;text-align:center}
-
-    /* FOOTER */
-    footer{background:#040e2e;padding:30px 60px;text-align:center;color:rgba(255,255,255,0.38);font-size:13px}
-    footer span{color:var(--cyan)}
-    footer a{color:var(--cyan);text-decoration:none}
-
-    @media(max-width:768px){
-      nav{padding:12px 20px}
-      .hero{padding:50px 24px 40px}
-      .hero h1{font-size:30px}
-      main{padding:40px 22px 60px}
-      h2{font-size:20px}
-      footer{padding:24px}
-    }
+    .zas-hero{background:var(--noc);color:var(--na-noci);padding:2.5rem max(18px,env(safe-area-inset-right,0px)) 2.75rem max(18px,env(safe-area-inset-left,0px))}
+    .zas-hero>*{max-width:760px;margin-inline:auto}
+    .zas-hero h1{font-size:clamp(1.9rem,1.3rem + 2.6vw,3rem);font-weight:700;line-height:1.08;letter-spacing:-.025em;color:var(--bila)}
+    .zas-hero p{margin-top:.9rem;font-size:1.1rem;line-height:1.55}
+    .zasady{max-width:760px;margin:0 auto;padding:2.5rem max(18px,env(safe-area-inset-right,0px)) 4rem max(18px,env(safe-area-inset-left,0px))}
+    .zasady h2{font-size:1.35rem;margin:2.2rem 0 .7rem}
+    .zasady h3{margin:1.4rem 0 .5rem}
+    .zasady p,.zasady li{line-height:1.65}
+    .zasady p+p{margin-top:.7rem}
+    .zasady ul{padding-left:1.2rem;margin:.6rem 0}
+    .zasady li+li{margin-top:.35rem}
+    .zasady table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.92rem;display:block;overflow-x:auto}
+    .zasady th,.zasady td{padding:.55rem .6rem;border-bottom:1px solid var(--cara);text-align:left;vertical-align:top}
+    .info-box{background:var(--panel);border-radius:14px;padding:1rem 1.2rem;margin:1rem 0}
+    .info-box p+p{margin-top:.3rem}
+    .effective{margin-top:2rem;color:var(--text-2);font-size:.92rem}
+    .zpet{color:var(--na-noci);font-weight:500;text-decoration:none;white-space:nowrap}
+    .zpet:hover{text-decoration:underline}
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="logo-nav">
-      <svg class="logo-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-        <rect width="60" height="60" rx="12" fill="#0A33C8"/>
-        <text x="50%" y="54%" font-family="Inter,sans-serif" font-weight="900" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">PV</text>
-        <rect x="0" y="54" width="60" height="6" fill="#10A5C8"/>
-      </svg>
-      <span class="logo-text">Pavel Vognárek</span>
+  <nav class="site-nav" aria-label="Hlavní menu">
+    <a href="/" class="logo-nav" aria-label="Pavel Vognárek, úvodní stránka">
+      <svg class="logo-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect class="logo-ctverec" width="60" height="60" rx="12"/><text class="logo-pismo" x="50%" y="52%" font-size="24" text-anchor="middle" dominant-baseline="middle">PV</text><rect class="logo-lista" x="12" y="50" width="36" height="3" rx="1.5"/></svg>
+      <div class="logo-name"><strong>Pavel Vognárek</strong><span>PPC specialista</span></div>
     </a>
-    <a href="/" class="back-link">← Zpět na web</a>
+    <a href="/" class="zpet">Zpět na web</a>
   </nav>
 
-  <section class="hero">
+  <section class="zas-hero">
     <h1>Zásady ochrany osobních údajů</h1>
-    <p class="hero-sub">Informace o tom, <strong>jak zpracovávám osobní údaje</strong> návštěvníků webu pavelvognarek.cz v souladu s nařízením <strong>GDPR</strong>.</p>
+    <p>Informace o tom, <strong>jak zpracovávám osobní údaje</strong> návštěvníků webu pavelvognarek.cz v souladu s nařízením <strong>GDPR</strong>.</p>
   </section>
 
-  <main>
+  <main class="zasady">
 
     <h2>1. Správce osobních údajů</h2>
     <p>Správcem osobních údajů ve smyslu nařízení (EU) 2016/679 (dále jen „<strong>GDPR</strong>") je:</p>
@@ -229,7 +181,9 @@
   </main>
 
   <footer>
-    © 2026 <span>Pavel Vognárek</span> | PPC specialista &amp; konzultant · <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a>
+    <div class="container">
+      <p>&copy; 2026 Pavel Vognárek, PPC specialista a konzultant, <a href="mailto:pavogppc@gmail.com">pavogppc@gmail.com</a></p>
+    </div>
   </footer>
 
 </body>
